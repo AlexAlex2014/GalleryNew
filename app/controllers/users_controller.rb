@@ -7,7 +7,14 @@ class UsersController < ApplicationController
     @category = Category.new
   end
 
+  # def popular_category
+  #   @category_options = Category.all.map{|u| [ u.title, u.id ] }
+  #   # select(:user_id, @category_options)
+  # end
+
   def newsfeed
+    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
+
     @categories = Category.all
     # @category = Category.new
     @user = current_user

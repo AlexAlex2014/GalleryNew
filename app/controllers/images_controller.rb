@@ -18,12 +18,12 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @category_options = Category.all.map{|u| [ u.title, u.id ] }
+    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
     @image = Image.new
   end
 
   def create
-    @category_options = Category.all.map{|u| [ u.title, u.id ] }
+    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
     @image = Image.new(image_params)
     if @image.save
       redirect_to categories_path
@@ -33,11 +33,11 @@ class ImagesController < ApplicationController
   end
 
   def edit
-    @category_options = Category.all.map{|u| [ u.title, u.id ] }
+    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
   end
 
   def update
-    @category_options = Category.all.map{|u| [ u.title, u.id ] }
+    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
 
     if @image.update_attributes(image_params)
       redirect_to image_path(@image)

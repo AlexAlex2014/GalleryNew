@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_account_update_params, if: :devise_controller?
 
   before_action :require_login
+  before_action :drop_down_list
+
 
 
   protected
@@ -15,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :password, :password_confirmation, :current_password])
+  end
+
+  def drop_down_list
+    @category_options = Category.all.map{|u| [ u.title, u.id ] }
   end
 
   private

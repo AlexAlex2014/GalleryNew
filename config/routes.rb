@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   post 'create_my_category' => 'categories#create_my_category'
 
   get 'profiles/:id' => 'profiles#show'
+
+  # get 'popular_category' => 'users#popular_category'
+
   get 'categories/index'
   get 'images/index'
   get 'comments/index'

@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def drop_down_list
-    @category_options = Category.all.map{|u| [ u.title, u.id ] }
+    @category_options = Category.all.map{|u| [ u.title, u.id ] }.sort{|a, b| a[0] <=> b[0]}
   end
 
   private

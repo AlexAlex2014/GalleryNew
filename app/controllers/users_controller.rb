@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   # end
 
   def newsfeed
-    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
+    # @category_options = Category.all.map{|u| [ u.title, u.id ] }.sort{|a, b| a[0] <=> b[0]}
 
     @categories = Category.all
     # @category = Category.new

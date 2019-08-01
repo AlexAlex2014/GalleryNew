@@ -1,0 +1,9 @@
+= render 'shared/user_sidebar'
+.col-md-8
+  - if @user == current_user
+    = render 'shared/category_form'
+  %h2
+    = current_user.full_name
+    Categories
+  = render '/shared/category_list'
+.col-md-2

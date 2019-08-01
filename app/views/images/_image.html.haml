@@ -1,0 +1,10 @@
+%h2= link_to image.category.title, category_image_path(@category, image)
+
+= image_tag(image.image.url, alt: 'Image') if image.image?
+
+= link_to 'Destroy image', image_path(image),
+        method: :delete,
+        data: { confirm: 'Are you sure?' }
+-#%p= truncate(image.body, length: 150)
+
+-#%p= link_to 'Edit', edit_image_path(image)

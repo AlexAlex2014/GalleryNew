@@ -1,0 +1,6 @@
+- subable_id = item_c.id
+- user_sub = find_user_sub(subable_id, subable_type)
+- if user_sub
+  = link_to "Unsubscription (#{item_c.subs.count})", sub_path(user_sub), method: :delete, class: "btn-xs, btn-info like-link"
+- else
+  = link_to "Subscription (#{item_c.subs.count})", subs_path(subable_type: subable_type, subable_id: subable_id, user_id: current_user.id), class: "btn-xs btn-success like-link"

@@ -1,0 +1,13 @@
+%h1 Edit Profile
+= form_for(@profile) do |p|
+  = p.label :location
+  = p.text_field :location, class: "form_control"
+  %br/
+  = p.label :gender
+  = p.select :gender, options_for_select(["Male", "Female"])
+  %br/
+  = p.label :birthday
+  = p.date_select :birthday, start_year: 1910
+  %br/
+  = p.submit "Update"
+= link_to "Cancel my account", users_path, data: { confirm: "Are you sure?" }, method: :delete

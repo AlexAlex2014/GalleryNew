@@ -1,0 +1,37 @@
+= form_for image do |f|
+  %big Categoty
+  = f.select(:category_id, @category_options)
+  %br/
+  %br/
+  %div
+    #{f.label :image}
+    #{f.file_field :image}
+  %br/
+  %div
+    %big Enter URL to an image
+    #{f.text_field :remote_image_url}
+  %br/
+  %div
+    #{f.label :body}
+    #{f.text_area :body}
+  %br/
+  = f.submit
+
+  %br/
+  %br/
+  = f.hidden_field :image_cache
+
+  - if image.image?
+    = image_tag image.image.thumb.url
+    %div
+      = label_tag :remove_image do
+        Remove image
+        \#{f.check_box :remove_image}
+
+= render 'shared/errors', object: image
+
+
+
+
+
+

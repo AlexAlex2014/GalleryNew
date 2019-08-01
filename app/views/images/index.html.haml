@@ -1,0 +1,18 @@
+%h1 Images
+
+- @images.each do |image|
+
+  %h2= link_to image.category.title, image_path(image)
+
+  = image_tag(image.image.url, alt: 'Image') if image.image?
+
+  = link_to 'Destroy image', image_path(image),
+          method: :delete,
+          data: { confirm: 'Are you sure?' }
+
+
+= link_to 'Add image', new_image_path
+
+= link_to 'Categories', controller: 'categories'
+= link_to 'Comments', controller: 'comments'
+-#= link_to 'Welcome', controller: 'welcome'

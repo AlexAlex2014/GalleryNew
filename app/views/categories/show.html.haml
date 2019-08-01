@@ -1,0 +1,16 @@
+%p
+  %strong Title:
+  = @category.title
+%p
+  %strong Text:
+  = @category.text
+
+
+= render @category.images
+
+|
+= link_to 'Add new image', new_image_path
+|
+= link_to 'Edit category', edit_category_path(@category)
+|
+= link_to 'Back to category', categories_path

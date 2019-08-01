@@ -1,0 +1,14 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'signup-form'}) do |f|
+  = devise_error_messages!
+  = f.label :first_name, class: "sr-only"
+  = f.text_field :first_name, placeholder: "First Name", class: "form-control signup-field"
+  = f.label :last_name, class: "sr-only"
+  = f.text_field :last_name, placeholder: "Last Name", class: "form-control signup-field"
+  = f.label :email, class: "sr-only"
+  = f.email_field :email, placeholder: "Email Address", class: "form-control signup-field"
+  = f.label :password, class: "sr-only"
+  = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control signup-field"
+  = f.label :password_confirmation, class: "sr-only"
+  = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confrim Password", class: "form-control signup-field"
+  .btn
+    = f.submit "Sign up", class: "btn btn-primary"

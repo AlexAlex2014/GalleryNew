@@ -1,0 +1,35 @@
+= link_to 'All images', images_path
+%h1= @image.category.title
+
+= image_tag(@image.image.url, alt: 'Image') if @image.image?
+
+-#= link_to(image_tag(@image.image.thumb.url, alt: 'Image'), @image.image.url, target: '_blank') if @image.image?
+
+-#= link_to(image_tag(@image.image.small_thumb.url, alt: 'Image'), @image.image.url, target: '_blank') if @image.image?
+
+= render '/likes/like_link', likable_type: "Image", item: @image
+
+%p= @image.body
+
+
+%h2 Comments
+= render @image.comments
+
+
+%h2 Add a comment:
+= form_with(model: [ @image, @image.comments.build ], local: true) do |form|
+  %p
+    = form.label :commenter
+    %br/
+    = form.text_field :commenter
+  %p
+    = form.label :body
+    %br/
+    = form.text_area :body
+  %p
+    = form.submit
+
+
+= link_to 'Edit image', edit_image_path(@image)
+|
+= link_to 'Back to image', images_path

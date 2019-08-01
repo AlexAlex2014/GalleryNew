@@ -1,0 +1,4 @@
+- @categories.each do |category|
+  = render 'categories/category_body', category: category
+  - category.images.each do |image|
+    = image_tag(image.image.url, alt: 'Image') if image.image?

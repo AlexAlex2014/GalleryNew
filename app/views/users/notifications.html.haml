@@ -1,0 +1,17 @@
+= render '/shared/user_sidebar'
+.col-md-8
+  %h2 My Notifications
+  - if @notifications.empty?
+    %h4
+      %em No Notifications
+  - else
+    - @notifications.each do |n|
+      %p
+        = image_tag n.requestor.profile.avatar.url(:thumb)
+        = link_to n.requestor.full_name, profile_path(n.requestor.id)
+        would like to be friends
+      = form_for n, method: :delete do |note|
+        = note.button "Delete request", class: "btn btn-danger"
+      = form_for n, method: :accept do |note|
+        = note.button "Accept request", class: "btn btn-success"
+.col-md-2

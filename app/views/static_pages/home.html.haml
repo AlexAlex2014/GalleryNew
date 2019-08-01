@@ -1,0 +1,21 @@
+= render "static_header"
+#home_box.container
+  - flash.each do |key, value|
+    %div{:class => "#{flash_class(key)}"}
+      = value
+  .col-md-6.welcome-box
+    .welcome-message
+      %h2.center Welcome to Gallery
+  .col-md-6.welcome_box.signin_box
+    %br/
+    %br/
+    %p.center
+      - if devise_mapping.omniauthable?
+        - resource_class.omniauth_providers.each do |provider|
+          = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+          %br/
+    %br/
+    %p.center
+      %em OR
+    %br/
+    = render "static_pages/sing_up_form"

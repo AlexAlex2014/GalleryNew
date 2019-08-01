@@ -1,0 +1,20 @@
+.col-md-2
+  %h4= link_to @user.full_name, profile_path(@user.id)
+  %p
+    %b Location:
+    = @user.profile.location
+  %p
+    %b Gender:
+    = @user.profile.gender
+  %p
+    %b Birthdate:
+    = @user.profile.birthday
+  - if @user == current_user
+    %hr.sidebar-hr/
+    %p
+    %p= link_to "Edit Profile", edit_profile_path(current_user.id)
+    %p= link_to "Edit User", edit_user_registration_path
+    / <p><haml_silent></haml_silent></p>
+    %p= link_to "My Newsfeed", newsfeed_path
+    %p
+  %hr.sidebar-hr/

@@ -1,0 +1,15 @@
+.post-box
+  %table.post-table
+    %tr
+      / <td class="post-header"><haml_silent></haml_silent> posted:</td>
+    %tr
+      %td
+        = time_ago_in_words(category.created_at)
+        ago
+  %br/
+  %p
+    "#{@categories.where("id = '#{category.subable_id}'").first.title}"
+  - if current_user == category.user
+    %p.delete-link= link_to "Delete", category_path(category), |
+        method: :delete,                           |
+        data: { confirm: 'Are you sure?' }         |

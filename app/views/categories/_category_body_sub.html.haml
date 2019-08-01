@@ -9,7 +9,3 @@
   %br/
   %p
     "#{@categories.where("id = '#{category.subable_id}'").first.title}"
-  - if current_user == category.user
-    %p.delete-link= link_to "Delete", category_path(category), |
-        method: :delete,                           |
-        data: { confirm: 'Are you sure?' }         |

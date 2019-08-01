@@ -2,3 +2,4 @@
   = render 'categories/category_body_sub', category: category
   - @categories.where("id = '#{category.subable_id}'").first.images.each do |image|
     = image_tag(image.image.url, alt: 'Image') if image.image?
+    = render '/likes/like_link', likable_type: "Image", item: image

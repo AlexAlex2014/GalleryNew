@@ -10,9 +10,7 @@
 
         %li= link_to "All categories", categories_path, class: "header-link"
 
-        -#%li= link_to select(:category, :user_id, @category_options, {prompt: 'Popular Category'}, {:onchange => "alert ('Hello (javascript: this.form.apply_button_name.click();)');"}), class: "header-link"
-        %li= link_to select(:category, :user_id, @category_options, {prompt: 'Popular Category'}, { id: 'category_select' })
-        -#%li= link_to select(:category, :user_id, @category_options)
+        %li= link_to select(:category, :user_id, @category_options, {prompt: 'Popular Category'}, {:class => 'custTag'})
 
         %li
           = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "header-link"

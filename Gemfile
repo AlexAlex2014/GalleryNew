@@ -52,6 +52,7 @@ gem 'omniauth', '~> 1.9'
 gem 'omniauth-facebook'
 gem 'resque', '~> 2.0'
 gem 'pusher', '~> 1.3', '>= 1.3.3'
+gem 'recaptcha', '~> 5.0'
 
 gem 'capybara', '~> 3.25'
 gem 'selenium-webdriver', '~> 3.142', '>= 3.142.3'

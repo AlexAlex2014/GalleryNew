@@ -301,6 +301,4 @@ Devise.setup do |config|
   #ID first, secret second
   config.omniauth :facebook, "410172693177349", "050568d76a9e9afece84dda54dde802c", callback_url: 'http://localhost:3000/users/auth/facebook/callback'
 
-
-
 end

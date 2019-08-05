@@ -24,33 +24,26 @@ class ApplicationController < ActionController::Base
   end
 
   def drop_down_list_sort
-    # com = Comment.order('image_id').group('image.id')
-    com = Image.joins( :comments).group('images.id').size
-    img = Image.joins( :likes).group('images.id').size
+    # com = Image.joins( :comments).group('images.id')
+    # img = Image.joins( :likes).group('images.id')
 
-    # raise dd
-    # img = Image.joins(:likes, :comments).group('images.id')
-    # @top_categories = Category.joins(img).group('categories.id').order('count(images.id) + count(fans.id) + count(comments.id) DESC')
-    # img = Image.joins(:fans, :comments).group('image.id').order('count(fans.id) + count(comments.id) as total')
-    # @top_categories = Category.joins(img).group('categories.id').order('count(images.id) + total DESC')
-    #
+    @category_sort_arr = Category.select("categories.*, (COUNT(images.id)+COUNT(comments.id)+COUNT(likes.id)) AS i")
+                      .left_outer_joins(:images, images: [:comments, :likes]).group("categories.id")
+                      .order("i DESC").limit(5)
+
     # img = Image.joins(:fans, :comments).group('images.id')
-    # @top_categories = Category.joins(img).group('categories.id').order('count(images.id) + count(fans.id) + count(comments.id) DESC')
-    #
-    # 
-    #
-    @category_sort_arr = []
+    # @top_categories = Category.joins(img).group('categories.id').order('count(images.id) + count(likes.id) + count(comments.id) DESC')
 
-    @category_sort = Category.joins(:images).group('categories.id').order('count(images.id) DESC').limit(5).size
-    # raise dd
-
-    @category_sort.each do |i|
-      @category_sort_arr << Category.find(i[0])
-    end
+    #@category_sort_arr = []
+    #
+    # @category_sort = Category.joins(:images).group('categories.id').order('count(images.id) DESC').limit(5).size
+    # # raise dd
+    #
+    # @category_sort.each do |i|
+    #   @category_sort_arr << Category.find(i[0])
+    # end
     @category_options_sort = @category_sort_arr.map{|u| [ u.title, u.id ] }
-
     # raise dd
-
   end
 
   private

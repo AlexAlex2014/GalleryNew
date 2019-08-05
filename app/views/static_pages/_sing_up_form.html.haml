@@ -10,5 +10,9 @@
   = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control signup-field"
   = f.label :password_confirmation, class: "sr-only"
   = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confrim Password", class: "form-control signup-field"
+  = flash[:recaptcha_error]
+  = recaptcha_tags
   .btn
     = f.submit "Sign up", class: "btn btn-primary"
+
+

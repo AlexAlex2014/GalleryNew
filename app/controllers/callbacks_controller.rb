@@ -1,5 +1,6 @@
 class CallbacksController < Devise::OmniauthCallbacksController
-  # skip_before_action :require_login
+  skip_before_action :require_login
+  # prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
 
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])

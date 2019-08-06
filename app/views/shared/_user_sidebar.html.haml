@@ -1,5 +1,5 @@
 .col-md-2
-  %h4= link_to @user.full_name, profile_path(@user.id)
+  %h4= link_to "#{@user.full_name} Categories", profile_path(@user.id)
   %p
     %b Location:
     = @user.profile.location

@@ -9,6 +9,7 @@ class User < ApplicationRecord
          :trackable,
          :validatable,
          :omniauthable,
+         :lockable,
          :omniauth_providers => [:facebook]
 
   # validates :first_name, :last_name, :email, presence: true
@@ -27,6 +28,11 @@ class User < ApplicationRecord
     unless self.first_name == nil
       self.first_name + " " + self.last_name
     end
+  end
+
+
+  def self.logins_before_captcha
+    3
   end
 
   def self.from_omniauth(auth)

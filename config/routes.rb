@@ -1,8 +1,13 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # devise_for :users
   devise_for :users, :controllers => { registrations: "registrations", sessions: "sessions", passwords: "passwords", omniauth_callbacks: "callbacks" }
+
+  mount Resque::Server.new, at: "/resque"
+
 
   root 'static_pages#home'
 

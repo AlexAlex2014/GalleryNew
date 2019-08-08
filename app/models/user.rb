@@ -15,6 +15,7 @@ class User < ApplicationRecord
   # validates :first_name, :last_name, :email, presence: true
   
   after_create :create_profile
+  after_create :send_welcome_email
 
   has_one :profile, dependent: :destroy
   has_many :categories, dependent: :destroy
@@ -46,12 +47,22 @@ class User < ApplicationRecord
     end
   end
 
+  # def send_devise_notification(notification, *args)
+  #   devise_mailer.send(notification, self, *args).deliver_later
+  # end
+
   def get_newsfeed
     # friendships = "SELECT requestee_id FROM friendships WHERE requestor_id = :user_id AND accepted = true"
     # reverse_friendships = "SELECT requestor_id FROM friendships WHERE requestee_id = :user_id AND accepted = true"
     # Category.where("user_id IN (#{friendships}) OR user_id IN (#{reverse_friendships}) OR user_id = :user_id", user_id: self.id)
 
     Category.where("user_id = :user_id", user_id: self.id)
+  end
+
+  def send_welcome_email()
+# UserMailer.welcome_email(self).deliver
+    user = self
+    Resque.enqueue(WelcomeEmailJob, user)
   end
 
 end

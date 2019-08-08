@@ -1,8 +1,4 @@
 class SessionsController < Devise::SessionsController
-  # prepend_before_action :captcha_valid, only: [:create]
-  # layout "login"
-
-
 
   def create
     flash.clear
@@ -53,25 +49,4 @@ class SessionsController < Devise::SessionsController
     resource.update cached_failed_attempts: 0, failed_attempts: 0
     root_path
   end
-
-
-
-  # def create
-   #   if verify_recaptcha
-  #     super
-  #   else
-  #     self.resource = resource_class.new(sign_in_params)
-  #     respond_with_navigational(resource) { render :new }
-  #   end
-  # end
-
-  # private
-  # def captcha_valid
-  #   if verify_recaptcha
-  #     true
-  #   else
-  #     self.resource = resource_class.new(sign_in_params)
-  #     respond_with_navigational(resource) { render :new }
-  #   end
-  # end
 end

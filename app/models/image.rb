@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
   extend FriendlyId
+  after_create :send_image_email
 
   friendly_id :body, use: :slugged
 
@@ -13,4 +14,20 @@ class Image < ApplicationRecord
   has_many :likes, as: :likable
   belongs_to :category
 
+  def send_image_email()
+    @image = self
+    @category_sub = @image.category
+    @subs = Sub.all.where("subable_id = '#{@category_sub["id"]}'")
+    @emails = []
+    @subs.each do |sub|
+      @user = User.all.where("id = '#{sub["user_id"]}'").first
+      @emails << @user['email']
+    end
+    if @emails.size > 0
+      @emails.each do |email|
+        Resque.enqueue(ImageEmailJob, email)
+      end
+    end
+
+  end
 end

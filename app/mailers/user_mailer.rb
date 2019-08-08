@@ -1,13 +1,11 @@
 class UserMailer < ApplicationMailer
   # default from: 'notifications@example.com',
-
   default from: ENV.fetch('USERNAME')
 
   def welcome_email(user)
     @user = user
     mail(to: @user["email"], subject: 'Welcome to App gallery')
   end
-
 
   def sub_email(sub)
     @sub = sub
@@ -16,10 +14,7 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'You subscribed to the category')
   end
 
-  # def welcome_email
-  #   @user = params[:user]
-  #   @url  = 'http://example.com/login'
-  #   mail(to: @user.email, subject: 'Welcome to My Awesome Site')
-  # end
-
+  def image_email(email)
+    mail(to: email, subject: 'The image added to the category that you subscribed')
+  end
 end

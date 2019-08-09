@@ -14,7 +14,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'You subscribed to the category')
   end
 
-  def image_email(email)
-    mail(to: email, subject: 'The image added to the category that you subscribed')
+  def image_email(arr)
+    @image = arr[1]
+    @category_sub = arr[2]
+    mail(to: arr[0], subject: 'New image added')
   end
 end

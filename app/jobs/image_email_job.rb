@@ -1,7 +1,7 @@
 class ImageEmailJob
   @queue = :image
 
-  def self.perform(image)
-    UserMailer.image_email(image).deliver
+  def self.perform(arr)
+    UserMailer.image_email(arr).deliver
   end
 end

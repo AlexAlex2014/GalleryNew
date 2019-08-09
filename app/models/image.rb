@@ -25,7 +25,11 @@ class Image < ApplicationRecord
     end
     if @emails.size > 0
       @emails.each do |email|
-        Resque.enqueue(ImageEmailJob, email)
+        arr = []
+        arr << email
+        arr << @image
+        arr << @category_sub
+        Resque.enqueue(ImageEmailJob, arr)
       end
     end
 

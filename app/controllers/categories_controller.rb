@@ -2,7 +2,9 @@ class CategoriesController < ApplicationController
   # before_filter :authenticate_user!, except => [:show, :index]
   before_action :authenticate_user!
   def index
-    @categories = Category.all
+    @categories = Category.select("categories.*, (COUNT(images.id)+COUNT(comments.id)+COUNT(likes.id)) AS i")
+                      .left_outer_joins(:images, images: [:comments, :likes]).group("categories.id")
+                      .order("i DESC")
     @category_images = {}
     @categories.each do |category|
       @category_images[category] = category.images.first if category.images.size > 0

@@ -4,14 +4,15 @@ class ImagesController < ApplicationController
   # before_action :correct_user, :only => [:destroy]
 
   def index
-    @images = Image.order('created_at DESC')
+    @images = Image.select("images.*, (COUNT(comments.id)+COUNT(likes.id)) AS i")
+                  .left_outer_joins(:comments, :likes).group("images.id")
+                  .order("i DESC")
     render index_img
     # @category = Category.friendly.find(params[:category_id])
     # @category_images = @images.where(:category_id => @category.id)
   end
 
   def index_img
-
   end
 
   def show

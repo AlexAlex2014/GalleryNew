@@ -32,6 +32,5 @@ class Image < ApplicationRecord
         Resque.enqueue(ImageEmailJob, arr)
       end
     end
-
   end
 end

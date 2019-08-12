@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
   def index
     @images = Image.select("images.*, (COUNT(comments.id)+COUNT(likes.id)) AS i")
                   .left_outer_joins(:comments, :likes).group("images.id")
-                  .order("i DESC")
+                  .order("i DESC").page(params[:page])
     render index_img
     # @category = Category.friendly.find(params[:category_id])
     # @category_images = @images.where(:category_id => @category.id)
@@ -26,6 +26,7 @@ class ImagesController < ApplicationController
   def create
     # @category_options = Category.all.map{|u| [ u.title, u.id ] }
     @image = Image.new(image_params)
+    @image.user_id = current_user.id
     if @image.save
       redirect_to categories_path
     else

@@ -1,4 +1,6 @@
 class SessionsController < Devise::SessionsController
+  prepend_after_action :after_login, only: [:create]
+  before_action :before_logout, only: [:destroy]
 
   def create
     flash.clear
@@ -21,6 +23,7 @@ class SessionsController < Devise::SessionsController
     flash[:error] = 'Captcha was wrong, please try again.'
     respond_with_navigational(resource) { render :new }
   end
+
 
   private
   def adjust_failed_attempts(user)
@@ -48,5 +51,15 @@ class SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     resource.update cached_failed_attempts: 0, failed_attempts: 0
     root_path
+  end
+
+  def after_login
+    Action.new(:user_id=>current_user.id, :action=>'user_sign_in',
+               :action_path=>request.original_url).save if user_signed_in?
+  end
+
+  def before_logout
+    Action.new(:user_id=>current_user.id, :action=>'user_sign_out',
+               :action_path=>request.original_url).save if user_signed_in?
   end
 end

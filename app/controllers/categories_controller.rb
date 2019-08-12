@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.friendly.find(params[:id])
+    @category_img = @category.images.order('created_at DESC').page(params[:page])
   end
 
   def new

@@ -5,8 +5,9 @@
   %strong Text:
   = @category.text
 
+= paginate @category_img
 
-= render @category.images
+= render @category_img
 
 |
 = link_to 'Add new image', new_image_path

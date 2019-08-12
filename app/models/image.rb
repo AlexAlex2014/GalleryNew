@@ -2,6 +2,8 @@ class Image < ApplicationRecord
   extend FriendlyId
   after_create :send_image_email
 
+  paginates_per 20
+
   friendly_id :body, use: :slugged
 
   mount_uploader :image, ImageUploader

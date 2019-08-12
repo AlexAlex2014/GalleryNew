@@ -1,6 +1,7 @@
 class CallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :require_login
   # prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
+  prepend_after_action :after_login, only: [:facebook]
 
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
@@ -13,4 +14,10 @@ class CallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+
+  def after_login
+    Action.new(:user_id=>current_user.id, :action=>'user_sign_in',
+               :action_path=>request.original_url).save if user_signed_in?
+  end
+
 end

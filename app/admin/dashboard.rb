@@ -2,12 +2,12 @@ ActiveAdmin.register_page "Dashboard" do
   menu priority: 1, label: proc { I18n.t("active_admin.dashboard") }
 
   content title: proc { I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
-      end
-    end
+    # div class: "blank_slate_container", id: "dashboard_default_message" do
+    #   span class: "blank_slate" do
+    #     span I18n.t("active_admin.dashboard_welcome.welcome")
+    #     small I18n.t("active_admin.dashboard_welcome.call_to_action")
+    #   end
+    # end
 
     section "Recent Categories" do
       table_for Category.order("created_at desc").limit(5) do
@@ -39,6 +39,23 @@ ActiveAdmin.register_page "Dashboard" do
         column :created_at
       end
       strong { link_to "View All Images", admin_images_path }
+    end
+
+    section "Recent Actions" do
+      table_for Action.order("action desc") do
+        column "Users", :user_id do |email|
+          User.where(id: email.user_id).first.email
+        end
+        column "Actions", :action do |action|
+          link_to action.action, admin_actions_path
+          # raise ddfd
+        end
+        column "URL", :action_path do |path|
+          path.action_path.split("?")[0]
+        end
+        column :created_at
+      end
+      strong { link_to "View All Actions", admin_actions_path }
     end
 
     # Here is an example of a simple dashboard with columns and panels.

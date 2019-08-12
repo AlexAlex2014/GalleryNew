@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :subs, dependent: :destroy
   has_many :images, dependent: :destroy
+  has_many :actions, dependent: :destroy
 
 
   def full_name
@@ -31,9 +32,8 @@ class User < ApplicationRecord
     end
   end
 
-
   def self.logins_before_captcha
-    3
+    2
   end
 
   def self.from_omniauth(auth)
@@ -47,22 +47,12 @@ class User < ApplicationRecord
     end
   end
 
-  # def send_devise_notification(notification, *args)
-  #   devise_mailer.send(notification, self, *args).deliver_later
-  # end
-
   def get_newsfeed
-    # friendships = "SELECT requestee_id FROM friendships WHERE requestor_id = :user_id AND accepted = true"
-    # reverse_friendships = "SELECT requestor_id FROM friendships WHERE requestee_id = :user_id AND accepted = true"
-    # Category.where("user_id IN (#{friendships}) OR user_id IN (#{reverse_friendships}) OR user_id = :user_id", user_id: self.id)
-
     Category.where("user_id = :user_id", user_id: self.id)
   end
 
   def send_welcome_email()
-# UserMailer.welcome_email(self).deliver
     user = self
     Resque.enqueue(WelcomeEmailJob, user)
   end
-
 end

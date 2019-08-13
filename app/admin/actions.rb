@@ -14,6 +14,5 @@ ActiveAdmin.register Action do
     def permitted_params
       params.permit action: [ :user_id, :action ]
     end
-
   end
 end

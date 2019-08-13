@@ -41,14 +41,28 @@ ActiveAdmin.register_page "Dashboard" do
       strong { link_to "View All Images", admin_images_path }
     end
 
+
+
     section "Recent Actions" do
-      table_for Action.order("action desc") do
+      act = Action.order("action asc").group_by{|m| m.action}
+      @arr_first = []
+      act.each_value do |i|
+        uniq_item = i.map {|ii| ii[:user_id]}.uniq
+        uniq_item.map do |ii|
+          arr = []
+          i.map do |item|
+            arr << item if item.user_id == ii
+          end
+          @arr_first << arr.first
+        end
+      end
+      table_for @arr_first do
+        column "ID", :id
         column "Users", :user_id do |email|
           User.where(id: email.user_id).first.email
         end
         column "Actions", :action do |action|
           link_to action.action, admin_actions_path
-          # raise ddfd
         end
         column "URL", :action_path do |path|
           path.action_path.split("?")[0]
@@ -57,6 +71,22 @@ ActiveAdmin.register_page "Dashboard" do
       end
       strong { link_to "View All Actions", admin_actions_path }
     end
+
+    # section "Recent Actions" do
+    #   table_for Action.order("action asc") do
+    #     column "Users", :user_id do |email|
+    #       User.where(id: email.user_id).first.email
+    #     end
+    #     column "Actions", :action do |action|
+    #       link_to action.action, admin_actions_path
+    #     end
+    #     column "URL", :action_path do |path|
+    #       path.action_path.split("?")[0]
+    #     end
+    #     column :created_at
+    #   end
+    #   strong { link_to "View All Actions", admin_actions_path }
+    # end
 
     # Here is an example of a simple dashboard with columns and panels.
     #

@@ -1,0 +1,2 @@
+module ImageLoaderHelper
+end

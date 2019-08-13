@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get 'categories/index', as: 'user_root'
+  # get 'imageloader/index'
 
   # get 'welcome/index'
 
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   get 'likes' => 'likes#create'
   get 'subs' => 'subs#create'
 
+  resources :image_loader
 
   resources :profiles, :only => [:edit, :update]
   resources :users, :only => [:index, :edit]
@@ -46,3 +48,4 @@ Rails.application.routes.draw do
   end
   resources :comments
 end
+

@@ -44,7 +44,7 @@ ActiveAdmin.setup do |config|
   # eg:
   #   config.default_namespace = :hello_world
   #
-  # This will create resources in the HelloWorld module and
+  # This will create image_loaders in the HelloWorld module and
   # will namespace routes to /hello_world/*
   #
   # To set no namespace by default, use:
@@ -88,7 +88,7 @@ ActiveAdmin.setup do |config|
   # config.pundit_default_policy = "MyDefaultPunditPolicy"
 
   # If you wish to maintain a separate set of Pundit policies for admin
-  # resources, you may set a namespace here that Pundit will search
+  # image_loaders, you may set a namespace here that Pundit will search
   # within when looking for a resource's policy.
   # config.pundit_policy_namespace = :admin
 
@@ -166,7 +166,7 @@ ActiveAdmin.setup do |config|
   # == Controller Filters
   #
   # You can add before, after and around filters to all of your
-  # Active Admin resources and pages from here.
+  # Active Admin image_loaders and pages from here.
   #
   # config.before_action :do_something_awesome
 
@@ -208,14 +208,14 @@ ActiveAdmin.setup do |config|
   # == Removing Breadcrumbs
   #
   # Breadcrumbs are enabled by default. You can customize them for individual
-  # resources or you can disable them globally from here.
+  # image_loaders or you can disable them globally from here.
   #
   # config.breadcrumb = false
 
   # == Create Another Checkbox
   #
   # Create another checkbox is disabled by default. You can customize it for individual
-  # resources or you can enable them globally from here.
+  # image_loaders or you can enable them globally from here.
   #
   # config.create_another = true
 
@@ -286,8 +286,8 @@ ActiveAdmin.setup do |config|
 
   # == Pagination
   #
-  # Pagination is enabled by default for all resources.
-  # You can control the default per page count for all resources here.
+  # Pagination is enabled by default for all image_loaders.
+  # You can control the default per page count for all image_loaders here.
   #
   # config.default_per_page = 30
   #
@@ -299,7 +299,7 @@ ActiveAdmin.setup do |config|
   #
   # By default the index screen includes a "Filters" sidebar on the right
   # hand side with a filter for each attribute of the registered model.
-  # You can enable or disable them for all resources here.
+  # You can enable or disable them for all image_loaders here.
   #
   # config.filters = true
   #
@@ -327,7 +327,7 @@ ActiveAdmin.setup do |config|
   # == Sorting
   #
   # By default ActiveAdmin::OrderClause is used for sorting logic
-  # You can inherit it with own class and inject it for all resources
+  # You can inherit it with own class and inject it for all image_loaders
   #
   # config.order_clause = MyOrderClause
 end

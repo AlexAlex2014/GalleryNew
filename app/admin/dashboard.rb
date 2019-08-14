@@ -8,26 +8,31 @@ ActiveAdmin.register_page "Dashboard" do
     #     small I18n.t("active_admin.dashboard_welcome.call_to_action")
     #   end
     # end
-
-    section "Recent Categories" do
-      table_for Category.order("created_at desc").limit(5) do
-        column :title
-        column :created_at
-      end
-      strong { link_to "View All Categories", admin_categories_path }
-    end
-
-    section "Recent Comments" do
-      table_for Comment.order("created_at desc").limit(5) do
-        column :commenter
-        column :body
-        column :image_id do |comment|
-          link_to image_tag(comment.image.image.small_thumb.url, alt: "qqq", title: "qqqq"), admin_user_comment_path(comment)
+    columns do
+      column do
+        section "Recent Categories" do
+          table_for Category.order("created_at desc").limit(5) do
+            column :title
+            column :created_at
+          end
+          strong { link_to "View All Categories", admin_categories_path }
         end
-        column :created_at
       end
-      strong { link_to "View All Comments", admin_user_comments_path }
+      column do
+        section "Recent Comments" do
+          table_for Comment.order("created_at desc").limit(5) do
+            column :commenter
+            column :body
+            column :image_id do |comment|
+              link_to image_tag(comment.image.image.small_thumb.url, alt: "qqq", title: "qqqq"), admin_user_comment_path(comment)
+            end
+            column :created_at
+          end
+          strong { link_to "View All Comments", admin_user_comments_path }
+        end
+      end
     end
+
 
     section "Recent Image" do
       table_for Image.order("created_at desc").limit(10) do

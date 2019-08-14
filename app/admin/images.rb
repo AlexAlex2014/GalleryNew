@@ -15,4 +15,6 @@ ActiveAdmin.register Image do
       params.permit image: [ :image, :body, :category ]
     end
   end
+
+
 end

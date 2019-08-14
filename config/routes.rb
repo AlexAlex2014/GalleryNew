@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get 'likes' => 'likes#create'
   get 'subs' => 'subs#create'
 
-  resources :image_loader
+  resources :image_loaders
 
   resources :profiles, :only => [:edit, :update]
   resources :users, :only => [:index, :edit]

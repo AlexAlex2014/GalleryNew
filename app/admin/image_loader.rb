@@ -1,6 +1,46 @@
 ActiveAdmin.register_page "ImageLoader" do
   content do
+
     render partial: 'form'
+
+
+
+    # unless @arbre_context.assigns[:site_path] == nil
+    #   url = 'http://www.cubecinema.com/programme'
+    #
+    #   base = URI.parse(url)
+    #   html = open(url)
+    #   doc = Nokogiri::HTML(html)
+    #   doc.css('img').each do |img|
+    #     src = img[:src]
+    #     normalized = base.merge(URI.parse(src)).to_s
+    #     filename = Pathname.new(normalized).basename
+    #     open(normalized) do |img_file|
+    #       File::open(filename, 'wb') do |f|
+    #         f.write(img_file.read)
+    #       end
+    #     end
+    #   end
+    # end
+
+
+
+
+
+    # url = 'http://www.cubecinema.com/programme'
+    # base = URI.parse(url)
+    # html = open(url)
+    # doc = Nokogiri::HTML(html)
+    # doc.css('img').each do |img|
+    #   src = img[:src]
+    #   normalized = base.merge(URI.parse(src)).to_s
+    #   filename = Pathname.new(normalized).basename
+    #   open(normalized) do |img_file|
+    #     File::open(filename, 'wb') do |f|
+    #       f.write(img_file.read)
+    #     end
+    #   end
+    # end
   end
 end
 

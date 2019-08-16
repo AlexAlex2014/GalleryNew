@@ -10,11 +10,20 @@ ActiveAdmin.register Image do
     column :category
     actions
   end
-  controller do
-    def permitted_params
-      params.permit image: [ :image, :body, :category ]
+
+  form title: 'Create ImageParser' do |f|
+    f.inputs 'ImageLoaders' do
+      input :category
+      input :image
+      input :remote_image_url, input_html: {value: "#{params[:remote_image_url]}"} #, :as => :hidden
+      input :body
     end
+    actions
   end
 
-
+  controller do
+    def permitted_params
+      params.permit image: [:id, :image, :body, :category_id, :remote_image_url ]
+    end
+  end
 end

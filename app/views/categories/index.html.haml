@@ -1,10 +1,10 @@
-%h1 Listing categories
-= link_to 'New categories', new_category_path
+%h1= t(:listing_categories)
+= link_to "#{t(:new_category)}", new_category_path
 %table
   %tr
     %th
-    %th Title
-    %th Text
+    %th= "#{t(:title)}"
+    %th= "#{t(:text)}"
     %th
     %th
     %th
@@ -16,12 +16,12 @@
       %td= category.title
       %td= category.text
       %td= render 'subs/sub_link', subable_type: "Category", item_c: category
-      %td= link_to 'Show category', category_path(category)
-      %td= link_to 'Edit category', edit_category_path(category)
-      %td= link_to 'Destroy category', category_path(category),
+      %td= link_to "#{t(:show_category)}", category_path(category)
+      %td= link_to "#{t(:edit_category)}", edit_category_path(category)
+      %td= link_to "#{t(:destroy_category)}", category_path(category),
         method: :delete,
-        data: { confirm: 'Are you sure?' }
+        data: { confirm: "#{t(:are_you_sure)}" }
 
-= link_to 'Images', controller: 'images'
-= link_to 'Comments', controller: 'comments'
+= link_to "#{t(:images)}"'Images', controller: 'images'
+= link_to "#{t(:comments)}"'Comments', controller: 'comments'
 -#= link_to 'Welcome', controller: 'welcome'

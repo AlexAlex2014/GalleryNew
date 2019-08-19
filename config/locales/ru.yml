@@ -1,0 +1,124 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+  welcome: "Добро пожаловать в галерею"
+  sign_in_with: "Войти в систему через"
+  or: "ИЛИ"
+  newsfeed: "Моя новостная лента"
+  notifications: "Мои уведомления"
+  unsubscription: "Отписка"
+  subscription: "Подписка"
+
+  first_name: 'Имя'
+  last_name: 'Фамилия'
+  email: 'Эл.почтовый адрес'
+  password: 'Пароль'
+  password_confirmation: 'Подтвердите Пароль'
+  sing_up: "Зарегистрироваться"
+  log_in: "Авторизоваться"
+  app_name: "Галерея"
+
+  location: "Место нахождения"
+  gender: "Пол"
+  birthdate: "День рождения"
+  categories: "Категории"
+  edit_profile: "Редактировать профиль"
+  edit_user: "Редактировать пользователя"
+  my_newsfeed: "Моя новостная лента"
+
+  shared_errors: "Некоторые ошибки были найдены"
+
+  add_category: "Добавить Вашу категорию"
+  title_category: "Название категории"
+  text_category: "Текст категории"
+  title: "Название"
+  text: "Текст"
+  edit_category: "Изменить категорию"
+  back_to_category: "Вернуться в категорию"
+  new_category: "Новая категория"
+  listing_categories: "Список категорий"
+  show_category: "Показать категорию"
+  destroy_category: "Удалить категорию"
+  editing_article: "Редактирование статьи"
+  ago: "тому назад"
+  posted: "отправил:"
+
+  all_comments: "Все комментарии"
+  all_images: "Все картинки"
+  all_categories: "Все категории"
+  popular_category: "Популярные комментарии"
+  sign_out: "Выход"
+
+  edit_profile: "Редактирование профиля"
+  update: "Обновить"
+  cancel_my_account: "Удалить мой аккаунт"
+
+  like: "Нравится"
+  unlike: "Ненравится"
+
+  comments: "Комментарии"
+  add_comment: "Добавить комментарий"
+  commenter: "Комментатор"
+  comment: "Комментарий"
+
+  add_image: "Добавить картинку"
+  edit_image: "Редактировать картинку"
+  back_to_image: "Вернуться в картинку"
+  images: "Картинки"
+  destroy_image: "Удалить картинку"
+  are_you_sure: "Вы уверены?"
+  categoty: "Категория"
+  enter_url_image: "Введите URL для изображения"
+  remove_image: "Удалить изображение"
+
+
+  activerecord:
+    models:
+      profile: 'Профиль'
+      comment: 'Комментарий'
+      image: 'Картинка'
+      category: 'Категория'
+
+    attributes:
+      profile:
+        location: "Место нахождения"
+        gender: "Пол"
+        birthday: "День рождения"
+      comment:
+        commenter: "Комментатор"
+        body: "Комментарий"
+      image:
+        image: "Картинка"
+        body: "Описание картинки"
+      category:
+        title: "Название"
+        text: "Текст"

@@ -30,28 +30,132 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  welcome: "Welcome to Gallery"
+  sign_in_with: "Sign in with"
+  or: "OR"
+  newsfeed: "My Newsfeed"
+  notifications: "My Notifications"
+  unsubscription: "Unsubscription"
+  subscription: "Subscription"
 
-  errors:
-    messages:
-      carrierwave_processing_error: "Cannot resize image."
-      carrierwave_integrity_error: "Not an image."
-      carrierwave_download_error: "Couldn't download image."
-      extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
-      extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
+  first_name: 'First Name'
+  last_name: 'Last Name'
+  email: 'Email Address'
+  password: 'Password'
+  password_confirmation: 'Confrim Password'
+  sing_up: "Sign up"
+  log_in: "Log in"
+  app_name: "Gallery"
 
-  devise:
-    sessions:
-      signed_in: 'Signed in successfully.'
-      user:
-        signed_in: 'Welcome user, you are signed in.'
-      admin:
-        signed_in: 'Hello admin!'
-    mailer:
-      confirmation_instructions:
-        subject: 'Hello everybody!'
-        user_subject: 'Hello User! Please confirm your email'
-      reset_password_instructions:
-        subject: 'Reset instructions'
+  location: "Location"
+  gender: "Gender"
+  birthdate: "Birthdate"
+  categories: "Categories"
+  edit_profile: "Edit Profile"
+  edit_user: "Edit User"
+  my_newsfeed: "My Newsfeed"
+
+  shared_errors: "Some errors were found"
+
+  add_category: "Add your category"
+  title_category: "Title category"
+  text_category: "Text category"
+  title: "Title"
+  text: "Text"
+  edit_category: "Edit category"
+  back_to_category: "Back to category"
+  new_category: "New Category"
+  listing_categories: "Listing categories"
+  show_category: "Show category"
+  destroy_category: "Destroy category"
+  editing_article: "Editing article"
+  ago: "ago"
+  posted: "posted:"
+
+  all_comments: "All comments"
+  all_images: "All images"
+  all_categories: "All categories"
+  popular_category: "Popular Category"
+  sign_out: "Sign Out"
+
+  edit_profile: "Edit Profile"
+  update: "Update"
+  cancel_my_account: "Cancel my account"
+
+  like: "Like"
+  unlike: "Unlike"
+
+  comments: "Comments"
+  add_comment: "Add a comment"
+  commenter: "Commenter"
+  comment: "Comment"
+
+  add_image: "Add image"
+  edit_image: "Edit image"
+  back_to_image: "Back to image"
+  images: "Images"
+  destroy_image: "Destroy image"
+  are_you_sure: "Are you sure?"
+  categoty: "Categoty"
+  enter_url_image: "Enter URL to an image"
+  remove_image: "Remove image"
 
 
+  activerecord:
+    models:
+      profile: 'Profile'
+      comment: 'Comment'
+      image: 'Image'
+      category: 'Category'
+
+    attributes:
+      profile:
+        location: "Location"
+        gender: "Gender"
+        birthday: "Birthday"
+      comment:
+        commenter: "Commenter"
+        body: "Body"
+      image:
+        image: "Image"
+        body: "Body"
+      category:
+        title: "Title"
+        text: "Text"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#  errors:
+#    messages:
+#      carrierwave_processing_error: "Cannot resize image."
+#      carrierwave_integrity_error: "Not an image."
+#      carrierwave_download_error: "Couldn't download image."
+#      extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
+#      extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
+#
+#  devise:
+#    sessions:
+#      signed_in: 'Signed in successfully.'
+#      user:
+#        signed_in: 'Welcome user, you are signed in.'
+#      admin:
+#        signed_in: 'Hello admin!'
+#    mailer:
+#      confirmation_instructions:
+#        subject: 'Hello everybody!'
+#        user_subject: 'Hello User! Please confirm your email'
+#      reset_password_instructions:
+#        subject: 'Reset instructions'

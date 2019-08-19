@@ -1,12 +1,12 @@
 -#- @image.comments.each do |comment|
 
 %p
-  %strong Commenter:
+  %strong "#{t(:commenter)}:"
   = comment.commenter
 %p
-  %strong Comment:
+  %strong "#{t(:comment)}:"
   = comment.body
 %p
-  = link_to 'Destroy Comment', [comment.image, comment], |
+  = link_to "#{t(:destroy_image)}", [comment.image, comment], |
     method: :delete,                                       |
-    data: { confirm: 'Are you sure?' }                     |
+    data: { confirm: "#{t(:are_you_sure)}" }                     |

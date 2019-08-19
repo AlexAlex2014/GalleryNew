@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  before_action :set_locale
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :configure_account_update_params, if: :devise_controller?
@@ -33,6 +34,10 @@ class ApplicationController < ActionController::Base
     @category_options_sort = @category_sort_arr.map{|u| [ u.title, u.id ] }
   end
 
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
   private
 
   def require_login
@@ -52,5 +57,12 @@ class ApplicationController < ActionController::Base
   def navigation
     Action.new(:user_id=>current_user.id, :action=>'navigation',
                :action_path=>request.original_url).save if user_signed_in?
+  end
+
+  def set_locale
+    locale = params[:locale].to_s.strip.to_sym
+    I18n.locale = I18n.available_locales.include?(locale) ?
+                      locale :
+                      I18n.default_locale
   end
 end

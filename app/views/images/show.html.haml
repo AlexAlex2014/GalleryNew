@@ -1,4 +1,4 @@
-= link_to 'All images', images_path
+= link_to "#{t(:all_images)}", images_path
 %h1= @image.category.title
 
 = image_tag(@image.image.url, alt: 'Image') if @image.image?
@@ -12,11 +12,11 @@
 %p= @image.body
 
 
-%h2 Comments
+%h2= t(:comments)
 = render @image.comments
 
 
-%h2 Add a comment:
+%h2= "#{t(:add_comment)}:"
 = form_with(model: [ @image, @image.comments.build ], local: true) do |form|
   %p
     = form.label :commenter
@@ -30,6 +30,6 @@
     = form.submit
 
 
-= link_to 'Edit image', edit_image_path(@image)
+= link_to "#{t(:edit_image)}", edit_image_path(@image)
 |
-= link_to 'Back to image', images_path
+= link_to "#{t(:back_to_image)}", images_path

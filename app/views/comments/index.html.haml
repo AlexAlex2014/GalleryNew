@@ -1,7 +1,7 @@
-%h1 Comments
+%h1= t(:comments)
 
 = render @comments
 
-= link_to 'Images', controller: 'images'
-= link_to 'Categories', controller: 'categories'
+= link_to "#{t(:images)}", controller: 'images'
+= link_to "#{t(:categories)}", controller: 'categories'
 -#= link_to 'Welcome', controller: 'welcome'

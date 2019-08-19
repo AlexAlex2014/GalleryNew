@@ -1,4 +1,4 @@
-%h1 Images
+%h1= t(:images)
 %div= paginate @images
 
 - @images.each do |image|
@@ -7,15 +7,15 @@
 
     = image_tag(image.image.url, alt: 'Image') if image.image?
 
-    = link_to 'Destroy image', image_path(image),
+    = link_to "#{t(:destroy_image)}", image_path(image),
             method: :delete,
-            data: { confirm: 'Are you sure?' }
+            data: { confirm: "#{t(:are_you_sure)}"}
 
 
-= link_to 'Add image', new_image_path
+= link_to "#{t(:add_image)}", new_image_path
 
-= link_to 'Categories', controller: 'categories'
-= link_to 'Comments', controller: 'comments'
+= link_to "#{t(:categories)}", controller: 'categories'
+= link_to "#{t(:comments)}", controller: 'comments'
 -#= link_to 'Welcome', controller: 'welcome'
 
 %div= paginate @images

@@ -1,16 +1,16 @@
 %header.navbar.navbar-fixed-top.navbar-inverse
   .container
-    = link_to "Gallery", root_path, id: "logo"
+    = link_to "#{t(:app_name)}", root_path, id: "logo"
     %nav
       %ul.nav.navbar-nav.navbar-right
         -#%li= link_to "Find Friends", users_path, class: "header-link"
-        %li= link_to "All comments", comments_path, class: "header-link"
+        %li= link_to "#{t(:all_comments)}", comments_path, class: "header-link"
 
-        %li= link_to "All images", images_path, class: "header-link"
+        %li= link_to "#{t(:all_images)}", images_path, class: "header-link"
 
-        %li= link_to "All categories", categories_path, class: "header-link"
+        %li= link_to "#{t(:all_categories)}", categories_path, class: "header-link"
 
-        %li= link_to select(:category, :user_id, @category_options_sort, {prompt: 'Popular Category'}, {:class => 'custTag'})
+        %li= link_to select(:category, :user_id, @category_options_sort, {prompt: "#{t(:popular_category)}"}, {:class => 'custTag'})
 
         %li
-          = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "header-link"
+          = link_to "#{t(:sign_out)}", destroy_user_session_path, method: :delete, class: "header-link"

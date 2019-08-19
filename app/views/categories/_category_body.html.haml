@@ -3,15 +3,15 @@
     %tr
       %td.post-header
         = link_to category.user.full_name, profile_path(category.user.id)
-        posted:
+        = t(:posted)
     %tr
       %td
         = time_ago_in_words(category.created_at)
-        ago
+        = t(:ago)
   %br/
   %p
     "#{category.title}"
   - if current_user == category.user
-    %p.delete-link= link_to "Delete", category_path(category), |
-        method: :delete,                           |
-        data: { confirm: 'Are you sure?' }         |
+    %p.delete-link= link_to "#{t(:destroy_category)}", category_path(category), |
+        method: :delete,                                 |
+        data: { confirm: "#{t(:are_you_sure)}" }         |

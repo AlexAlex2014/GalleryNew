@@ -1,8 +1,8 @@
 %p
-  %strong Title:
+  %strong= "#{t(:title)}"
   = @category.title
 %p
-  %strong Text:
+  %strong= "#{t(:text)}"
   = @category.text
 
 = paginate @category_img
@@ -10,8 +10,8 @@
 = render @category_img
 
 |
-= link_to 'Add new image', new_image_path
+= link_to "#{t(:add_image)}", new_image_path
 |
-= link_to 'Edit category', edit_category_path(@category)
+= link_to "#{t(:edit_category)}", edit_category_path(@category)
 |
-= link_to 'Back to category', categories_path
+= link_to "#{t(:back_to_category)}", categories_path

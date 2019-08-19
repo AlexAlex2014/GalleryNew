@@ -1,10 +1,10 @@
 .post-form-container
-  .post-form-header Add your category
+  .post-form-header "#{t(:add_category)}"
   = form_for @category, :url => {:controller => 'categories', |
     :action => 'create_my_category'} do |p|                   |
     .post-form-entry
-      = p.text_area :title, size: "63x1", placeholder: "Title category"
+      = p.text_area :title, size: "63x1", placeholder: "#{t(:title_category)}"
     .post-form-entry
-      = p.text_area :text, size: "63x1", placeholder: "Text category"
+      = p.text_area :text, size: "63x1", placeholder: "#{t(:text_category)}"
     .post-form-footer
       = p.submit "Category", class: "btn btn-primary btn-sm"

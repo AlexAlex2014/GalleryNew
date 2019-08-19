@@ -2,9 +2,9 @@
 
 = image_tag(image.image.url, alt: 'Image') if image.image?
 
-= link_to 'Destroy image', image_path(image),
+= link_to "#{t(:destroy_image)}", image_path(image),
         method: :delete,
-        data: { confirm: 'Are you sure?' }
+        data: { confirm: "#{t(:are_you_sure)}" }
 -#%p= truncate(image.body, length: 150)
 
 -#%p= link_to 'Edit', edit_image_path(image)

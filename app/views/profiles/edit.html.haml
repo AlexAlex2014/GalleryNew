@@ -1,4 +1,4 @@
-%h1 Edit Profile
+%h1= t(:edit_profile)
 = form_for(@profile) do |p|
   = p.label :location
   = p.text_field :location, class: "form_control"
@@ -9,5 +9,5 @@
   = p.label :birthday
   = p.date_select :birthday, start_year: 1910
   %br/
-  = p.submit "Update"
-= link_to "Cancel my account", users_path, data: { confirm: "Are you sure?" }, method: :delete
+  = p.submit "#{t(:update)}"
+= link_to "#{t(:cancel_my_account)}", users_path, data: { confirm: "Are you sure?" }, method: :delete

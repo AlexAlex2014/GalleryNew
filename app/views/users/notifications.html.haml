@@ -1,6 +1,6 @@
 = render '/shared/user_sidebar'
 .col-md-8
-  %h2 My Notifications
+  %h2= t(:notifications)
   - if @notifications.empty?
     %h4
       %em No Notifications

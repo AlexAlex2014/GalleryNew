@@ -1,0 +1,178 @@
+.center {
+  text-align: center;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-left: 30px;
+  font-size: 2.3em;
+  color: white;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  background-color: #999999 !important;
+  height: 63px;
+}
+
+.header_link {
+  color: white;
+}
+
+select {
+  color: #666666 !important;
+}
+
+body {
+  background-color: #ffffff;
+  margin-top: 65px;
+}
+
+form input {
+  //width: 90% !important;
+}
+form button {
+  width: 150px;
+}
+
+.navbar-nav > li > a {
+  color: #fff !important;
+}
+
+.navbar-nav > .active > a {
+  background-color: #555555 !important;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-inner .item,
+.carousel-inner img {
+  height:100vh !important;
+  width: 100% !important;
+}
+
+
+#home_box {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.welcome-box {
+  margin-top: 150px;
+}
+
+.signin_box {
+  margin-top: 100px;
+}
+
+.signup-name {
+  width: 40%
+}
+
+.signup-field {
+  margin-bottom: 15px;
+}
+
+.spacer {
+  height: 30px;
+}
+
+.post-box {
+  padding: 10px;
+  width: 75%;
+  background-color: white;
+  margin-top: 25px;
+  border-radius: 5px;
+}
+
+.post-form-container {
+  width: 75%;
+  border-color: #DDDDDD;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.post-form-header {
+  padding: 5px;
+  background-color: #EDEDED;
+
+}
+
+.post-form-footer {
+  padding: 5px;
+  text-align: right;
+  background-color: #EDEDED;
+}
+
+.post-form-entry {
+
+  background-color: white;
+}
+
+.post-table {
+  border-spacing: 10px;
+}
+
+textarea {
+  border: none;
+  resize: none;
+} 
+
+.post-header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.comment-form-box {
+  border-top: 1px solid gray;
+  //width: 75;
+}
+
+.comment-form-footer {
+  text-align: right;
+}
+
+.comment-table {
+  vertical-align: top;
+}
+
+.comment-container {
+  border-top: 1px solid gray;
+}
+
+.like-link {
+  padding: 3px;
+  border-radius: 10%;
+}
+
+.delete-link {
+  text-align: right;
+}
+
+.sidebar-hr {
+  border-color: black;
+}
+
+a.header-link {
+  color: #fff !important;
+}
+
+a.header-link:hover {
+  color: #2E2F30 !important;
+}
+
+/* header  Carousel*/
+
+.container-fluid {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}

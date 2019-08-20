@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
 
   after_action :navigation, only: [:index, :show]
 
-
   protected
 
   def configure_permitted_parameters
@@ -32,10 +31,6 @@ class ApplicationController < ActionController::Base
                       .order("i DESC").limit(5)
 
     @category_options_sort = @category_sort_arr.map{|u| [ u.title, u.id ] }
-  end
-
-  def default_url_options
-    { locale: I18n.locale }
   end
 
   private
@@ -60,9 +55,10 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    locale = params[:locale].to_s.strip.to_sym
-    I18n.locale = I18n.available_locales.include?(locale) ?
-                      locale :
-                      I18n.default_locale
+    I18n.locale = params[:locale || I18n.default_locale]
+  end
+
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge options
   end
 end

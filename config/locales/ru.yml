@@ -40,7 +40,7 @@ ru:
 
   first_name: 'Имя'
   last_name: 'Фамилия'
-  email: 'Эл.почтовый адрес'
+  email: 'Эл.почта'
   password: 'Пароль'
   password_confirmation: 'Подтвердите Пароль'
   sing_up: "Зарегистрироваться"

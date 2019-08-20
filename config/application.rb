@@ -19,6 +19,8 @@ Bundler.require(*Rails.groups)
 
 module AppGallery
   class Application < Rails::Application
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    #
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

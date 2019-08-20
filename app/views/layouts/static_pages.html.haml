@@ -9,8 +9,38 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render "static_pages/static_header"
-    .spacer
-      = yield
+    .container-fluid
+      #myCarousel.carousel.slide{"data-ride" => "carousel"}
+        %ol.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+          %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+          %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+        .carousel-inner
+          .item.active
+            = image_tag(@category_images.values[0].image.url, class: 'img-fluid')
+            .carousel-caption.d-none.d-md-block
+              %h5 "#{@category_images.keys[0].title} - it is the most popular category"
+              %p Nulla vitae elit libero, a pharetra augue mollis interdum.
+
+          - @category_images.each do |img|
+            .item
+              = image_tag(img[1].image.url, style: 'width:100%;', class: 'img-fluid')
+              .carousel-caption.d-none.d-md-block
+                %h5 Second slide label
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
+            %span.glyphicon.glyphicon-chevron-left
+            %span.sr-only Previous
+          %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"}
+            %span.glyphicon.glyphicon-chevron-right
+            %span.sr-only Next
+
+
+
+
+
+
+    = yield
 
     %p.notice= notice
     %p.alert= alert

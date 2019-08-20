@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'i18n', '~> 1.6'
 gem 'rails-i18n'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'popper_js', '~> 1.14.5'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'mini_magick'

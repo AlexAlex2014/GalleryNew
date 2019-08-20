@@ -2,7 +2,7 @@
   .container
     = link_to "#{t(:app_name)}", root_path, id: "logo"
     %nav
-      %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav.navbar-right.nav-pills
         -#%li= link_to "Find Friends", users_path, class: "header-link"
         %li= link_to "#{t(:all_comments)}", comments_path, class: "header-link"
 
@@ -14,3 +14,7 @@
 
         %li
           = link_to "#{t(:sign_out)}", destroy_user_session_path, method: :delete, class: "header-link"
+        %li{:class => "nav-item#{" active" if I18n.locale == :en}"}
+          = link_to 'En', {locale: :en}, class: 'nav-link'
+        %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
+          = link_to 'Рус', {locale: :ru}, class: 'nav-link'

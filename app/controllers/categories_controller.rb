@@ -49,7 +49,8 @@ class CategoriesController < ApplicationController
     @category.destroy
     flash[:success] = "Category deleted"
 
-    redirect_to newsfeed_path
+    render json: { success: true }
+    # redirect_to request.referrer
     # redirect_to categories_path
 
   end
@@ -63,7 +64,7 @@ class CategoriesController < ApplicationController
     else
       flash[:error] = "Something went wrong"
     end
-    redirect_to @category #:back
+    redirect_to request.referrer #:back
   end
 
   private

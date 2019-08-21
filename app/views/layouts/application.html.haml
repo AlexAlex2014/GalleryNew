@@ -10,7 +10,8 @@
   %body
     = render "shared/application_header"
     .spacer
-    .container
-      = yield
-      %p.notice= notice
-      %p.alert= alert
+    .section
+      .container
+        = yield
+        %p.notice= notice
+        %p.alert= alert

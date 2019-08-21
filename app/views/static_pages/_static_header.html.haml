@@ -2,7 +2,7 @@
   .container
     = link_to "#{t(:app_name)}", root_path, id: "logo"
     %nav
-      %ul.nav.navbar-nav.navbar-right.nav-pills
+      %ul.nav.navbar-nav.navbar-right.nav-pills.d-flex.align-items-center.justify-content-center
         %li.nav-item
           = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-inline'})do |f|
             .form-group

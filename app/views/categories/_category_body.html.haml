@@ -1,17 +1,23 @@
 .post-box
+
   %table.post-table
-    %tr
-      %td.post-header
-        = link_to category.user.full_name, profile_path(category.user.id)
-        = t(:posted)
-    %tr
-      %td
-        = time_ago_in_words(category.created_at)
-        = t(:ago)
-  %br/
-  %p
-    "#{category.title}"
-  - if current_user == category.user
-    %p.delete-link= link_to "#{t(:destroy_category)}", category_path(category), |
-        method: :delete,                                 |
-        data: { confirm: "#{t(:are_you_sure)}" }         |
+    %tbody{"data-item_id" => "#{category.id}"}
+      %tr
+        %td.post-header
+          = link_to category.user.full_name, profile_path(category.user.id)
+          = t(:posted)
+        %td
+          = time_ago_in_words(category.created_at)
+          = t(:ago)
+        %td
+          - if current_user == category.user
+            %p.delete-link "#{t(:destroy_category)}"
+      %tr
+        %td{"colspan" => "3"}
+          %p
+            "#{category.title}"
+      %tr
+        %td{"colspan" => "3"}
+          - category.images.each do |image|
+            = image_tag(image.image.url, alt: 'Image') if image.image?
+

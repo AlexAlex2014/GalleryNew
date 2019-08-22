@@ -52,18 +52,20 @@ class CategoriesController < ApplicationController
     render json: { success: true }
     # redirect_to request.referrer
     # redirect_to categories_path
-
   end
 
 
   def create_my_category
     @category = Category.new(category_params)
     @category.user_id = current_user.id
+
     if @category.save
       flash[:success] = "Category successful"
     else
       flash[:error] = "Something went wrong"
     end
+
+    # render json: { html: render(partial: '/shared/category_list') }
     redirect_to request.referrer #:back
   end
 

@@ -1,7 +1,7 @@
 .post-form-container
   .post-form-header "#{t(:add_category)}"
-  = form_for @category, :url => {:controller => 'categories', |
-    :action => 'create_my_category'} do |p|                   |
+  = form_with(model: @category, :url => {:controller => 'categories', |
+    :action => 'create_my_category'}, :class => 'form_ajax') do |p|  |
     .post-form-entry
       = p.text_area :title, size: "63x1", placeholder: "#{t(:title_category)}"
     .post-form-entry

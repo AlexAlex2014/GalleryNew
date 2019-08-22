@@ -1,7 +1,6 @@
-.post-box
-
+.post-box{"data-item_id" => "#{category.id}"}
   %table.post-table
-    %tbody{"data-item_id" => "#{category.id}"}
+    %tbody
       %tr
         %td.post-header
           = link_to category.user.full_name, profile_path(category.user.id)

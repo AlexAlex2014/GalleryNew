@@ -1,3 +1,24 @@
 - @categories.each do |category|
-  = render 'categories/category_body', category: category
+  -#= render 'categories/category_body', category: category
+  .post-box{"data-item_id" => "#{category.id}"}
+    %table.post-table
+      %tbody
+        %tr
+          %td.post-header
+            = link_to category.user.full_name, profile_path(category.user.id)
+            = t(:posted)
+          %td
+            = time_ago_in_words(category.created_at)
+            = t(:ago)
+          %td
+            - if current_user == category.user
+              %p.delete-link "#{t(:destroy_category)}"
+        %tr
+          %td{"colspan" => "3"}
+            %p
+              "#{category.title}"
+        %tr
+          %td{"colspan" => "3"}
+            - category.images.each do |image|
+              = image_tag(image.image.url, alt: 'Image') if image.image?
 

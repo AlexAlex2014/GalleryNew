@@ -15,15 +15,17 @@ $(document).ready(function(){
 
 
     // $(document).on('"ajax:success"', ".form_ajax[data-remote]", function() {
+    //
     //     $.ajax({
-    //         url: '/profiles/show',
+    //         url: '/categories/',
     //         type: 'POST',
-    //         success: function() {
-    //             $('.form_ajax[data-remote]').html("<%= j render '/shared/category_list', categories: @categories %>");
+    //          success: function() {
+    //             $('.form_ajax[data-remote]').parent().html("<%= j render '/shared/category_list', categories: @categories %>");
     //         }
     //     });
     // });
-    // $(".form_ajax[data-remote]").html("<%= j (render partial: 'categories/category_body') %>")
+    // // $(".form_ajax[data-remote]").html("<%= j (render partial: 'categories/category_body') %>")
+    // $('.form_ajax[data-remote]').parent().html("= j render '/shared/category_list', categories: @categories");
 });
 
 

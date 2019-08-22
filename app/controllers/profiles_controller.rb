@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(profile_params)
       flash[:success] = "Profile updated successfully"
-      redirect_to users_path
+      redirect_to newsfeed_path
     else
       flash[:error] = "Something happened"
       redirect_to edit_profile_path

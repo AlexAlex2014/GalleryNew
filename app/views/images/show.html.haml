@@ -1,5 +1,5 @@
 = link_to "#{t(:all_images)}", images_path
-%h1= @image.category.title
+%h1= "#{t(:titul_image)} #{@image.category.title}"
 
 = image_tag(@image.image.url, alt: 'Image') if @image.image?
 
@@ -18,10 +18,6 @@
 
 %h2= "#{t(:add_comment)}:"
 = form_with(model: [ @image, @image.comments.build ], local: true) do |form|
-  %p
-    = form.label :commenter
-    %br/
-    = form.text_field :commenter
   %p
     = form.label :body
     %br/

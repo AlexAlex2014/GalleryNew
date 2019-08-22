@@ -1,11 +1,11 @@
-%h1= t(:images)
+%h1= t(:all_images)
 %div= paginate @images
 
 - @images.each do |image|
   %div
-    %h2= link_to image.category.title, image_path(image)
+    %h2= link_to "#{t(:titul_image)} #{image.category.title}", image_path(image)
 
-    = image_tag(image.image.url, alt: 'Image') if image.image?
+    = image_tag(image.image.thumb_all.url, alt: 'Image') if image.image?
 
     = link_to "#{t(:destroy_image)}", image_path(image),
             method: :delete,

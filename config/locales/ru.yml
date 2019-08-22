@@ -93,12 +93,12 @@ ru:
   add_image: "Добавить картинку"
   edit_image: "Редактировать картинку"
   back_to_image: "Вернуться в картинку"
-  images: "Картинки"
   destroy_image: "Удалить картинку"
   are_you_sure: "Вы уверены?"
   categoty: "Категория"
   enter_url_image: "Введите URL для изображения"
   remove_image: "Удалить изображение"
+  titul_image: "Категория: "
 
 
   activerecord:

@@ -64,8 +64,8 @@ class CategoriesController < ApplicationController
     else
       flash[:error] = "Something went wrong"
     end
-
-    # render json: { html: render(partial: '/shared/category_list') }
+    # render json: { success: true }
+    # render json: { html: render_to_string(partial: '/shared/category_list') }
     redirect_to request.referrer #:back
   end
 

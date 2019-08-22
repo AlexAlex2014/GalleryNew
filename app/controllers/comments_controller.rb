@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.order('created_at DESC')
+    @users = User.all
   end
 
   def create

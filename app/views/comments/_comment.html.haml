@@ -2,7 +2,7 @@
 
 %p
   %strong "#{t(:commenter)}:"
-  = comment.commenter
+  = User.where(:id == comment.user_id).first.email
 %p
   %strong "#{t(:comment)}:"
   = comment.body

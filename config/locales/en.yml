@@ -93,12 +93,13 @@ en:
   add_image: "Add image"
   edit_image: "Edit image"
   back_to_image: "Back to image"
-  images: "Images"
   destroy_image: "Destroy image"
   are_you_sure: "Are you sure?"
   categoty: "Categoty"
   enter_url_image: "Enter URL to an image"
   remove_image: "Remove image"
+  titul_image: "The category: "
+
 
 
   activerecord:

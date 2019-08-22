@@ -1,7 +1,18 @@
 %h1= t(:comments)
 
-= render @comments
+-#= render @comments
 
-= link_to "#{t(:images)}", controller: 'images'
-= link_to "#{t(:categories)}", controller: 'categories'
+- @comments.each do |comment|
+  %div
+    %h2 "#{t(:titul_image)} #{comment.image.category.title}"
+    = image_tag(comment.image.image.thumb.url, alt: 'Image') if comment.image.image?
+    %p
+      %strong "#{t(:commenter)}:"
+      = @users.where(:id == comment.user_id).first.email
+    %p
+      %strong "#{t(:comment)}:"
+      = comment.body
+
+= link_to "#{t(:all_images)}", controller: 'images'
+= link_to "#{t(:all_categories)}", controller: 'categories'
 -#= link_to 'Welcome', controller: 'welcome'

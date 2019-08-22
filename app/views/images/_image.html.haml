@@ -1,4 +1,4 @@
-%h2= link_to image.category.title, category_image_path(@category, image)
+%h2= link_to "#{t(:titul_image)} #{image.category.title}", category_image_path(@category, image)
 
 = image_tag(image.image.url, alt: 'Image') if image.image?
 

@@ -11,14 +11,18 @@
             = time_ago_in_words(category.created_at)
             = t(:ago)
           %td
+            = link_to "#{t(:add_image)}", create_my_image_path
+          %td
             - if current_user == category.user
               %p.delete-link "#{t(:destroy_category)}"
         %tr
-          %td{"colspan" => "3"}
+          %td{"colspan" => "4"}
             %p
               "#{category.title}"
         %tr
-          %td{"colspan" => "3"}
+          %td{"colspan" => "4"}
             - category.images.each do |image|
               = image_tag(image.image.url, alt: 'Image') if image.image?
-
+              = link_to "#{t(:destroy_image)}", image_path(image),
+                      method: :delete,
+                      data: { confirm: "#{t(:are_you_sure)}" }

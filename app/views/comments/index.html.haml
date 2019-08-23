@@ -1,4 +1,4 @@
-%h1= t(:comments)
+%h1= t(:all_comments)
 
 -#= render @comments
 
@@ -13,6 +13,6 @@
       %strong "#{t(:comment)}:"
       = comment.body
 
-= link_to "#{t(:all_images)}", controller: 'images'
-= link_to "#{t(:all_categories)}", controller: 'categories'
+-#= link_to "#{t(:all_images)}", controller: 'images'
+-#= link_to "#{t(:all_categories)}", controller: 'categories'
 -#= link_to 'Welcome', controller: 'welcome'

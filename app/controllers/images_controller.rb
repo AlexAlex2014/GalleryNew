@@ -8,8 +8,6 @@ class ImagesController < ApplicationController
                   .left_outer_joins(:comments, :likes).group("images.id")
                   .order("i DESC").page(params[:page])
     render index_img
-    # @category = Category.friendly.find(params[:category_id])
-    # @category_images = @images.where(:category_id => @category.id)
   end
 
   def index_img
@@ -19,28 +17,34 @@ class ImagesController < ApplicationController
   end
 
   def new
-    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
     @image = Image.new
   end
 
   def create
-    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
     @image = Image.new(image_params)
     @image.user_id = current_user.id
     if @image.save
-      redirect_to categories_path
+      redirect_to images_path
+    else
+      render :new
+    end
+  end
+
+  def create_my_image
+    @image = Image.new #(image_params)
+    # raise dd
+    @image.user_id = current_user.id
+    if @image.save
+      redirect_to profile_path(@image.user_id) #images_path
     else
       render :new
     end
   end
 
   def edit
-    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
   end
 
   def update
-    # @category_options = Category.all.map{|u| [ u.title, u.id ] }
-
     if @image.update_attributes(image_params)
       redirect_to image_path(@image)
     else

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   mount Resque::Server.new, at: "/resque"
 
-
   root 'static_pages#home'
 
   get 'categories/index', as: 'user_root'
@@ -19,6 +18,10 @@ Rails.application.routes.draw do
   get 'newsfeed' => 'users#newsfeed'
   get 'notifications' => 'users#notifications'
   post 'create_my_category' => 'categories#create_my_category'
+  post 'create_my_image' => 'images#create_my_image'
+  get 'create_my_image' => 'images#create_my_image'
+
+
 
   get 'profiles/:id' => 'profiles#show'
 
@@ -32,7 +35,7 @@ Rails.application.routes.draw do
 
   resources :image_loaders
 
-  resources :profiles, :only => [:edit, :update]
+  resources :profiles, :only => [:show, :edit, :update]
   resources :users, :only => [:index, :edit]
   resources :likes, :only => [:new, :create, :destroy]
   resources :subs, :only => [:new, :create, :destroy]

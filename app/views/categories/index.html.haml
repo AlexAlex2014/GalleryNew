@@ -1,25 +1,13 @@
+
 %h1= t(:listing_categories)
-= link_to "#{t(:new_category)}", new_category_path
-%table
-  %tr
-    %th
-    %th= "#{t(:title)}"
-    %th= "#{t(:text)}"
-    %th
-    %th
-    %th
-    %th
-
-  - @categories.each do |category|
-    %tr.post-box{"data-item_id" => "#{category.id}"}
-      %td= link_to(image_tag(@category_images[category].image.thumb.url, alt: 'Image'), category_path(category)) if @category_images.include?(category)
-      %td= category.title
-      %td= category.text
-      %td= render 'subs/sub_link', subable_type: "Category", item_c: category
-      %td= link_to "#{t(:show_category)}", category_path(category)
-      %td= link_to "#{t(:edit_category)}", edit_category_path(category)
-      %td.delete-link "#{t(:destroy_category)}"
-
-= link_to "#{t(:images)}"'Images', controller: 'images'
-= link_to "#{t(:comments)}"'Comments', controller: 'comments'
--#= link_to 'Welcome', controller: 'welcome'
+%p
+  = link_to "#{t(:new_category)}", new_category_path
+- @categories.each do |category|
+  .col-md-6
+    .post-box{"data-item_id" => "#{category.id}"}
+      %h3= link_to "#{category.title}", category_path(category)
+      = link_to(image_tag(@category_images[category].image.thumb.url, alt: 'Image'), category_path(category)) if @category_images.include?(category)
+      %p= category.text
+      %p= render 'subs/sub_link', subable_type: "Category", item_c: category
+      %p= link_to "#{t(:edit_category)}", edit_category_path(category)
+      %p.delete-link "#{t(:destroy_category)}"

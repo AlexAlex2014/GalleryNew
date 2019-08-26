@@ -1,4 +1,6 @@
 %h1= t(:all_images)
+%p= link_to "#{t(:add_image)}", new_image_path
+
 %div= paginate @images
 
 - @images.each do |image|
@@ -12,10 +14,9 @@
             data: { confirm: "#{t(:are_you_sure)}"}
 
 
-= link_to "#{t(:add_image)}", new_image_path
 
-= link_to "#{t(:categories)}", controller: 'categories'
-= link_to "#{t(:comments)}", controller: 'comments'
+-#= link_to "#{t(:categories)}", controller: 'categories'
+-#= link_to "#{t(:comments)}", controller: 'comments'
 -#= link_to 'Welcome', controller: 'welcome'
 
 %div= paginate @images

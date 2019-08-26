@@ -3,7 +3,7 @@
   - if @user == current_user
     = render 'shared/category_form'
   %h2
+    = t(:my_categories)
     = current_user.full_name
-    = t(:categories)
   = render '/shared/category_list'
 .col-md-2

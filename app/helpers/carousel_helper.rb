@@ -48,7 +48,7 @@ module CarouselHelper
         @category_name = value[0].title if value[1] == image
       end
 
-      content_tag(:h4, "Category <span>'#{@category_name}'</span> - it is the most popular category".html_safe, class: 'carousel-caption d-none d-md-block')
+      content_tag(:h4, "Category <span>'#{@category_name}'</span> #{I18n.translate(:most_popular)}".html_safe, class: 'carousel-caption d-none d-md-block')
       # raise ff
     end
 
@@ -56,6 +56,7 @@ module CarouselHelper
       options = {
           class: (is_active ? 'item active' : 'item'),
       }
+
 
       content_tag(:div, safe_join([image_tag(image.image.thumb_carousel.url), carousel_caption(image)]), options)
     end

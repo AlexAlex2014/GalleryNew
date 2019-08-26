@@ -14,7 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb_carousel do
-    process resize_to_fill: [840, 560]
+    process resize_to_fill: [840, 460]
   end
 
   version :thumb_all do

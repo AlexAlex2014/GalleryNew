@@ -31,8 +31,10 @@
 
 ru:
   welcome: "Добро пожаловать в галерею"
+  most_popular: "- это самая популярная категория"
   sign_in_with: "Войти в систему через"
   or: "ИЛИ"
+  my_categories: "Мои категории:"
   newsfeed: "Моя новостная лента"
   notifications: "Мои уведомления"
   unsubscription: "Отписка"

@@ -10,10 +10,12 @@
   %body
     = render "static_pages/static_header"
 
-    .container-fluid.carusel
+    %section.container-fluid.main_head
       %h1.center= t(:welcome)
       - static_pages = StaticPagesController.new
       = carousel_for(static_pages.image_urls)
+    %section
+      %h1 dddddddddd
 
     = yield
 

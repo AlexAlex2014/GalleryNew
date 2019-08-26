@@ -3,30 +3,19 @@ require 'resque/server'
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  # devise_for :users
   devise_for :users, :controllers => { registrations: "registrations", sessions: "sessions", passwords: "devise/passwords", omniauth_callbacks: "callbacks" }
 
   mount Resque::Server.new, at: "/resque"
 
   root 'static_pages#home'
-
   get 'categories/index', as: 'user_root'
-  # get 'imageloader/index'
-
-  # get 'welcome/index'
 
   get 'newsfeed' => 'users#newsfeed'
   get 'notifications' => 'users#notifications'
   post 'create_my_category' => 'categories#create_my_category'
   post 'create_my_image' => 'images#create_my_image'
   get 'create_my_image' => 'images#create_my_image'
-
-
-
   get 'profiles/:id' => 'profiles#show'
-
-  # get 'popular_category' => 'users#popular_category'
-
   get 'categories/index'
   get 'images/index'
   get 'comments/index'

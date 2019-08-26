@@ -31,8 +31,10 @@
 
 en:
   welcome: "Welcome to Gallery"
+  most_popular: "- it is the most popular category"
   sign_in_with: "Sign in with"
   or: "OR"
+  my_categories: "My Categories:"
   newsfeed: "My Newsfeed"
   notifications: "My Notifications"
   unsubscription: "Unsubscription"

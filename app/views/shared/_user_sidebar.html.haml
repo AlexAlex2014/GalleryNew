@@ -1,5 +1,5 @@
 .col-md-2
-  %h4= link_to "#{@user.full_name} #{t(:categories)}", profile_path(@user.id)
+  %h4= link_to "#{t(:my_categories)} #{@user.full_name}", profile_path(@user.id)
   %p
     %b= "#{t(:location)}:"
     = @user.profile.location

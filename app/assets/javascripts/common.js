@@ -19,12 +19,19 @@ $(document).ready(function() {
 
     $(".toggle_mnu").on('click', function () {
         if ($(".top_mnu").is(":visible")) {
+            $(".top_text").removeClass("h_opacify");
             $(".top_mnu").fadeOut(600);
-            $(".top_mnu li a").removeClass("fadeInUp animated")
+            $(".top_mnu li a").removeClass("fadeInUp animated");
         } else {
+            $(".top_text").addClass("h_opacify");
             $(".top_mnu").fadeIn(600);
-            $(".top_mnu li a").addClass("fadeInUp animated")
+            $(".top_mnu li a").addClass("fadeInUp animated");
         };
+    });
+
+    $('section h2').each(function() {
+        var ths = $(this);
+        ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));
     });
 });
 

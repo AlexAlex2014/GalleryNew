@@ -8,16 +8,22 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    -#.loader
+    -#  .loader_inner
     = render "static_pages/static_header"
 
     %section.container-fluid.main_head
-      %h1.center= t(:welcome)
-      - static_pages = StaticPagesController.new
-      = carousel_for(static_pages.image_urls)
-    %section
-      %h1 dddddddddd
+      .row
+        %h1.center= t(:welcome)
+        - static_pages = StaticPagesController.new
+        = carousel_for(static_pages.image_urls)
+    %section.container
+      .row
+        %h1 dddddddddd
 
-    = yield
+    %section.container
+      .row
+        = yield
 
     %p.notice= notice
     %p.alert= alert

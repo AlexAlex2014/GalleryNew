@@ -13,8 +13,20 @@
               = f.password_field :password, autocomplete: "off", id: "inputPassword", class: "signin-field", placeholder: "#{t(:password)}"
             .btn
               = f.button "#{t(:log_in)}"
-        %li{:class => "nav-item#{" active" if I18n.locale == :en}"}
+        %li{:class => "nav-item lang_mnu#{" active" if I18n.locale == :en}"}
           = link_to 'En', {locale: :en}, class: 'nav-link'
-        %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
+        %li{:class => "nav-item lang_mnu#{" active" if I18n.locale == :ru}"}
           = link_to 'Рус', {locale: :ru}, class: 'nav-link'
+        %li.nav-item
+          %button.toggle_mnu
+            %span.sandwich
+              %span.sw-topper
+              %span.sw-bottom
+              %span.sw-footer
+  %nav.top_mnu
+    %ul
+      %li
+        %a(href="#") The categories
+        %a(href="#") Registration
+        %a(href="#") Contacts
 

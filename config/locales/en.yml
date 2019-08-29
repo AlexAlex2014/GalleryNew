@@ -32,13 +32,15 @@
 en:
   welcome: "Welcome to Gallery"
   most_popular: "- it is the most popular category"
-  sign_in_with: "Sign in with"
+  sign_up_in_with: "Sign up/in with"
+  sign_up: "Sign up"
   or: "OR"
   my_categories: "My Categories:"
   newsfeed: "My Newsfeed"
   notifications: "My Notifications"
   unsubscription: "Unsubscription"
   subscription: "Subscription"
+  review: "Feedback from our users"
 
   first_name: 'First Name'
   last_name: 'Last Name'

@@ -1,21 +1,14 @@
-
 - flash.each do |key, value|
   %div{:class => "#{flash_class(key)}"}
     = value
--#.col-md-6.welcome-box
--#  .welcome-message
--#    %h2.center= t(:welcome)
-.col-md-6
-.col-md-6.welcome_box.signin_box
-  %br/
-  %br/
-  %p.center
+
+.col-md-5.col-md-offset-7.col-sm-6.col-sm-offset-6.welcome_box.signin_box
+  %h3.formhead= t(:sign_up)
+  %p.button
     - if devise_mapping.omniauthable?
       - resource_class.omniauth_providers.each do |provider|
-        = link_to "#{t(:sign_in_with)} #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+        = link_to "#{t(:sign_up_in_with)} #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
         %br/
-  %br/
   %p.center
     %em= t(:or)
-  %br/
   = render "static_pages/sing_up_form"

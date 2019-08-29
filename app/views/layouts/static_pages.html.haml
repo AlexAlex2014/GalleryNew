@@ -9,11 +9,10 @@
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
-    %script(src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js")
+    %script(src="https://kit.fontawesome.com/d7c798451e.js")
   %body
-    -#.loader
-    -#  .loader_inner
+    .loader
+      .loader_inner
     = render "static_pages/static_header"
 
     .main_head
@@ -55,13 +54,60 @@
               %img(src="/categories/fotorama/14.jpg" alt="Foto's gallery")
               %img(src="/categories/fotorama/15.jpg" alt="Foto's gallery")
               %img(src="/categories/fotorama/16.jpg" alt="Foto's gallery")
-
-
-
-    %section
+    %section.s-call.inverse(id="sing_up" style="background-image: url(/categories/5.jpg);")
       .container
         .row
           = yield
+    %section.s-review.inverse.section-overley(id="review" style="background-image: url(/categories/55.jpg);")
+      .container
+        .row
+          .col-sm-12
+            %h2.text-center.h-first= "#{t(:review)}"
+          .col-sm-8.col-sm-offset-2
+            .quotes
+              #carouselExp.carousel.slide.reviews{"data-ride" => "carousel"}
+                %ol.carousel-indicators
+                  %li.active{"data-slide-to" => "0", "data-target" => "#carouselExp"}
+                  %li{"data-slide-to" => "1", "data-target" => "#carouselExp"}
+                  %li{"data-slide-to" => "2", "data-target" => "#carouselExp"}
+                .carousel-inner
+                  .item.active
+                    .review_header Julia
+                    .review_date 29.08.2019
+                    .review_stars
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                    .review_text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  .item
+                    .review_header Alexandra
+                    .review_date 25.07.2019
+                    .review_stars
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                      %i.fa.fa-star
+                    .review_text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  .item
+                    .review_header Victoria
+                    .review_date 23.06.2019
+                    .review_stars
+                      %i.fas.fa-star
+                      %i.fas.fa-star
+                      %i.fas.fa-star
+                      %i.fas.fa-star
+                      %i.fas.fa-star
+                    .review_text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                -#%a.left.carousel-control{"data-slide" => "prev", href: "#carouselExp", role: "button"}
+                -#  %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+                -#  %span.sr-only Previous
+                -#%a.right.carousel-control{"data-slide" => "next", href: "#carouselExp", role: "button"}
+                -#  %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+                -#  %span.sr-only Next
+
 
     %p.notice= notice
     %p.alert= alert

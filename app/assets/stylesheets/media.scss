@@ -10,7 +10,23 @@
     }
   }
 }
-  @media only screen and (max-width: 670px) {
+@media only screen and (max-width: 767px) {
+  .s {
+    &-call {
+      &::before {
+        content: '';
+        width: 100%;
+      }
+      p.button {
+        a {
+          width: 65%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 670px) {
   .top_center > .top_text > h1 {
     font-size: 27px;
     font-weight: bold;
@@ -18,7 +34,6 @@
     padding: 10px 20px;
     margin: 0 70px 0 70px;
     border: 6px solid #fff;
-
   }
 }
 @media only screen and (max-width: 480px) {
@@ -31,10 +46,22 @@
   }
   .fotorama__nav {
     &-wrap {
-      //position: absolute;
       bottom: 0;
       padding: 0 10px;
-      //width: 100%;
     }
+  }
+
+  .s {
+    &-call {
+      p.button {
+        a {
+          width: 75%;
+        }
+      }
+    }
+  }
+
+  form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
+    width: calc(100% - 22px);
   }
 }

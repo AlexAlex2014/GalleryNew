@@ -121,7 +121,7 @@ section,
 }
 
 section {
-  padding: 50px 0;
+  padding: 0;
   h2 {
     text-align: center;
   }
@@ -151,7 +151,7 @@ section {
 }
 
 .signin_box {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .signup-name {
@@ -425,7 +425,7 @@ section {
     font-size: 30px;
     font-weight: 800;
     text-transform: uppercase;
-    color: #ff9e27;
+    color: #DDB542;
     span {
       color: #FFFFFF;
     }
@@ -433,13 +433,59 @@ section {
 }
 
 .s {
-  &-king, &-partners {
-    padding: 5% 0;
+  &-king, &-review {
+    padding: 5% 0 3% 0;
   }
   &-king {
+    background-repeat: repeat-x;
+    object-fit: cover;
     p {
       margin: 30px 0;
     }
+  }
+  &-call {
+    background-repeat: no-repeat;
+    object-fit: cover;
+    &::before {
+      content: '';
+      width: 50%;
+      right: 0;
+      top: 0;
+      height: 100%;
+      position: absolute;
+      background-color: rgba(#DDB542, .92);
+    }
+    p.button {
+      margin: 40px 20px 0 20px;
+      a {
+        display: block;
+        text-decoration: none;
+        margin: 0 auto;
+        border-radius: 50px;
+        color: #555555;
+        width: 55%;
+        padding: 5px 10px;
+        text-align: center;
+        background-color: #fff;
+        transition: all 0.2s;
+        &:hover {
+          color: #000;
+          background-color: #a9a9a9;
+        }
+      }
+    }
+    p.em {
+      font-weight: bold;
+    }
+    .btn {
+      margin: 15px 0;
+    }
+  }
+  &-review {
+    //background-size: contain;
+    background-repeat: repeat-x;
+    object-fit: cover;
+    //width: 100%;
   }
 }
 
@@ -471,14 +517,114 @@ section {
   border: 5px #fff solid;
   transition: border-color .5s ease;
   &-border {
-    border: #c06a00 5px solid;
+    border: #ddb542 5px solid;
     width: 100px;
     height: 54px;
   }
 }
 /*--end About    */
 
+/* Sing_up */
+.callback {
+  //padding: 25% 0;
+  position: relative;
+}
+.formhead {
+  margin: 0;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
 
+/*--end Sing_up ---*/
 
+/* Review */
+.quotes .carousel,
+.quotes .carousel .carousel-inner,
+.quotes .carousel .carousel-inner .item {
+  height: 100%;
+}
+.quotes .carousel,
+.quotes .carousel .carousel-inner,
+.quotes .carousel .carousel-inner .item .active {
+  height: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.reviews {
+  text-align: center;
+}
+.quotes {
+  position: relative;
+  width: 100%;
+  &::before, &::after {
+    content: ',,';
+    top: 44px;
+    position: absolute;
+    font-size: 56px;
+    color: #ddb542;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    line-height: 0;
+    transform: rotate(180deg);
+    display: block;
+  }
+  &::before {
+    top: 80px;
+    left: -60px;
+  }
+  &::after {
+    right: -60px;
+    transform: rotate(0);
+  }
+}
+
+.carousel-indicators > li {
+  //width: 100%;
+  text-align: center;
+  //margin-top: 60px;
+  background-color: #fff;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 11px;
+  box-shadow: none;
+  &.active {
+    background-color: #ddb542;
+    transform: scale(1.3);
+  }
+}
+
+.quotes .item {
+  margin-top: 20px;
+  .review_header {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .review_date {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 15px;
+    margin-top: 2px;
+    color: #999;
+  }
+  .review_stars {
+    margin: 18px 0 30px;
+    font-size: 14px;
+    color: #ddb542;
+  }
+  .review_text {
+    color: #959595;
+  }
+}
+
+/*--end Review ---*/
 
 

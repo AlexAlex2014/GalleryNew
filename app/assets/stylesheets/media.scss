@@ -10,6 +10,13 @@
     }
   }
 }
+
+@media only screen and (max-width: 991px) {
+  .post-box {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .s {
     &-call {
@@ -24,6 +31,9 @@
       }
     }
   }
+  .spacer {
+    height: 100px;
+  }
 }
 
 @media only screen and (max-width: 670px) {
@@ -34,6 +44,13 @@
     padding: 10px 20px;
     margin: 0 70px 0 70px;
     border: 6px solid #fff;
+  }
+  .post-box {
+    // width: 85%;
+  }
+  .wrapper_block {
+    display: flex;
+    flex-direction: column;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -50,6 +67,9 @@
       padding: 0 10px;
     }
   }
+  .post-box {
+    width: 100%;
+  }
 
   .s {
     &-call {
@@ -63,5 +83,14 @@
 
   form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
     width: calc(100% - 22px);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper_block {
+    .categor_wrap a img {
+      width: 230px;
+
+    }
   }
 }

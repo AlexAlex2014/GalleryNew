@@ -1,20 +1,30 @@
-%header.navbar.navbar-fixed-top.navbar-inverse
+%header.navbar.navbar-fixed-top
   .container
-    = link_to "#{t(:app_name)}", root_path, id: "logo"
-    %nav
-      %ul.nav.navbar-nav.navbar-right.nav-pills
-        -#%li= link_to "Find Friends", users_path, class: "header-link"
-        %li= link_to "#{t(:all_comments)}", comments_path, class: "header-link"
+    .row
+      .col-md-6.col-sm-6
+        = link_to "#{t(:home_page)}", root_path, id: "logo"
+        %nav
+          %ul.nav.navbar-nav.navbar-right.nav-pills
+            %li= select(:category, :user_id, @category_options_sort, {prompt: "#{t(:popular_category)}"}, {:class => 'custTag'})
+      .col-md-6.col-sm-6
+        %nav
+          %ul.nav.navbar-nav.navbar-right.nav-pills
+            %li
+              = link_to "#{t(:sign_out)}", destroy_user_session_path, method: :delete, class: "header-link"
+            %li{:class => "nav-item#{" active" if I18n.locale == :en}"}
+              = link_to 'En', {locale: :en}, class: 'nav-link'
+            %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
+              = link_to 'Рус', {locale: :ru}, class: 'nav-link'
+            %li.nav-item
+              %button.toggle_mnu
+                %span.sandwich
+                  %span.sw-topper
+                  %span.sw-bottom
+                  %span.sw-footer
 
-        %li= link_to "#{t(:all_images)}", images_path, class: "header-link"
-
-        %li= link_to "#{t(:all_categories)}", categories_path, class: "header-link"
-
-        %li= link_to select(:category, :user_id, @category_options_sort, {prompt: "#{t(:popular_category)}"}, {:class => 'custTag'})
-
+    %nav.top_mnu
+      %ul
         %li
-          = link_to "#{t(:sign_out)}", destroy_user_session_path, method: :delete, class: "header-link"
-        %li{:class => "nav-item#{" active" if I18n.locale == :en}"}
-          = link_to 'En', {locale: :en}, class: 'nav-link'
-        %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
-          = link_to 'Рус', {locale: :ru}, class: 'nav-link'
+          = link_to "#{t(:all_comments)}", comments_path, class: "header-link"
+          = link_to "#{t(:all_images)}", images_path, class: "header-link"
+          = link_to "#{t(:all_categories)}", categories_path, class: "header-link"

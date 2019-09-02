@@ -31,6 +31,7 @@
 
 ru:
   welcome: "Добро пожаловать в галерею"
+  the_category: "Категория "
   most_popular: "- это самая популярная категория"
   sign_up_in_with: "Зарегистрироваться/Войти в систему через"
   sign_up: "Регистрация"
@@ -40,6 +41,7 @@ ru:
   notifications: "Мои уведомления"
   unsubscription: "Отписка"
   subscription: "Подписка"
+  about: "О галереи"
   review: "Отзывы наших пользователей"
 
   first_name: 'Имя'

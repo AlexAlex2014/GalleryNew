@@ -30,7 +30,7 @@
       .container
         .row
           .col-md-12
-            %h2 About The Gallery
+            %h2= "#{t(:about)}"
         .row
           .col-lg-5.col-md-12
             %h3 The Gallery is
@@ -101,13 +101,20 @@
                       %i.fas.fa-star
                       %i.fas.fa-star
                     .review_text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                -#%a.left.carousel-control{"data-slide" => "prev", href: "#carouselExp", role: "button"}
-                -#  %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
-                -#  %span.sr-only Previous
-                -#%a.right.carousel-control{"data-slide" => "next", href: "#carouselExp", role: "button"}
-                -#  %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
-                -#  %span.sr-only Next
+    %footer.main_footer.bg_dark
+      .container
+        .row
+          .col-md-12
+            &copy; 2019 Alex Alex
+            .social_wrap
+              %ul
+                %li
+                  %a(href="#" target="_blank")
+                    %i.fab.fa-facebook
+                    %i.fab.fa-twitter
+                    %i.fab.fa-vk
+                    %i.fab.fa-github
 
 
-    %p.notice= notice
-    %p.alert= alert
+    -#%p.notice= notice
+    -#%p.alert= alert

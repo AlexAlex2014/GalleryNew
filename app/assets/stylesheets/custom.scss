@@ -63,6 +63,7 @@
   box-shadow: rgba(0,0,0, .3);
   background-color: rgba(0,0,0, .4);
   margin: 0 90px 0 90px;
+  animation-delay: 1s;
 }
 
 .h_opacify {
@@ -110,6 +111,45 @@ form button {
 .navbar-nav > li > a {
   color: #fff !important;
 }
+
+header {
+  nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      .lang_mnu.active {
+        background-color: darken(#646464, 20%);
+        font-weight: bold;
+      }
+      li.lang_mnu {
+        margin-right: 5px;
+        list-style-type: none;
+
+        a {
+          display: flex;
+          //text-align: center;
+          height: 100%;
+          color: #FFFFFF;
+          text-transform: uppercase;
+          align-items: center;
+          justify-content: center;
+
+          //margin: auto;
+        }
+        a:hover {
+          background-color: lighten(#646464, 10%);
+          font-weight: bold;
+          color: #FFFFFF;
+
+        }
+      }
+    }
+  }
+}
+//.top_mnu ul {
+//
+//}
 
 .navbar-nav > .active > a {
   background-color: #555555 !important;
@@ -279,8 +319,8 @@ h4 > span {
 }
 .lang_mnu {
   background-color: #646464;
-  width: 50px;
-  height: 50px;
+  width: 49px;
+  height: 49px;
   float: right;
   position: relative;
   z-index: 10;
@@ -289,8 +329,8 @@ h4 > span {
 }
 .toggle_mnu {
   background-color: #646464;
-  width: 50px;
-  height: 50px;
+  width: 49px;
+  height: 49px;
   float: right;
   position: relative;
   z-index: 100;
@@ -390,9 +430,12 @@ $h: 3px;
   margin: 0;
 }
 .top_mnu > ul {
-  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
   text-align: center;
 }
+
 .top_mnu a {
   color: #fff;
   display: block;
@@ -434,7 +477,7 @@ section {
 
 .s {
   &-king, &-review {
-    padding: 5% 0 3% 0;
+    padding: 5% 0;
   }
   &-king {
     background-repeat: repeat-x;
@@ -552,6 +595,10 @@ section {
   height: 100%;
 }
 
+.quotes .carousel-indicators {
+  bottom: -50px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -601,7 +648,7 @@ section {
 }
 
 .quotes .item {
-  margin-top: 20px;
+  margin-top: 0;
   .review_header {
     font-family: 'Times New Roman', serif;
     font-style: italic;
@@ -624,7 +671,39 @@ section {
     color: #959595;
   }
 }
-
 /*--end Review ---*/
 
+/* Footer */
+
+.main_footer {
+  padding: 50px 0;
+  font-size: 13px;
+  font-weight: 300;
+  color: #DADADA;
+  .social_wrap {
+    float: right;
+    line-height: 0;
+    ul {
+      margin: 0;
+      li {
+        list-style-type: none;
+        a {
+          text-decoration: none;
+          color: #ddb542;
+          i {
+            padding-right: 7px;
+          }
+          i:hover {
+            color: darken(#ddb542, 20%);
+          }
+        }
+      }
+    }
+  }
+}
+.bg_dark {
+  background-color: #333;
+}
+
+/*--end Footer ---*/
 

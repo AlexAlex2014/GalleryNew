@@ -1,32 +1,35 @@
 %header.navbar.navbar-fixed-top
   .container
-    = link_to "#{t(:app_name)}", root_path, id: "logo"
-    %nav
-      %ul.nav.navbar-nav.navbar-right.nav-pills.d-flex.align-items-center.justify-content-center
-        %li.nav-item
-          = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-inline'})do |f|
-            .form-group
-              = f.label :email, class: "sr-only"
-              %li= f.email_field :email, autofocus: true, id: "inputEmail", class: " signin-field",  placeholder: "#{t(:email)}"
-            .form-group
-              = f.label :password, class: "sr-only"
-              = f.password_field :password, autocomplete: "off", id: "inputPassword", class: "signin-field", placeholder: "#{t(:password)}"
-            .btn
-              = f.button "#{t(:log_in)}"
-        %li{:class => "nav-item lang_mnu#{" active" if I18n.locale == :en}"}
-          = link_to 'En', {locale: :en}, class: 'nav-link'
-        %li{:class => "nav-item lang_mnu#{" active" if I18n.locale == :ru}"}
-          = link_to 'Рус', {locale: :ru}, class: 'nav-link'
-        %li.nav-item
-          %button.toggle_mnu
-            %span.sandwich
-              %span.sw-topper
-              %span.sw-bottom
-              %span.sw-footer
+    .row
+      .col-md-6
+        = link_to "#{t(:app_name)}", root_path, id: "logo", class: "logo"
+      .col-md-6
+        %nav
+          %ul
+            %li{:class => "lang_mnu#{" active" if I18n.locale == :en}"}
+              = link_to 'En', {locale: :en}
+            %li{:class => "lang_mnu#{" active" if I18n.locale == :ru}"}
+              = link_to 'Рус', {locale: :ru}
+            %li.nav-item
+              %button.toggle_mnu
+                %span.sandwich
+                  %span.sw-topper
+                  %span.sw-bottom
+                  %span.sw-footer
   %nav.top_mnu
     %ul
+      %li.nav-item
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-inline'})do |f|
+          .form-group
+            = f.label :email, class: "sr-only"
+            %li= f.email_field :email, autofocus: true, id: "inputEmail", class: " signin-field",  placeholder: "#{t(:email)}"
+          .form-group
+            = f.label :password, class: "sr-only"
+            = f.password_field :password, autocomplete: "off", id: "inputPassword", class: "signin-field", placeholder: "#{t(:password)}"
+          .btn
+            = f.button "#{t(:log_in)}"
       %li
-        %a(href="#") The categories
-        %a(href="#") Registration
-        %a(href="#") Contacts
+        %a(href="#about")= "#{t(:about)}"
+        %a(href="#sing_up")= t(:sign_up)
+        %a(href="#review")= "#{t(:review)}"
 

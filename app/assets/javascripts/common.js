@@ -1,5 +1,8 @@
 $(document).on('turbolinks:load', function() {
     $(document).ready(function() {
+        // const element =  document.querySelector('.top_text h1');
+        // element.classList.add('animated', 'fadeInDown');
+
         function heightDetect() {
             $(".main_head").css("height", $(window).height());
         };
@@ -34,6 +37,8 @@ $(document).on('turbolinks:load', function() {
             var ths = $(this);
             ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));
         });
+
+        $(".top_mnu ul a").mPageScroll2id();
     });
 });
 

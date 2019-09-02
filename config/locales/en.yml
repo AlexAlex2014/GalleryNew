@@ -31,6 +31,7 @@
 
 en:
   welcome: "Welcome to Gallery"
+  the_category: "The Category "
   most_popular: "- it is the most popular category"
   sign_up_in_with: "Sign up/in with"
   sign_up: "Sign up"
@@ -40,6 +41,7 @@ en:
   notifications: "My Notifications"
   unsubscription: "Unsubscription"
   subscription: "Subscription"
+  about: "About The Gallery"
   review: "Feedback from our users"
 
   first_name: 'First Name'

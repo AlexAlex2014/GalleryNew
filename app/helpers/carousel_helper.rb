@@ -5,7 +5,7 @@ module CarouselHelper
 
   class Carousel
     def initialize(view, category_images)
-      @view, = view
+      @view = view
       @category_images = category_images
       @images = category_images.values
       @uid = SecureRandom.hex(6)
@@ -48,7 +48,7 @@ module CarouselHelper
         @category_name = value[0].title if value[1] == image
       end
 
-      content_tag(:h4, "Category <span>'#{@category_name}'</span> #{I18n.translate(:most_popular)}".html_safe, class: 'carousel-caption d-none d-md-block')
+      content_tag(:h4, "#{I18n.translate(:the_category)}<span>'#{@category_name}'</span> #{I18n.translate(:most_popular)}".html_safe, class: 'carousel-caption d-none d-md-block')
       # raise ff
     end
 

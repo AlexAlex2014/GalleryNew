@@ -73,8 +73,8 @@
 
 #logo {
   float: left;
-  margin-left: 30px;
-  font-size: 2.3em;
+  margin-left: 0px;
+  font-size: 2em;
   color: white;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -87,7 +87,7 @@
 
 .navbar {
   background-color: #999999 !important;
-  height: 50px;
+  height: auto;
 }
 
 .header_link {
@@ -203,7 +203,7 @@ section {
 }
 
 .spacer {
-  height: 30px;
+  height: 50px;
 }
 
 .post-box {
@@ -212,6 +212,9 @@ section {
   background-color: white;
   margin-top: 25px;
   border-radius: 5px;
+  h3 {
+    margin: 15px 10px;
+  }
 }
 
 .post-form-container {
@@ -674,7 +677,6 @@ section {
 /*--end Review ---*/
 
 /* Footer */
-
 .main_footer {
   padding: 50px 0;
   font-size: 13px;
@@ -704,6 +706,15 @@ section {
 .bg_dark {
   background-color: #333;
 }
-
 /*--end Footer ---*/
 
+/* All Categories */
+.wrapper_block {
+  display: flex;
+  flex-direction: row;
+  .categor_wrap {
+    margin: 0 10px;
+  }
+}
+
+/*--end All Categories ---*/

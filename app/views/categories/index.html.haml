@@ -3,11 +3,14 @@
 %p
   = link_to "#{t(:new_category)}", new_category_path
 - @categories.each do |category|
-  .col-md-6
+  .col-md-12
     .post-box{"data-item_id" => "#{category.id}"}
-      %h3= link_to "#{category.title}", category_path(category)
-      = link_to(image_tag(@category_images[category].image.thumb.url, alt: 'Image'), category_path(category)) if @category_images.include?(category)
-      %p= category.text
-      %p= render 'subs/sub_link', subable_type: "Category", item_c: category
-      %p= link_to "#{t(:edit_category)}", edit_category_path(category)
-      %p.delete-link "#{t(:destroy_category)}"
+      %h3= link_to "#{t(:titul_image)} '#{category.title}'", category_path(category)
+      .wrapper_block
+        .categor_wrap
+          = link_to(image_tag(@category_images[category].image.thumb.url, alt: 'Image'), category_path(category)) if @category_images.include?(category)
+        .categor_wrap
+          %p= category.text
+          .sub_link= render 'subs/sub_link', subable_type: "Category", item_c: category
+          = link_to "#{t(:edit_category)}", edit_category_path(category)
+          %a.delete-link "#{t(:destroy_category)}"

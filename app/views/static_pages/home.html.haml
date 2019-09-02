@@ -8,7 +8,6 @@
     - if devise_mapping.omniauthable?
       - resource_class.omniauth_providers.each do |provider|
         = link_to "#{t(:sign_up_in_with)} #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
-        %script(src='https://www.google.com/recaptcha/api.js')
         %br/
   %p.center
     %em= t(:or)

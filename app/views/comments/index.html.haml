@@ -3,8 +3,8 @@
 -#= render @comments
 
 - @comments.each do |comment|
-  %div
-    %h2 "#{t(:titul_image)} #{comment.image.category.title}"
+  .comments
+    %h3 "#{t(:titul_image)} #{comment.image.category.title}"
     = image_tag(comment.image.image.thumb.url, alt: 'Image') if comment.image.image?
     %p
       %strong "#{t(:commenter)}:"

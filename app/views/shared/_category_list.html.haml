@@ -7,6 +7,7 @@
           %td.post-header
             = link_to category.user.full_name, profile_path(category.user.id)
             = t(:posted)
+        %tr
           %td
             = time_ago_in_words(category.created_at)
             = t(:ago)
@@ -18,7 +19,7 @@
         %tr
           %td{"colspan" => "4"}
             %p
-              "#{category.title}"
+              "#{t(:the_category)}: #{category.title}"
         %tr
           %td{"colspan" => "4"}
             - category.images.each do |image|

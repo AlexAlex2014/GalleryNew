@@ -1,4 +1,18 @@
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 1200px) {
+  nav > ul > li > select {
+    margin-left: 200px;
+  }
+  td,
+  .images,
+  .category_img {
+    img {
+      width: 930px;
+      object-fit: cover;
+    }
+  }
+}
+
+  @media only screen and (max-width: 1200px) {
   .s {
     &-king, &-partners {
       padding: 8% 0;
@@ -9,11 +23,33 @@
       }
     }
   }
+  nav > ul > li > select {
+    margin-left: 150px;
+  }
+  td,
+  .images,
+  .category_img {
+    img {
+      width: 750px;
+      object-fit: cover;
+    }
+  }
 }
 
 @media only screen and (max-width: 991px) {
   .post-box {
     width: 100%;
+  }
+  nav > ul > li > select {
+    margin-left: 35px;
+  }
+  td,
+  .images,
+  .category_img {
+    img {
+      width: 710px;
+      object-fit: cover;
+    }
   }
 }
 
@@ -34,6 +70,10 @@
       }
     }
   }
+
+  .navbar-nav {
+    margin: 7.5px 0;
+  }
   .quotes {
     &::before, &::after {
       display: none;
@@ -41,6 +81,14 @@
   }
   .spacer {
     height: 100px;
+  }
+  td,
+  .images,
+  .category_img {
+    img {
+      width: 610px;
+      object-fit: cover;
+    }
   }
 }
 
@@ -60,6 +108,17 @@
     display: flex;
     flex-direction: column;
   }
+  td,
+  .images,
+  .category_img {
+    img {
+      width: 410px;
+      object-fit: cover;
+    }
+  }
+  //form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
+  //  width: calc(100% - 22px);
+  //}
 }
 @media only screen and (max-width: 480px) {
   .top_center > .top_text > h1 {
@@ -69,9 +128,9 @@
     margin: 0 40px 0 40px;
   }
   #logo {
-    margin-left: 15px;
+    margin-left: 0;
     font-size: 1.8em;
-    padding-top: 4px;
+    padding-top: 0;
   }
   .carousel-caption {
     font-size: 16px;
@@ -95,7 +154,6 @@
       }
     }
   }
-
   .main_footer {
     text-align: left;
   }
@@ -107,15 +165,46 @@
   .main_footer .social_wrap ul {
     padding-left: 0;
   }
-    form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
-    width: calc(100% - 22px);
-  }
+  //  form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
+  //  width: calc(100% - 22px);
+  //}
 }
 
 @media only screen and (max-width: 480px) {
   .wrapper_block {
     .categor_wrap a img {
       width: 230px;
+    }
+  }
+  .section {
+    h1 {
+      font-size: 30px;
+    }
+  }
+  .post-box {
+    padding: 0;
+    h3 {
+      font-size: 18px;
+    }
+  }
+  .comments {
+    img {
+      width: 290px;
+      object-fit: cover;
+    }
+  }
+  .images {
+    img {
+      width: 290px;
+      object-fit: cover;
+    }
+  }
+  td,
+  .images,
+  .category_img {
+    img {
+      width: 280px;
+      object-fit: cover;
     }
   }
 }

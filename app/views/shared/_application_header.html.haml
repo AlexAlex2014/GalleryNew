@@ -4,7 +4,7 @@
       .col-md-6.col-sm-6
         = link_to "#{t(:home_page)}", root_path, id: "logo"
         %nav
-          %ul.nav.navbar-nav.navbar-right.nav-pills
+          %ul.nav.navbar-nav
             %li= select(:category, :user_id, @category_options_sort, {prompt: "#{t(:popular_category)}"}, {:class => 'custTag'})
       .col-md-6.col-sm-6
         %nav

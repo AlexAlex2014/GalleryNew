@@ -1,11 +1,9 @@
 .post-box
   %table.post-table
     %tr
-      / <td class="post-header"><haml_silent></haml_silent> posted:</td>
-    %tr
       %td
         = time_ago_in_words(category.created_at)
         = t(:ago)
   %br/
   %p
-    "#{@categories.where("id = '#{category.subable_id}'").first.title}"
+    "#{t(:the_category)}: #{@categories.where("id = '#{category.subable_id}'").first.title}"

@@ -77,12 +77,15 @@
   font-size: 2em;
   color: white;
   letter-spacing: -1px;
-  padding-top: 9px;
+  //padding-top: 9px;
   font-weight: bold;
   &:hover {
     color: white;
     text-decoration: none;
   }
+}
+nav ul li select {
+  margin-top: 5px;
 }
 
 .navbar {
@@ -101,6 +104,11 @@ select {
 .container > form {
   margin-top: 63px;
 }
+
+form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
+  width: calc(100% - 22px);
+}
+
 form input {
   //width: 90% !important;
 }
@@ -246,7 +254,7 @@ section {
 }
 
 textarea {
-  border: none;
+  //border: none;
   resize: none;
 }
 

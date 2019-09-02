@@ -1,7 +1,6 @@
-%h2= link_to "#{t(:titul_image)} #{image.category.title}", category_image_path(@category, image)
-
-= image_tag(image.image.url, alt: 'Image') if image.image?
-
+%h3= link_to "#{t(:titul_image)} #{image.category.title}", category_image_path(@category, image)
+.category_img
+  = image_tag(image.image.url, alt: 'Image') if image.image?
 = link_to "#{t(:destroy_image)}", image_path(image),
         method: :delete,
         data: { confirm: "#{t(:are_you_sure)}" }

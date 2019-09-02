@@ -4,8 +4,8 @@
 %div= paginate @images
 
 - @images.each do |image|
-  %div
-    %h2= link_to "#{t(:titul_image)} #{image.category.title}", image_path(image)
+  .images
+    %h3= link_to "#{t(:titul_image)} #{image.category.title}", image_path(image)
 
     = image_tag(image.image.thumb_all.url, alt: 'Image') if image.image?
 

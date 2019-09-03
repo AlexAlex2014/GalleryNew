@@ -51,8 +51,8 @@ class User < ApplicationRecord
     Category.where("user_id = :user_id", user_id: self.id)
   end
 
-  def send_welcome_email()
-    user = self
-    Resque.enqueue(WelcomeEmailJob, user)
-  end
+  # def send_welcome_email()
+  #   user = self
+  #   Resque.enqueue(WelcomeEmailJob, user)
+  # end
 end

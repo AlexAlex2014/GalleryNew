@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # validates :first_name, :last_name, :email, presence: true
   
   after_create :create_profile
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   has_one :profile, dependent: :destroy
   has_many :categories, dependent: :destroy

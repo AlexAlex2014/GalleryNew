@@ -14,8 +14,11 @@ namespace :setup do
             u = Image.new
             u.image = file
             u.body = dir
+            # byebug
             u.category_id = @dir_name[:id]
             u.save!
+            # byebug
+
           end
         end
       end

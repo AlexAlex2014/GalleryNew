@@ -14,9 +14,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
 
-  def cache_dir
-    "#{Rails.root}/tmp/uploads"
-  end
+  # def cache_dir
+  #   "#{Rails.root}/tmp/uploads"
+  # end
 
 
   version :thumb_carousel do

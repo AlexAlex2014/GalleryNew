@@ -6,7 +6,6 @@ require 'resque/server'
 run Rails.application
 # run Rack::URLMap.new "/" => AppGallery::Application,  "/resque" => Resque::Server.new
 
-# require ::File.expand_path('../config/environment',  __FILE__)
-# use Rack::Static, :urls => ['/carrierwave'], :root => 'tmp' # adding this line
-# run YourApplicationName::Application
-#
+require ::File.expand_path('../config/environment',  __FILE__)
+use Rack::Static, :urls => ['/carrierwave'], :root => 'tmp' # adding this line
+run YourApplicationName::Application

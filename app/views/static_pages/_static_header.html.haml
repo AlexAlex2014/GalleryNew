@@ -19,7 +19,7 @@
   %nav.top_mnu
     %ul
       %li.nav-item
-        = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-inline'})do |f|
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-inline', id: 'user_sing_in'})do |f|
           .form-group
             = f.label :email, class: "sr-only"
             %li= f.email_field :email, autofocus: true, id: "inputEmail", class: " signin-field",  placeholder: "#{t(:email)}"

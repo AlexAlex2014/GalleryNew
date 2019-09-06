@@ -58,7 +58,7 @@ module CarouselHelper
       }
 
 
-      content_tag(:div, safe_join([image_tag(image.image.thumb_carousel.url), carousel_caption(image)]), options)
+      content_tag(:div, safe_join([image_tag(image.image.thumb_carousel.url, alt: "Slider's gallery"), carousel_caption(image)]), options)
     end
 
     def controls

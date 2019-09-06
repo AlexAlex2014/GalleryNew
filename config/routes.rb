@@ -1,4 +1,5 @@
 require 'resque/server'
+require "resque_web"
 
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: "registrations", sessions: "sessions", passwords: "devise/passwords", omniauth_callbacks: "callbacks" }
 
   mount Resque::Server.new, at: "/resque"
+  mount ResqueWeb::Engine => "/resque_web"
 
   root 'static_pages#home'
   get 'categories/index', as: 'user_root'

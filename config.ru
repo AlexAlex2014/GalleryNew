@@ -3,7 +3,7 @@
 require_relative 'config/environment'
 require 'resque/server'
 
-# run Rack::URLMap.new "/" => AppGallery::Application,  "/resque" => Resque::Server.new
+run Rack::URLMap.new "/" => AppGallery::Application,  "/resque" => Resque::Server.new
 
 # require ::File.expand_path('../config/environment',  __FILE__)
 # use Rack::Static, :urls => ['/carrierwave'], :root => 'tmp' # adding this line

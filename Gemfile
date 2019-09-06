@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'twitter-bootstrap-rails'
+
 gem 'i18n', '~> 1.6'
 gem 'rails-i18n'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
@@ -56,8 +58,11 @@ gem 'omniauth-facebook'
 gem 'redis'
 gem 'redis-namespace'
 gem 'resque', require: 'resque/server'
+gem 'resque-web', require: 'resque_web'
 gem 'pusher', '~> 1.3', '>= 1.3.3'
 gem 'recaptcha', '~> 5.0'
+
+gem 'execjs'
 
 gem 'capybara', '~> 3.25'
 gem 'selenium-webdriver', '~> 3.142', '>= 3.142.3'

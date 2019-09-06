@@ -18,5 +18,4 @@ class Sub < ApplicationRecord
     sub = self
     Resque.enqueue(SubEmailJob, sub)
   end
-
 end

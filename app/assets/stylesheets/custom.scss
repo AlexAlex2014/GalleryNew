@@ -104,7 +104,7 @@
   margin-left: 0;
   font-size: 50px;
   color: #ddb542;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   //padding-top: 9px;
   font-weight: bold;
   &:hover {
@@ -150,7 +150,7 @@ form button {
 
 header {
   nav {
-    ul {
+    .header_btn {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
@@ -186,6 +186,12 @@ header {
 //.top_mnu ul {
 //
 //}
+.header_app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 .navbar-nav > .active > a {
   background-color: #555555 !important;
@@ -367,7 +373,7 @@ h4 > span {
 }
 .lang_mnu {
   background-color: #646464;
-  width: 49px;
+  width: 53px;
   height: 49px;
   float: right;
   position: relative;
@@ -768,8 +774,15 @@ section {
 .wrapper_block {
   display: flex;
   flex-direction: row;
+  //justify-content: center;
+  background-color: #ededed;
+  padding: 20px;
   .categor_wrap {
     margin: 0 10px;
+    .sub_link {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
   }
 }
 

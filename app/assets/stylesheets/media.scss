@@ -24,7 +24,7 @@
     }
   }
   nav > ul > li > select {
-    margin-left: 150px;
+    //margin-left: 150px;
   }
   td,
   .images,
@@ -54,6 +54,9 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .header_top_app {
+    position: absolute;
+  }
   .s {
     &-king, &-review {
       padding: 15% 1%;
@@ -126,7 +129,11 @@
   //}
 }
 @media only screen and (max-width: 576px) {
-
+  #logo {
+    margin-left: 0;
+    font-size: 2.3em;
+    padding-top: 0;
+  }
 }
 @media only screen and (max-width: 480px) {
   .top_center > .top_text > h1 {
@@ -143,11 +150,7 @@
     height: 12px;
   }
 
-  #logo {
-    margin-left: 0;
-    font-size: 2.5em;
-    padding-top: 0;
-  }
+
   .carousel-caption {
     font-size: 16px;
   }
@@ -189,6 +192,7 @@
   }
 
   .wrapper_block {
+    padding: 5px;
     .categor_wrap a img {
       width: 230px;
     }

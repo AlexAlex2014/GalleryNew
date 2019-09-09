@@ -1,20 +1,20 @@
-%header.navbar.navbar-fixed-top
+%header.navbar.navbar-fixed-top.header_top_app
   .container
     .row
-      .col-md-6.col-sm-6
+      .col-md-6.col-sm-6.header_app
         = link_to "#{t(:home_page)}", root_path, id: "logo"
         %nav
           %ul.nav.navbar-nav
             %li= select(:category, :user_id, @category_options_sort, {prompt: "#{t(:popular_category)}"}, {:class => 'custTag'})
       .col-md-6.col-sm-6
         %nav
-          %ul.nav.navbar-nav.navbar-right.nav-pills
-            %li
-              = link_to "#{t(:sign_out)}", destroy_user_session_path, method: :delete, class: "header-link"
-            %li{:class => "nav-item#{" active" if I18n.locale == :en}"}
-              = link_to 'En', {locale: :en}, class: 'nav-link'
-            %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
-              = link_to 'Рус', {locale: :ru}, class: 'nav-link'
+          %ul.header_btn
+            %li(class="lang_mnu" )
+              = link_to "#{t(:sign_out)}", destroy_user_session_path, method: :delete, class: "lang_mnu"
+            %li{:class => "lang_mnu#{" active" if I18n.locale == :en}"}
+              = link_to 'En', {locale: :en}
+            %li{:class => "lang_mnu#{" active" if I18n.locale == :ru}"}
+              = link_to 'Рус', {locale: :ru}
             %li.nav-item
               %button.toggle_mnu
                 %span.sandwich

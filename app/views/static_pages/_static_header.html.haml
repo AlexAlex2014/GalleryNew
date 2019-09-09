@@ -5,7 +5,7 @@
         = link_to "#{t(:app_name)}", root_path, id: "logo", class: "logo"
       .col-md-6
         %nav
-          %ul
+          %ul.header_btn
             %li{:class => "lang_mnu#{" active" if I18n.locale == :en}"}
               = link_to 'En', {locale: :en}
             %li{:class => "lang_mnu#{" active" if I18n.locale == :ru}"}

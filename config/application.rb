@@ -22,7 +22,7 @@ Bundler.require(*Rails.groups)
 module AppGallery
   class Application < Rails::Application
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    #
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
@@ -36,12 +36,11 @@ module AppGallery
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
-
     config.i18n.available_locales = [:en, :ru]
-
     config.i18n.default_locale = :en
 
+    config.assets.enabled = true
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
   end
 end

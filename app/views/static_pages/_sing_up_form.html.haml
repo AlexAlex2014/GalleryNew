@@ -12,7 +12,6 @@
   = f.password_field :password_confirmation, autocomplete: "off", placeholder: "#{t(:password_confirmation)}", class: "form-control signup-field", required: ""
   = flash[:recaptcha_error]
   = recaptcha_tags
-  .btn
-    = f.submit "#{t(:sing_up)}", class: "btn btn-primary"
+  = f.submit "#{t(:sing_up)}", class: "btn btn-warning btn-lg"
 
 

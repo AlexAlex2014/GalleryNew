@@ -42,7 +42,13 @@ en:
   unsubscription: "Unsubscription"
   subscription: "Subscription"
   about: "About The Gallery"
+  count: "Gallery statistics"
   review: "Feedback from our users"
+  users_count: "Users"
+  categories_count: "Categories"
+  images_count: "Images"
+  coms_count: "Comments"
+
 
   first_name: 'First Name'
   last_name: 'Last Name'

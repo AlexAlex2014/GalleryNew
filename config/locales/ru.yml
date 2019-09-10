@@ -42,7 +42,12 @@ ru:
   unsubscription: "Отписка"
   subscription: "Подписка"
   about: "О галереи"
+  count: "Статистика галереи"
   review: "Отзывы наших пользователей"
+  users_count: "Пользователи"
+  categories_count: "Категории"
+  images_count: "Картинки"
+  coms_count: "Комментарии"
 
   first_name: 'Имя'
   last_name: 'Фамилия'

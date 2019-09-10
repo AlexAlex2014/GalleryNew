@@ -59,6 +59,26 @@
       .container
         .row
           = yield
+    %section.s-count.inverse.section-overley_count(id="count" style="background-image: url(/categories/count.jpg);")
+      .container
+        .row
+          .col-sm-12
+            %h2.text-center.h-first= "#{t(:count)}"
+          .col-sm-12
+            .mid
+              #counter.counter
+                .bl
+                  .number{"data-num" => "#{User.count}"} 0
+                  .text= "#{t(:users_count)}"
+                .bl
+                  .number{"data-num" => "#{Category.count}"} 0
+                  .text= "#{t(:categories_count)}"
+                .bl
+                  .number{"data-num" => "#{Image.count}"} 0
+                  .text= "#{t(:images_count)}"
+                .bl
+                  .number{"data-num" => "#{Comment.count}"} 0
+                  .text= "#{t(:coms_count)}"
     %section.s-review.inverse.section-overley(id="review" style="background-image: url(/categories/55.jpg);")
       .container
         .row

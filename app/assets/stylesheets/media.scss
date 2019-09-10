@@ -58,7 +58,7 @@
     position: absolute;
   }
   .s {
-    &-king, &-review {
+    &-king, &-count, &-review {
       padding: 15% 1%;
     }
     &-call {
@@ -227,7 +227,7 @@
   .main_footer .social_wrap ul {
     padding-left: 0;
   }
-    form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
+  form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
     width: calc(100% - 22px);
   }
   .wrapper_block {

@@ -8,7 +8,8 @@
     = image_tag(comment.image.image.thumb.url, alt: 'Image') if comment.image.image?
     %p
       %strong "#{t(:commenter)}:"
-      = @users.where(:id == comment.user_id).first.email
+      = User.where(:id => [comment.user_id]).first.email
+
     %p
       %strong "#{t(:comment)}:"
       = comment.body

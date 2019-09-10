@@ -68,16 +68,16 @@
             .mid
               #counter.counter
                 .bl
-                  .number{"data-num" => "#{User.count}"} 0
+                  .number= "#{User.count}"
                   .text= "#{t(:users_count)}"
                 .bl
-                  .number{"data-num" => "#{Category.count}"} 0
+                  .number= "#{Category.count}"
                   .text= "#{t(:categories_count)}"
                 .bl
-                  .number{"data-num" => "#{Image.count}"} 0
+                  .number= "#{Image.count}"
                   .text= "#{t(:images_count)}"
                 .bl
-                  .number{"data-num" => "#{Comment.count}"} 0
+                  .number= "#{Comment.count}"
                   .text= "#{t(:coms_count)}"
     %section.s-review.inverse.section-overley(id="review" style="background-image: url(/categories/55.jpg);")
       .container

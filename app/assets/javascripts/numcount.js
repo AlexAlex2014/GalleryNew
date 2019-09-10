@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-    var time = 2, cc = 1;
+    var cc = 1;
     $(window).scroll(function () {
         $('#counter').each(function(){
             var cPos = $(this).offset().top,
@@ -7,22 +7,18 @@ $(document).on('turbolinks:load', function() {
             if (cPos < topWindow + 150) {
                 if (cc < 2) {
                     $('.number').addClass('viz');
-                    $('.number').each(function(){
-                        var i = 1,
-                            num = $(this).data("num"),
-                            step = 1000 * time / num,
-                            that = $(this),
-                            int = setInterval(function(){
-                                if (i <= num) {
-                                    that.html(i);
-                                }
-                                else {
-                                    cc = cc + 2;
-                                    clearInterval(int);
-                                }
-                                i++;
-                            },step);
+                    $('.number').each(function() {
+                        $(this).prop('Counter',0).animate({
+                            Counter:$(this).text()
+                        },{
+                            duration: 4000,
+                            easing: 'swing',
+                            step:function(now) {
+                                $(this).text(Math.ceil(now));
+                            }
+                        });
                     });
+                    cc = cc + 1;
                 };
             };
         });

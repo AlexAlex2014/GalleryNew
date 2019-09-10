@@ -1,8 +1,8 @@
-%p
-  %strong= "#{t(:title)}"
+%h2
+  = "#{t(:title)}"
   = @category.title
 %p
-  %strong= "#{t(:text)}"
+  = "#{t(:text)}"
   = @category.text
 
 = paginate @category_img

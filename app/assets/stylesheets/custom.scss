@@ -99,6 +99,7 @@
 }
 
 #logo {
+  white-space: nowrap;
   font-family: 'decor';
   float: left;
   margin-left: 0;
@@ -111,42 +112,21 @@
     text-decoration: none;
   }
 }
-nav ul li select {
-  margin-top: 5px;
-}
-
-.navbar {
-  //background-color: #999999 !important;
-  //height: auto;
-}
-
 .header_link {
   color: white;
 }
-
-select {
-  color: #666666 !important;
-}
-
 .container > form {
   margin-top: 63px;
 }
-
 form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form input[type="date"], form input[type="time"], form textarea {
   width: calc(100% - 22px);
-}
-
-form input {
-  //width: 90% !important;
 }
 form button {
   width: 150px;
 }
-
 .navbar-nav > li > a {
   color: #fff !important;
 }
-
 header {
   nav {
     .header_btn {
@@ -817,7 +797,6 @@ section {
 .wrapper_block {
   display: flex;
   flex-direction: row;
-  //justify-content: center;
   background-color: #ededed;
   padding: 20px;
   .categor_wrap {
@@ -829,3 +808,27 @@ section {
   }
 }
 /*--end All Categories ---*/
+
+/* Header App */
+.logo {
+
+}
+select {
+  border: none;
+  background-color: rgba(255,255,255,0);
+  font-family: 'decor';
+  font-size: 50px;
+  color: #ddb542;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-left: 0;
+  padding: 2px;
+  cursor: pointer;
+  overflow: visible;
+  &:hover {
+    color: #8C7227;
+    text-decoration: none;
+  }
+}
+
+/*--end Header App ---*/

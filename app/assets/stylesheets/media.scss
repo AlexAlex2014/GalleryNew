@@ -1,6 +1,6 @@
 @media only screen and (min-width: 1200px) {
   nav > ul > li > select {
-    margin-left: 200px;
+    margin-left: 50px;
   }
   td,
   .images,
@@ -24,7 +24,7 @@
     }
   }
   nav > ul > li > select {
-    //margin-left: 150px;
+    margin-left: 50px;
   }
   td,
   .images,
@@ -37,6 +37,9 @@
 }
 
 @media only screen and (max-width: 991px) {
+  select {
+    font-size: 40px;
+  }
   .post-box {
     width: 100%;
   }
@@ -153,6 +156,9 @@
     margin-left: 0;
     font-size: 2.3em;
     padding-top: 0;
+  }
+  select {
+    font-size: 2.3em;
   }
   .bl{
     width: 120px;
@@ -278,6 +284,12 @@
 }
 
 @media only screen and (max-width: 480px) {
+  select {
+    font-size: 25px;
+  }
+  nav > ul > li > select {
+    margin-left: 20px;
+  }
   .bl {
     width: 80px;
     margin: 30px 1px 0 1px;

@@ -1,17 +1,16 @@
-%h2
-  = "#{t(:title)}"
-  = @category.title
-%p
-  = "#{t(:text)}"
-  = @category.text
+.container
+  .row
+    .col-md-12
+      %h2= "#{t(:title)} #{@category.title}"
+      %p= "#{t(:text)} #{@category.text}"
+      %p= link_to "#{t(:add_image)}", new_image_path, class: "add_image"
 
-= paginate @category_img
+  .row
+    = render @category_img
 
-= render @category_img
-
-|
-= link_to "#{t(:add_image)}", new_image_path
-|
-= link_to "#{t(:edit_category)}", edit_category_path(@category)
-|
-= link_to "#{t(:back_to_category)}", categories_path
+-#|
+-#= link_to "#{t(:add_image)}", new_image_path
+-#|
+-#= link_to "#{t(:edit_category)}", edit_category_path(@category)
+-#|
+-#= link_to "#{t(:back_to_category)}", categories_path

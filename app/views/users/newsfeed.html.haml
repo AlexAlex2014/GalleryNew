@@ -1,5 +1,7 @@
-= render '/shared/user_sidebar'
-.col-md-8
-  %h2= t(:newsfeed)
+.container
+  .row
+    = render '/shared/user_sidebar'
+    .col-md-8
+      %h2= t(:newsfeed)
 
-  = render '/shared/category_sub'
+      = render '/shared/category_sub'

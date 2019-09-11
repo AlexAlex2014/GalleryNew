@@ -1,9 +1,12 @@
-%h3= link_to "#{t(:titul_image)} #{image.category.title}", category_image_path(@category, image)
-.category_img
-  = image_tag(image.image.url, alt: 'Image') if image.image?
-= link_to "#{t(:destroy_image)}", image_path(image),
-        method: :delete,
-        data: { confirm: "#{t(:are_you_sure)}" }
+.mix.col-md-4.col-sm-6.col-xs-12
+  .post-box
+    = image_tag(image.image.thumb_all.url, alt: 'Image') if image.image?
+    .categor_item_cont
+      %h4= link_to "View", category_image_path(@category, image)
+
+-#= link_to "#{t(:destroy_image)}", image_path(image),
+-#        method: :delete,
+-#        data: { confirm: "#{t(:are_you_sure)}" }
 -#%p= truncate(image.body, length: 150)
 
 -#%p= link_to 'Edit', edit_image_path(image)

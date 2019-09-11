@@ -1,3 +1,8 @@
-%h1= t(:add_image)
+.container
+  .row
+    .col-md-12
+      %h2= t(:add_image)
 
-= render 'form', image: @image
+  .row
+    .col-md-12
+      = render 'form', image: @image

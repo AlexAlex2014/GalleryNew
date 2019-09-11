@@ -1,18 +1,18 @@
-%h1= t(:all_comments)
-
--#= render @comments
-
-- @comments.each do |comment|
-  .comments
-    %h3 "#{t(:titul_image)} #{comment.image.category.title}"
-    = image_tag(comment.image.image.thumb.url, alt: 'Image') if comment.image.image?
-    %p
-      %strong "#{t(:commenter)}:"
-      = User.where(:id => [comment.user_id]).first.email
-
-    %p
-      %strong "#{t(:comment)}:"
-      = comment.body
+.container
+  .row
+    .col-md-12
+      %h2= t(:all_comments)
+  .row
+    - @comments.each do |comment|
+      .mix.col-md-4.col-sm-6.col-xs-12
+        %h3 "#{t(:titul_image)} #{comment.image.category.title}"
+        = image_tag(comment.image.image.thumb.url, alt: 'Image') if comment.image.image?
+        %p
+          %strong "#{t(:commenter)}:"
+          = User.where(:id => [comment.user_id]).first.email
+        %p
+          %strong "#{t(:comment)}:"
+          = comment.body
 
 -#= link_to "#{t(:all_images)}", controller: 'images'
 -#= link_to "#{t(:all_categories)}", controller: 'categories'

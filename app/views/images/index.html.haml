@@ -1,17 +1,23 @@
-%h1= t(:all_images)
-%p= link_to "#{t(:add_image)}", new_image_path
+.container
+  .row
+    .col-md-12
+      %h2= t(:all_images)
+      %p= link_to "#{t(:add_image)}", new_image_path, class: "add_image"
 
-%div= paginate @images
+    %div= paginate @images
+  .row
+    - @images.each do |image|
+      .mix.col-md-4.col-sm-6.col-xs-12
+        .post-box
+          = image_tag(image.image.thumb_all.url, alt: 'Image') if image.image?
+          .categor_item_cont
+            %h3= link_to "#{t(:titul_image)} #{image.category.title}", image_path(image)
+  .row
+    %div= paginate @images
 
-- @images.each do |image|
-  .images
-    %h3= link_to "#{t(:titul_image)} #{image.category.title}", image_path(image)
-
-    = image_tag(image.image.thumb_all.url, alt: 'Image') if image.image?
-
-    = link_to "#{t(:destroy_image)}", image_path(image),
-            method: :delete,
-            data: { confirm: "#{t(:are_you_sure)}"}
+    -#= link_to "#{t(:destroy_image)}", image_path(image),
+    -#        method: :delete,
+    -#        data: { confirm: "#{t(:are_you_sure)}"}
 
 
 
@@ -19,4 +25,3 @@
 -#= link_to "#{t(:comments)}", controller: 'comments'
 -#= link_to 'Welcome', controller: 'welcome'
 
-%div= paginate @images

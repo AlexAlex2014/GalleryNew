@@ -1,9 +1,11 @@
-= render 'shared/user_sidebar'
-.col-md-8
-  - if @user == current_user
-    = render 'shared/category_form'
-  %h2
-    = t(:my_categories)
-    = current_user.full_name
-  = render '/shared/category_list'
-.col-md-2
+.container
+  .row
+    = render 'shared/user_sidebar'
+    .col-md-8
+      - if @user == current_user
+        = render 'shared/category_form'
+      %h2
+        = t(:my_categories)
+        = current_user.full_name
+      = render '/shared/category_list'
+    .col-md-2

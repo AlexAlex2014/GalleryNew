@@ -1,6 +1,6 @@
 @media only screen and (min-width: 1200px) {
-  nav > ul > li > select {
-    margin-left: 50px;
+  header nav ul li select {
+    margin-left: 100px;
   }
   td,
   .images,
@@ -23,7 +23,7 @@
       }
     }
   }
-  nav > ul > li > select {
+  header nav ul li select {
     margin-left: 50px;
   }
   td,
@@ -37,14 +37,12 @@
 }
 
 @media only screen and (max-width: 991px) {
-  select {
+  header nav ul li select {
     font-size: 40px;
+    margin-left: 35px;
   }
   .post-box {
     width: 100%;
-  }
-  nav > ul > li > select {
-    margin-left: 35px;
   }
   td,
   .images,
@@ -57,6 +55,22 @@
 }
 
 @media only screen and (max-width: 767px) {
+  header .header_app {
+    line-height: 40px;
+    padding-top: 50px;
+  }
+  header .header_menu_app {
+    top: 5px;
+  }
+  header nav ul li select {
+    font-size: 35px;
+  }
+  #logo {
+    font-size: 35px;
+  }
+  .section_app {
+    padding-top: 90px;
+  }
   .header_top_app {
     position: absolute;
   }
@@ -157,7 +171,7 @@
     font-size: 2.3em;
     padding-top: 0;
   }
-  select {
+  header nav ul li select {
     font-size: 2.3em;
   }
   .bl{
@@ -284,11 +298,10 @@
 }
 
 @media only screen and (max-width: 480px) {
-  select {
-    font-size: 25px;
-  }
-  nav > ul > li > select {
-    margin-left: 20px;
+  header nav ul li select {
+    font-size: 1.8em;
+    margin-left: 18px;
+    letter-spacing: 0;
   }
   .bl {
     width: 80px;
@@ -301,5 +314,9 @@
   }
   .text {
     font-size: 0.75em;
+  }
+  .back_images {
+    font-size: 16px;
+    padding: 10px 70px;
   }
 }

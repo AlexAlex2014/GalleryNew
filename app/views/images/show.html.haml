@@ -1,27 +1,34 @@
-= link_to "#{t(:all_images)}", images_path
-%h1= "#{t(:titul_image)} #{@image.category.title}"
-.category_img
-  = image_tag(@image.image.url, alt: 'Image') if @image.image?
+.container
+  .row
+    .col-md-12
+      %h2= "#{t(:titul_image)} #{@image.category.title}"
+  .row
+    .col-md-12
+      .category_img
+        = image_tag(@image.image.thumb_all.url, alt: 'Image') if @image.image?
+        = render '/likes/like_link', likable_type: "Image", item: @image
 
-= render '/likes/like_link', likable_type: "Image", item: @image
+  .row
+    .col-md-12
+      %h2= t(:comments)
+      = render @image.comments
 
-%p= @image.body
+  .row
+    .col-md-12
+      %h2= "#{t(:add_comment)}:"
+      = form_with(model: [ @image, @image.comments.build ], local: true) do |form|
+        %p
+          = form.label :body
+          %br/
+          = form.text_area :body
+        %p
+          = form.submit
+  .row
+    .col-md-12
+      %p
+        = link_to "#{t(:back_to_image)}", images_path, class: "back_images"
 
 
-%h2= t(:comments)
-= render @image.comments
+-#= link_to "#{t(:edit_image)}", edit_image_path(@image)
+-#|
 
-
-%h2= "#{t(:add_comment)}:"
-= form_with(model: [ @image, @image.comments.build ], local: true) do |form|
-  %p
-    = form.label :body
-    %br/
-    = form.text_area :body
-  %p
-    = form.submit
-
-
-= link_to "#{t(:edit_image)}", edit_image_path(@image)
-|
-= link_to "#{t(:back_to_image)}", images_path

@@ -8,7 +8,11 @@
     - @categories.each do |category|
       .mix.col-md-4.col-sm-6.col-xs-12
         .post-box{"data-item_id" => "#{category.id}"}
-          = image_tag(@category_images[category].image.thumb.url, alt: 'Image')
+          - unless @category_images[category].nil?
+            = image_tag(@category_images[category].image.thumb.url, alt: 'Image')
+          - else
+            = image_tag('default.png', alt: 'No image')
+          -#%h3= "#{t(:titul_image)} '#{category.title}'"
           .categor_item_cont
             %h3= "#{t(:titul_image)} '#{category.title}'"
             = link_to "View", category_path(category), class: "btn-xs, btn-info like-link"

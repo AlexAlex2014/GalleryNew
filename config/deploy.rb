@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.1"
 
-set :application, "developer"
+set :application, "GalleryNew"
 set :repo_url, "git@github.com:AlexAlex2014/GalleryNew.git"
 
 # Default branch is :master

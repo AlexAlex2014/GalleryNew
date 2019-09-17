@@ -4,6 +4,8 @@ lock "~> 3.11.1"
 set :application, "GalleryNew"
 set :repo_url, "git@github.com:AlexAlex2014/GalleryNew.git"
 
+
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 

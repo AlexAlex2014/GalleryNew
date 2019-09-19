@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.1"
 
-set :application, "GalleryNew"
+set :application, "gallerynew"
 set :repo_url, "git@github.com:AlexAlex2014/GalleryNew.git"
 
 
@@ -26,7 +26,7 @@ set :repo_url, "git@github.com:AlexAlex2014/GalleryNew.git"
 # append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rvm_ruby_version, '2.5.5'
 

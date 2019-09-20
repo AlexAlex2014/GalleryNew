@@ -34,5 +34,4 @@ dump.rdb
 
 # Ignore application configuration
 /config/application.yml
-/config/database.yml
 /config/initializers/app_env_vars.rb

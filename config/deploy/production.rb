@@ -22,7 +22,6 @@ role :web, %w{deploy_user@3.122.251.214}
 role :db,  %w{deploy_user@3.122.251.214}
 
 
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb

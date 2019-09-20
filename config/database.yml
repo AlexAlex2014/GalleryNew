@@ -84,5 +84,5 @@ production:
   database: <%= ENV.fetch('DB_NAME_PRO') %>
   username: <%= ENV.fetch('DB_USERNAME') %>
   password: <%= ENV.fetch('DB_PASS') %>
-#  host: <%= ENV.fetch('HELLO_WORLD_DATABASE_HOST') %>
-#  port: <%= ENV.fetch('HELLO_WORLD_DATABASE_PORT') %>
+  host: '127.0.0.1'
+  port: '5432'

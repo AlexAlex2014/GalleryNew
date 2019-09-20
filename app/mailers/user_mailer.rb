@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
   # default from: 'notifications@example.com',
-  default from: ENV.fetch('USERNAME')
+  default from: ENV.fetch('USERNAME_MAIL')
 
   def welcome_email(user)
     @user = user

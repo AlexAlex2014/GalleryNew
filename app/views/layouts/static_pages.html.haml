@@ -12,7 +12,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .loader
-      .loader_inner
+      .loader_inner(style="background-image: url(#{asset_path 'loader.gif'});")
     = render "static_pages/static_header"
 
     .main_head
@@ -26,7 +26,7 @@
           .top_center
             .top_text
               %h1.center= t(:welcome)
-    %section.s-king.inverse.section-overley(id="about" style="background-image: url(/categories/15.jpg);")
+    %section.s-king.inverse.section-overley(id="about" style="background-image: url(#{asset_path '15.jpg'});")
       .container
         .row
           .col-md-12
@@ -38,27 +38,27 @@
             %p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           .col-lg-7.col-md-12
             .section_gallery.fotorama(data-nav="thumbs" data-thumbwidth="110" data-thumbheights="60" data-thumbborderwidth="5" data-thumbmargin="10" data-width="100%")
-              %img(src="/categories/fotorama/1.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/2.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/3.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/4.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/5.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/6.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/7.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/8.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/9.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/10.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/11.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/12.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/13.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/14.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/15.jpg" alt="Foto's gallery")
-              %img(src="/categories/fotorama/16.jpg" alt="Foto's gallery")
-    %section.s-call.inverse(id="sing_up" style="background-image: url(/categories/5.jpg);")
+              %img(src="#{asset_path 'fotorama/1.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/2.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/3.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/4.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/5.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/6.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/7.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/8.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/9.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/10.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/11.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/12.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/13.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/14.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/15.jpg'}" alt="Foto's gallery")
+              %img(src="#{asset_path 'fotorama/16.jpg'}" alt="Foto's gallery")
+    %section.s-call.inverse(id="sing_up" style="background-image: url(#{asset_path '5.jpg'});")
       .container
         .row
           = yield
-    %section.s-count.inverse.section-overley_count(id="count" style="background-image: url(/categories/count.jpg);")
+    %section.s-count.inverse.section-overley_count(id="count" style="background-image: url(#{asset_path 'count.jpg'});")
       .container
         .row
           .col-sm-12
@@ -78,7 +78,7 @@
                 .bl
                   .number= "#{Comment.count}"
                   .text= "#{t(:coms_count)}"
-    %section.s-review.inverse.section-overley(id="review" style="background-image: url(/categories/55.jpg);")
+    %section.s-review.inverse.section-overley(id="review" style="background-image: url(#{asset_path '55.jpg'});")
       .container
         .row
           .col-sm-12

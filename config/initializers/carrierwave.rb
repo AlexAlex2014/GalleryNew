@@ -1,4 +1,7 @@
 CarrierWave.configure do |config|
+  # if Rails.env.production?
+  #   config.storage = :fog
+  # end
   config.fog_provider = 'fog/aws'
   config.fog_credentials = {
       provider: 'AWS',

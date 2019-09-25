@@ -52,7 +52,6 @@ gem 'file_validators'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'activeadmin', '~> 2.1'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
-gem 'rubocop', '~> 0.72.0'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem 'nokogiri', '~> 1.10', '>= 1.10.3'
 gem 'omniauth', '~> 1.9'
@@ -66,13 +65,24 @@ gem 'recaptcha', '~> 5.0'
 
 gem 'execjs'
 
-gem 'capybara', '~> 3.25'
-gem 'selenium-webdriver', '~> 3.142', '>= 3.142.3'
-gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+
 
 group :development, :test do
+  gem 'rspec', '~> 3.8'
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  gem 'rubocop', '~> 0.72.0'
+  gem 'rubocop-rspec'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_bot_rails', '~> 5.1'
+  gem 'capybara', '~> 3.25'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.3'
+  gem 'shoulda-matchers', '~> 4.1', '>= 4.1.2'
 end
 
 group :development do

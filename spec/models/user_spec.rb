@@ -36,6 +36,8 @@ RSpec.describe User, type: :model do
 
 end
 
+# https://medium.com/@lukepierotti/setting-up-rspec-and-factory-bot-3bb2153fb909
+
 #
 # require 'rails_helper'
 #

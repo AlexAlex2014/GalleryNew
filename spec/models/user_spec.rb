@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-
   before(:all) do
     @user1 = create(:user)
   end

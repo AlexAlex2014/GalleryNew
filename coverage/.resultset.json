@@ -1,0 +1,67 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/developer/Documents/Rails/app_gallery/GalleryNew/spec/support/database_cleaner.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        18,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        18,
+        null,
+        null,
+        1,
+        18,
+        null,
+        null
+      ],
+      "/home/developer/Documents/Rails/app_gallery/GalleryNew/app/models/profile.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/developer/Documents/Rails/app_gallery/GalleryNew/app/models/like.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/developer/Documents/Rails/app_gallery/GalleryNew/app/models/sub.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1569508069
+  }
+}

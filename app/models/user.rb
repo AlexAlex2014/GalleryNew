@@ -12,8 +12,8 @@ class User < ApplicationRecord
          :lockable,
          :omniauth_providers => [:facebook]
 
-  # validates :first_name, :last_name, :email, presence: true
-  
+   validates :email, presence: true
+
   after_create :create_profile
   after_create :send_welcome_email
 

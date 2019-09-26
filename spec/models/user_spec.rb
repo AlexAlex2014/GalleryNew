@@ -1,74 +1,97 @@
 require 'rails_helper'
+require './app/models/user'
 
 RSpec.describe User, type: :model do
+  let(:user){ User }
   before(:all) do
     @user1 = create(:user)
+    @category = create(:category)
+    # Resque.redis.set('test_key',csv_file_location('data.csv'))
+  end
+  context 'validation' do
+    it "is valid with valid attributes" do
+      expect(@user1).to be_valid
+    end
+
+    it "has a unique email" do
+      user2 = build(:user, email: "mike@gmail.com")
+      expect(user2).to_not be_valid
+    end
+
+    it "has a unique first_name" do
+      user2 = build(:user, email: "bob@gmail.com", first_name: "Mike")
+      expect(user2).to be_valid
+    end
+
+    it "is not valid without a password" do
+      user2 = build(:user, password: nil)
+      expect(user2).to_not be_valid
+    end
+
+    it "is not valid without an email" do
+      user2 = build(:user, email: nil)
+      expect(user2).to_not be_valid
+    end
   end
 
-  it "is valid with valid attributes" do
-    expect(@user1).to be_valid
+  describe 'Associations' do
+    it { is_expected.to have_one(:profile) }
+    it { is_expected.to have_many(:categories) }
+    it { is_expected.to have_many(:comments) }
+    it { is_expected.to have_many(:likes) }
+    it { is_expected.to have_many(:subs) }
+    it { is_expected.to have_many(:images) }
+    it { is_expected.to have_many(:actions) }
   end
 
-  it "has a unique username" do
-    user2 = build(:user, email: "bob@gmail.com")
-    expect(user2).to_not be_valid
+  describe '#full_name' do
+    it 'has a full_name' do
+      expect(@user1.full_name).to eq "Tyson" + " " + "Mike"
+    end
+    it 'is invalid without first_name' do
+      expect(build(:user, first_name: nil)).not_to be_valid
+    end
+    it 'is invalid without last_name' do
+      expect(build(:user, last_name: nil)).not_to be_valid
+    end
+    it 'is invalid without first_name & last_name' do
+      expect(build(:user, first_name: nil, last_name: nil)).not_to be_valid
+    end
   end
 
-  it "has a unique email" do
-    user2 = build(:user, first_name: "Bob")
-    expect(user2).to_not be_valid
+  describe '.logins_before_captcha' do
+    it 'has a logins_before_captcha' do
+      expect(user.logins_before_captcha).to eq "hjhj"
+    end
+  end
+  describe '#get_newsfeed' do
+    it 'has a get_newsfeed' do
+      expect(@user1.get_newsfeed).to be_valid
+    end
   end
 
-  it "is not valid without a password" do
-    user2 = build(:user, password: nil)
-    expect(user2).to_not be_valid
-  end
 
-  it "is not valid without a username" do
-    user2 = build(:user, first_name: nil)
-    expect(user2).to_not be_valid
-  end
 
-  it "is not valid without an email" do
-    user2 = build(:user, email: nil)
-    expect(user2).to_not be_valid
-  end
+
+
+
+
+
+
+
+
+
+
+
+
 
 end
 
-# https://medium.com/@lukepierotti/setting-up-rspec-and-factory-bot-3bb2153fb909
 
-#
-# require 'rails_helper'
-#
-# RSpec.describe Author, type: :model do
-#   context 'validation' do
-#     it 'is invalid without first_name' do
-#       expect(build(:author, first_name: nil)).not_to be_valid
-#     end
-#
-#     it 'is invalid without last_name' do
-#       expect(build(:author, last_name: nil)).not_to be_valid
-#     end
-#   end
-#
-#   context 'associations' do
-#     it 'has many books' do
-#       author = create :author
-#       expect(author).to respond_to :books
-#     end
-#   end
-# end
-#
-#
-# require 'rails_helper'
-#
-# RSpec.describe BooksCategory, type: :model do
-#   describe '#associations' do
-#     it { is_expected.to belong_to(:category) }
-#     it { is_expected.to belong_to(:book) }
-#   end
-# end
+
+
+
+
 #
 # require 'rails_helper'
 #

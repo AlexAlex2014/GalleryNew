@@ -1,5 +1,5 @@
 require 'resque/tasks'
 
-task "resque:preload" => :environment
+# task "resque:preload" => :environment
 
-# task "resque:setup" => :environment # do
+task "resque:setup" => :environment # do

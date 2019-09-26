@@ -72,7 +72,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
   gem 'rubocop', '~> 0.72.0'
   gem 'rubocop-rspec'
-
+  gem 'simplecov', require: false, group: :test
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

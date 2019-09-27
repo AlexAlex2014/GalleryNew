@@ -12,10 +12,14 @@ class User < ApplicationRecord
          :lockable,
          :omniauth_providers => [:facebook]
 
-   validates :email, presence: true
+  validates :email, presence: true
 
   after_create :create_profile
   after_create :send_welcome_email
+
+  # after_create do
+  #   raise "no confirm" if confirmed_at.nil?
+  # end
 
   has_one :profile, dependent: :destroy
   has_many :categories, dependent: :destroy
@@ -47,11 +51,11 @@ class User < ApplicationRecord
     end
   end
 
-  def get_newsfeed
-    Category.where("user_id = :user_id", user_id: self.id)
-  end
+  # def get_newsfeed
+  #   Category.where("user_id = :user_id", user_id: self.id)
+  # end
 
-  def send_welcome_email()
+  def send_welcome_email
     user = self
     Resque.enqueue(WelcomeEmailJob, user)
   end

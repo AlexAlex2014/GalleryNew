@@ -1,12 +1,9 @@
 require 'rails_helper'
-require './app/models/user'
+# require './app/models/user'
 
 RSpec.describe User, type: :model do
-  let(:user){ User }
   before(:all) do
     @user1 = create(:user)
-    @category = create(:category)
-    # Resque.redis.set('test_key',csv_file_location('data.csv'))
   end
   context 'validation' do
     it "is valid with valid attributes" do
@@ -14,7 +11,7 @@ RSpec.describe User, type: :model do
     end
 
     it "has a unique email" do
-      user2 = build(:user, email: "mike@gmail.com")
+      user2 = build(:user, email: "azuev3199@gmail.com")
       expect(user2).to_not be_valid
     end
 
@@ -32,6 +29,10 @@ RSpec.describe User, type: :model do
       user2 = build(:user, email: nil)
       expect(user2).to_not be_valid
     end
+
+    # it "raises exception if user has no confirm" do
+    #   expect( -> { create(:user) } ).to raise_exception
+    # end
   end
 
   describe 'Associations' do
@@ -61,30 +62,14 @@ RSpec.describe User, type: :model do
 
   describe '.logins_before_captcha' do
     it 'has a logins_before_captcha' do
-      expect(user.logins_before_captcha).to eq "hjhj"
-    end
-  end
-  describe '#get_newsfeed' do
-    it 'has a get_newsfeed' do
-      expect(@user1.get_newsfeed).to be_valid
+      expect(User.logins_before_captcha).to eq 2
     end
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  describe '#send_welcome_email' do
+    xit 'has a send_welcome_email' do
+    end
+  end
 end
 
 

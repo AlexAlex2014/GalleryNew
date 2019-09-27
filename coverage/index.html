@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.10.2/application.js' type='text/javascript'></script>    
     <link href='./assets/0.10.2/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_yellow.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_red.png" />
     <link rel="icon" type="image/png" href="./assets/0.10.2/favicon.png" />
   </head>
   
@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-09-26T17:27:51+03:00">2019-09-26T17:27:51+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-09-27T16:09:22+03:00">2019-09-27T16:09:22+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">88.89%</span></span>
+    (<span class="covered_percent"><span class="red">72.73%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="green">
-         2.77
+       <span class="red">
+         0.72
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>4</b> files in total.
-    <b>27</b> relevant lines. 
-    <span class="green"><b>24</b> lines covered</span> and
-    <span class="red"><b>3</b> lines missed </span>
+    <b>3</b> files in total.
+    <b>22</b> relevant lines. 
+    <span class="green"><b>16</b> lines covered</span> and
+    <span class="red"><b>6</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -49,16 +49,6 @@
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td class="strong"><a href="#8bb8c7f2e80fc072df4051e44a1447a2d0784e49" class="src_link" title="app/models/like.rb">app/models/like.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>5</td>
-        <td>5</td>
-        <td>0</td>
-        <td>1.0</td>
-      </tr>
       
       <tr>
         <td class="strong"><a href="#937f84a9877ee5cb7206a8c427e58b91b6fa5b5b" class="src_link" title="app/models/profile.rb">app/models/profile.rb</a></td>
@@ -82,12 +72,12 @@
       
       <tr>
         <td class="strong"><a href="#de9f87bae4f48b4c4a077ce67baceb4ea4cd1d08" class="src_link" title="spec/support/database_cleaner.rb">spec/support/database_cleaner.rb</a></td>
-        <td class="green strong">90.91 %</td>
+        <td class="red strong">63.64 %</td>
         <td>21</td>
         <td>11</td>
-        <td>10</td>
-        <td>1</td>
-        <td>5.5</td>
+        <td>7</td>
+        <td>4</td>
+        <td>0.6</td>
       </tr>
       
     </tbody>
@@ -105,67 +95,6 @@
       </div>
     
       <div class="source_files">
-      
-        <div class="source_table" id="8bb8c7f2e80fc072df4051e44a1447a2d0784e49">
-  <div class="header">
-    <h3>app/models/like.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
-    <div>
-      <b>5</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
-          
-          <code class="ruby">class Like &lt; ApplicationRecord</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="2">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  belongs_to :likable, polymorphic: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  belongs_to :user</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :likable_id, :likable_type, :user_id, presence: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :user_id, uniqueness: {scope: [:likable_id, :likable_type]}</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-
       
         <div class="source_table" id="937f84a9877ee5cb7206a8c427e58b91b6fa5b5b">
   <div class="header">
@@ -352,11 +281,11 @@
         <div class="source_table" id="de9f87bae4f48b4c4a077ce67baceb4ea4cd1d08">
   <div class="header">
     <h3>spec/support/database_cleaner.rb</h3>
-    <h4><span class="green">90.91 %</span> covered</h4>
+    <h4><span class="red">63.64 %</span> covered</h4>
     <div>
       <b>11</b> relevant lines. 
-      <span class="green"><b>10</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>7</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -399,8 +328,8 @@
           <code class="ruby">  config.before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="7">
-          <span class="hits">18</span>
+        <li class="missed" data-hits="0" data-linenumber="7">
+          
           
           <code class="ruby">    DatabaseCleaner.strategy = :transaction</code>
         </li>
@@ -447,8 +376,8 @@
           <code class="ruby">  config.before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="15">
-          <span class="hits">18</span>
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
           
           <code class="ruby">    DatabaseCleaner.start</code>
         </li>
@@ -471,8 +400,8 @@
           <code class="ruby">  config.after(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="19">
-          <span class="hits">18</span>
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
           
           <code class="ruby">    DatabaseCleaner.clean</code>
         </li>

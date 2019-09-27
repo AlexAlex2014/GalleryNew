@@ -8,7 +8,7 @@
         null,
         null,
         1,
-        18,
+        0,
         null,
         null,
         1,
@@ -16,26 +16,12 @@
         null,
         null,
         1,
-        18,
+        0,
         null,
         null,
         1,
-        18,
+        0,
         null,
-        null
-      ],
-      "/home/developer/Documents/Rails/app_gallery/GalleryNew/app/models/profile.rb": [
-        1,
-        1,
-        null
-      ],
-      "/home/developer/Documents/Rails/app_gallery/GalleryNew/app/models/like.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
         null
       ],
       "/home/developer/Documents/Rails/app_gallery/GalleryNew/app/models/sub.rb": [
@@ -60,8 +46,13 @@
         0,
         null,
         null
+      ],
+      "/home/developer/Documents/Rails/app_gallery/GalleryNew/app/models/profile.rb": [
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1569508069
+    "timestamp": 1569589762
   }
 }

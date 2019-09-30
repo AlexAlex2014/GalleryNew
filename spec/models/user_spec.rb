@@ -11,23 +11,28 @@ RSpec.describe User, type: :model do
     end
 
     it "has a unique email" do
-      user2 = build(:user, email: "azuev3199@gmail.com")
-      expect(user2).to_not be_valid
+      user2 = build(:user, email: "mike1@gmail.com")
+      expect(user2).not_to be_valid
     end
 
-    it "has a unique first_name" do
-      user2 = build(:user, email: "bob@gmail.com", first_name: "Mike")
+    it "has a non-unique first_name" do
+      user2 = build(:user, email: "bob@gmail.com", first_name: "White")
+      expect(user2).to be_valid
+    end
+
+    it "has a non-unique last_name" do
+      user2 = build(:user, email: "bob@gmail.com", last_name: "Bob")
       expect(user2).to be_valid
     end
 
     it "is not valid without a password" do
       user2 = build(:user, password: nil)
-      expect(user2).to_not be_valid
+      expect(user2).not_to be_valid
     end
 
     it "is not valid without an email" do
       user2 = build(:user, email: nil)
-      expect(user2).to_not be_valid
+      expect(user2).not_to be_valid
     end
 
     # it "raises exception if user has no confirm" do
@@ -66,10 +71,10 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#send_welcome_email' do
-    xit 'has a send_welcome_email' do
-    end
-  end
+  # describe '#send_welcome_email' do
+  #   xit 'has a send_welcome_email' do
+  #   end
+  # end
 end
 
 

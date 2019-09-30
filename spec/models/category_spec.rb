@@ -1,5 +1,7 @@
 require 'rails_helper'
+require "models/concerns/subable_spec"
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it_behaves_like "subable"
+
 end

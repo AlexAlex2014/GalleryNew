@@ -9,8 +9,9 @@ FactoryBot.define do
   #   end
   # end
 
-  factory :category_sub, class: Category do
-    sequence(:id) { |i| i }
-    sequence(:title) { |n| "Cars#{n}" }
+  factory :category, class: Category do
+    # sequence(:id) { |i| i }
+    title { "cars" }
+    association :user, factory: :user
   end
 end

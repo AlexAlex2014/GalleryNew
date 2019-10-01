@@ -21,6 +21,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
+    # unless @user
+    #   render text: "Page not found", status: 404
+    # end
   end
 
   def edit

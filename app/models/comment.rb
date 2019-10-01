@@ -4,4 +4,6 @@ class Comment < ApplicationRecord
 
   belongs_to :user, optional: true
   belongs_to :image
+
+  validates :image_id, :user_id, presence: true
 end

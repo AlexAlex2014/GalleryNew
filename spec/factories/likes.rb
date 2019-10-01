@@ -1,6 +1,5 @@
 FactoryBot.define do
-  factory :sub, class: Sub do
-    # sequence(:id) { |i| i }
+  factory :like, class: Like do
     association :user, factory: :user
   end
 end

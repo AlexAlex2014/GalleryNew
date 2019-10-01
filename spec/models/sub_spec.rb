@@ -1,8 +1,9 @@
+# frozen_string_literal: true.
 require 'rails_helper'
 
 RSpec.describe Sub, type: :model do
   before(:all) do
-    category = create(:category_sub)
+    category = create(:category)
     @sub1 = create(:sub, subable: category)
   end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true.
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
@@ -8,11 +9,6 @@ RSpec.describe Profile, type: :model do
   context 'validation' do
     it "is valid with valid attributes" do
       expect(@profile1).to be_valid
-    end
-
-    it "has a unique user_id" do
-      profile2 = build(:profile, user_id: 2)
-      expect(profile2).not_to be_valid
     end
 
     it "is not valid without a user_id" do

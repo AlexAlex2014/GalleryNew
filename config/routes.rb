@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   resources :image_loaders
 
   resources :profiles, :only => [:show, :edit, :update]
-  resources :users, :only => [:index, :edit]
+  resources :users, :only => [:edit]
   resources :likes, :only => [:new, :create, :destroy]
-  resources :subs, :only => [:new, :create, :destroy]
+  resources :subs, :only => [:create, :destroy]
 
   resources :categories do
     resources :images do

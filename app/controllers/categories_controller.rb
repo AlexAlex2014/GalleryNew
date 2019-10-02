@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-  # before_filter :authenticate_user!, except => [:show, :index]
   before_action :authenticate_user!
   def index
     @categories = Category.select("categories.*, (COUNT(images.id)+COUNT(comments.id)+COUNT(likes.id)) AS i")

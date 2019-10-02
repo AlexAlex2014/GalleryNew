@@ -1,7 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_image, only: [:show, :edit, :update]
-  # before_action :correct_user, :only => [:destroy]
 
   def index
     @images = Image.select("images.*, (COUNT(comments.id)+COUNT(likes.id)) AS i")

@@ -1,5 +1,5 @@
 require 'resque/server'
-require "resque_web"
+require 'resque_web'
 
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config

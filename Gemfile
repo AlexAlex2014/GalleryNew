@@ -70,6 +70,7 @@ gem 'execjs'
 group :development, :test do
   gem 'rspec', '~> 3.8'
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.4'
   gem 'rubocop', '~> 0.72.0'
   gem 'rubocop-rspec'
   gem 'simplecov', require: false, group: :test

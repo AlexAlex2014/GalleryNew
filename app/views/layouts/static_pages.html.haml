@@ -11,8 +11,8 @@
     %script(src="https://kit.fontawesome.com/d7c798451e.js")
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .loader
-      .loader_inner(style="background-image: url(#{asset_path 'loader.gif'});")
+    -#.loader
+    -#  .loader_inner(style="background-image: url(#{asset_path 'loader.gif'});")
     = render "static_pages/static_header"
 
     .main_head

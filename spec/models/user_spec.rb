@@ -11,22 +11,22 @@ RSpec.describe User, type: :model do
     end
 
     it "has a unique email" do
-      user2 = build(:user, email: "mike1@gmail.com")
+      user2 = build(:user_val, email: "mike@gmail.com")
       expect(user2).not_to be_valid
     end
 
     it "has a non-unique first_name" do
-      user2 = build(:user, email: "bob@gmail.com", first_name: "White")
+      user2 = build(:user, email: "bob1@gmail.com", first_name: "White")
       expect(user2).to be_valid
     end
 
     it "has a non-unique last_name" do
-      user2 = build(:user, email: "bob@gmail.com", last_name: "Bob")
+      user2 = build(:user, email: "bob2@gmail.com", last_name: "Bob")
       expect(user2).to be_valid
     end
 
     it "is not valid without a password" do
-      user2 = build(:user, password: nil)
+      user2 = build(:user, email: "bob3@gmail.com", password: nil)
       expect(user2).not_to be_valid
     end
 
@@ -55,13 +55,13 @@ RSpec.describe User, type: :model do
       expect(@user1.full_name).to eq "Tyson" + " " + "Mike"
     end
     it 'is valid without first_name' do
-      expect(build(:user, first_name: nil)).to be_valid
+      expect(build(:user, email: "bob4@gmail.com", first_name: nil)).to be_valid
     end
     it 'is valid without last_name' do
-      expect(build(:user, last_name: nil)).to be_valid
+      expect(build(:user, email: "bob5@gmail.com", last_name: nil)).to be_valid
     end
     it 'is valid without first_name & last_name' do
-      expect(build(:user, first_name: nil, last_name: nil)).to be_valid
+      expect(build(:user, email: "bob6@gmail.com", first_name: nil, last_name: nil)).to be_valid
     end
   end
 

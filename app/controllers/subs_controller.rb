@@ -6,7 +6,8 @@ class SubsController < ApplicationController
     else
       flash[:warning] = "Something went wrong"
     end
-    redirect_to request.referrer
+    redirect_back(fallback_location: root_path)
+    # redirect_to request.referrer
   end
 
   def destroy
@@ -16,8 +17,7 @@ class SubsController < ApplicationController
     else
       flash[:warning] = "Something went wrong"
     end
-    redirect_to request.referrer
+    redirect_back(fallback_location: root_path)
+    # redirect_to request.referrer
   end
-
-
 end

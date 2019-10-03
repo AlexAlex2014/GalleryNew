@@ -1,11 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe SubsController, type: :controller do
+  let(:user) { create(:user_bot) }
+  let(:category) { create(:category) }
+  let(:sub) { create(:sub, subable: category) }
+
   before do
-    # I18n.locale = 'en'
-    # sign_in user
-    # @params = { id: sub.id }
+    I18n.locale = 'en'
+    sign_in user
+    @params = {
+        id: sub.id,
+        user_id: sub.user_id,
+        subable_id: sub.subable_id,
+        subable_type: sub.subable_type
+    }
   end
+
   describe 'routing' do
     it 'routes to #create' do
       expect(post: '/subs').to route_to('subs#create')
@@ -15,17 +25,15 @@ RSpec.describe SubsController, type: :controller do
     end
   end
 
-  context 'DELETE #destroy' do
-    # let(:sub) { create(:sub) }
-    let!(:category) { create(:category) }
-    let!(:sub) { create(:sub, subable: category) }
-    # @sub = Sub.find(params[:id])
+  context 'POST #create' do
+    it 'create a new sub' do
+      expect { post :create, params: { user_id: user.id, subable_id: category.id, subable_type: 'Category' } }.to change { Sub.count }.by(1)
+    end
+  end
 
+  context 'DELETE #destroy' do
     it 'should delete sub' do
-      # byebug
-      expect { delete :destroy, params: { id: sub.id } }.to change(Sub, :count).by(-1)
-      expect(flash[:warning]).to eq 'Something went wrong'
-      # byebug
+      expect { delete :destroy, params: @params }.to change(Sub, :count).by(-1)
     end
   end
 end

@@ -4,7 +4,7 @@ FactoryBot.define do
     location { "Kiev" }
     gender { "m" }
     birthday { "01.01.2000" }
-    association :user, factory: :user
+    association :user, factory: :user_bot
   end
 
   # factory :profile_bot, class: Profile do

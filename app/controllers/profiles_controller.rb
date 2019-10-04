@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
 
   def show
     # byebug
-    @user = User.find(params[:id])
+    @user = current_user
     @profile = @user.profile
     @category = Category.new
     @categories = @user.categories #.paginate(page: params[:page], per_page: 5).order('created_at DESC')

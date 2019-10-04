@@ -9,10 +9,7 @@ RSpec.describe LikesController, type: :controller do
     I18n.locale = 'en'
     sign_in user
     @params = {
-        id: like.id,
-        user_id: like.user_id,
-        likable_id: like.likable_id,
-        likable_type: like.likable_type
+        id: like.id
     }
   end
 
@@ -21,7 +18,7 @@ RSpec.describe LikesController, type: :controller do
       expect(post: '/likes').to route_to('likes#create')
     end
     it 'routes to #destroy' do
-      expect(delete: '/likes/10').to route_to('likes#destroy', id: '10')
+      expect(delete: '/likes/20').to route_to('likes#destroy', id: '20')
     end
   end
 
@@ -33,9 +30,7 @@ RSpec.describe LikesController, type: :controller do
 
   context 'DELETE #destroy' do
     it 'should delete like' do
-      byebug
       expect { delete :destroy, params: @params }.to change(Like, :count).by(-1)
-      byebug
     end
   end
 end

@@ -1,6 +1,4 @@
 class ProfilesController < ApplicationController
-  before_action :authorize_correct_user, :only => [:edit, :update]
-
   def edit
     @profile = User.find(params[:id]).profile
   end
@@ -17,10 +15,12 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    # byebug
     @user = User.find(params[:id])
     @profile = @user.profile
     @category = Category.new
     @categories = @user.categories #.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+    # raise ddd
   end
 
   def destroy

@@ -9,10 +9,7 @@ RSpec.describe SubsController, type: :controller do
     I18n.locale = 'en'
     sign_in user
     @params = {
-        id: sub.id,
-        user_id: sub.user_id,
-        subable_id: sub.subable_id,
-        subable_type: sub.subable_type
+        id: sub.id
     }
   end
 

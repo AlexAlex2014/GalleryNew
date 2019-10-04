@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-03T17:15:53+03:00">2019-10-03T17:15:53+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-04T16:26:56+03:00">2019-10-04T16:26:56+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">72.41%</span></span>
+    (<span class="covered_percent"><span class="red">54.55%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="green">
-         1.02
+       <span class="red">
+         0.93
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>2</b> files in total.
-    <b>29</b> relevant lines. 
-    <span class="green"><b>21</b> lines covered</span> and
-    <span class="red"><b>8</b> lines missed </span>
+    <b>33</b> relevant lines. 
+    <span class="green"><b>18</b> lines covered</span> and
+    <span class="red"><b>15</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -51,13 +51,13 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#0261b2a334c54027e2fe94b7a0b217cf3085f551" class="src_link" title="app/controllers/likes_controller.rb">app/controllers/likes_controller.rb</a></td>
-        <td class="red strong">61.11 %</td>
-        <td>36</td>
-        <td>18</td>
-        <td>11</td>
-        <td>7</td>
-        <td>0.6</td>
+        <td class="strong"><a href="#ad024375dcd26332b1457b030bc43fd9166fad90" class="src_link" title="app/controllers/profiles_controller.rb">app/controllers/profiles_controller.rb</a></td>
+        <td class="red strong">36.36 %</td>
+        <td>37</td>
+        <td>22</td>
+        <td>8</td>
+        <td>14</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>11</td>
         <td>10</td>
         <td>1</td>
-        <td>1.7</td>
+        <td>2.0</td>
       </tr>
       
     </tbody>
@@ -86,14 +86,14 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="0261b2a334c54027e2fe94b7a0b217cf3085f551">
+        <div class="source_table" id="ad024375dcd26332b1457b030bc43fd9166fad90">
   <div class="header">
-    <h3>app/controllers/likes_controller.rb</h3>
-    <h4><span class="red">61.11 %</span> covered</h4>
+    <h3>app/controllers/profiles_controller.rb</h3>
+    <h4><span class="red">36.36 %</span> covered</h4>
     <div>
-      <b>18</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <b>22</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
+      <span class="red"><b>14</b> lines missed.</span>
     </div>
   </div>
   
@@ -103,175 +103,175 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class LikesController &lt; ApplicationController</code>
+          <code class="ruby">class ProfilesController &lt; ApplicationController</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  after_action :likes, only: [:create]</code>
+          <code class="ruby">  def edit</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="3">
           
-          <code class="ruby">  before_action :unlikes, only: [:destroy]</code>
+          
+          <code class="ruby">    @profile = User.find(params[:id]).profile</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="5">
           
-          <code class="ruby">  def create</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">    @like = Like.create(user_id: params[:user_id], likable_id: params[:likable_id],</code>
+          <code class="ruby">  def update</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="missed" data-hits="0" data-linenumber="7">
           
           
-          <code class="ruby">                        likable_type: params[:likable_type])</code>
+          <code class="ruby">    @profile = Profile.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="8">
           
-          <code class="ruby">    if @like.save</code>
+          
+          <code class="ruby">    if @profile.update_attributes(profile_params)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="missed" data-hits="0" data-linenumber="9">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby">      flash[:success] = &quot;Profile updated successfully&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="10">
           
           
-          <code class="ruby">      flash[:warning] = &quot;Something went wrong&quot;</code>
+          <code class="ruby">      redirect_to newsfeed_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="12">
           
-          <code class="ruby">    redirect_back(fallback_location: root_path)</code>
+          
+          <code class="ruby">      flash[:error] = &quot;Something happened&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="missed" data-hits="0" data-linenumber="13">
           
           
-          <code class="ruby">    # redirect_to request.referrer</code>
+          <code class="ruby">      redirect_to edit_profile_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">  def destroy</code>
+          <code class="ruby">  def show</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">    @like = Like.find_by(id: params[:id])</code>
+          <code class="ruby">    # byebug</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    @like.destroy</code>
+          <code class="ruby">    @user = User.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="missed" data-hits="0" data-linenumber="20">
           
           
-          <code class="ruby">    if @like.save</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">    else</code>
+          <code class="ruby">    @profile = @user.profile</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">      flash[:warning] = &quot;Something went wrong&quot;</code>
+          <code class="ruby">    @category = Category.new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="missed" data-hits="0" data-linenumber="22">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    @categories = @user.categories #.paginate(page: params[:page], per_page: 5).order(&#39;created_at DESC&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">    # redirect_to request.referrer</code>
+          <code class="ruby">    # raise ddd</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
-          
-          
-          <code class="ruby">    redirect_back(fallback_location: root_path)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="27">
+        <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
-          <code class="ruby">  def likes</code>
+          <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">    Action.new(:user_id=&gt;current_user.id, :action=&gt;&#39;likes&#39;,</code>
+          <code class="ruby">    @user = current_user</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="28">
           
-          <code class="ruby">               :action_path=&gt;request.original_url).save if user_signed_in?</code>
+          
+          <code class="ruby">    @user.destroy</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">    redirect_to persons_profile_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
@@ -289,28 +289,34 @@
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">  def unlikes</code>
+          <code class="ruby">  private</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">    Action.new(:user_id=&gt;current_user.id, :action=&gt;&#39;unlikes&#39;,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">               :action_path=&gt;request.original_url).save if user_signed_in?</code>
+          <code class="ruby">  def profile_params</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="missed" data-hits="0" data-linenumber="35">
+          
+          
+          <code class="ruby">    params.require(:profile).permit(:location, :gender, :birthday) # , :avatar</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">end</code>
@@ -371,8 +377,8 @@
           <code class="ruby">  config.before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="7">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="7">
+          <span class="hits">5</span>
           
           <code class="ruby">    DatabaseCleaner.strategy = :transaction</code>
         </li>
@@ -419,8 +425,8 @@
           <code class="ruby">  config.before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="15">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="15">
+          <span class="hits">5</span>
           
           <code class="ruby">    DatabaseCleaner.start</code>
         </li>
@@ -443,8 +449,8 @@
           <code class="ruby">  config.after(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="19">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="19">
+          <span class="hits">5</span>
           
           <code class="ruby">    DatabaseCleaner.clean</code>
         </li>

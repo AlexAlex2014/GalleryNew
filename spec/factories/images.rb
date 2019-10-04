@@ -5,7 +5,9 @@ FactoryBot.define do
   end
 
   factory :image_bot, class: Image do
-    body { "cars" }
+    image { '1.jpg' }
+    body { 'cars' }
+    # association :user, factory: :user_bot
     association :category, factory: :category
   end
 end

@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   after_action :likes, only: [:create]
-  before_action :unlikes, only: [:destroy]
+  after_action :unlikes, only: [:destroy]
 
   def create
     @like = Like.create(user_id: params[:user_id], likable_id: params[:likable_id],
@@ -10,7 +10,6 @@ class LikesController < ApplicationController
       flash[:warning] = "Something went wrong"
     end
     redirect_back(fallback_location: root_path)
-    # redirect_to request.referrer
   end
 
   def destroy
@@ -20,7 +19,6 @@ class LikesController < ApplicationController
     else
       flash[:warning] = "Something went wrong"
     end
-    # redirect_to request.referrer
     redirect_back(fallback_location: root_path)
   end
 

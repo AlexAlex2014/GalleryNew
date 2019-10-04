@@ -18,9 +18,10 @@ RSpec.describe ProfilesController, type: :controller do
     I18n.locale = 'en'
     sign_in user
     @params = {
-        id: profile.id
+      id: profile.id,
+      user_id: user.id
     }
-    byebug
+    # byebug
   end
 
 
@@ -68,7 +69,7 @@ RSpec.describe ProfilesController, type: :controller do
       # let!(:profile) { create :profile }
       it 'should success and render to edit page' do
         # sign_in user
-        byebug
+        # byebug
         get :show, params: @params
         expect(response).to have_http_status(200)
         expect(response).to render_template :show

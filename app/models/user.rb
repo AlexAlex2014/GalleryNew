@@ -51,9 +51,9 @@ class User < ApplicationRecord
     end
   end
 
-  # def get_newsfeed
-  #   Category.where("user_id = :user_id", user_id: self.id)
-  # end
+  def get_newsfeed
+    Category.where("user_id = :user_id", user_id: self.id)
+  end
 
   def send_welcome_email
     user = self

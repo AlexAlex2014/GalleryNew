@@ -11,6 +11,8 @@ FactoryBot.define do
     last_name { "Jack" }
     sequence(:email) { |i| "email#{i}@gmail.com" }
     password { "123456" }
+    password_confirmation { "123456" }
+    # confirmed_at Date.today
   end
 
   factory :user_val, class: User do

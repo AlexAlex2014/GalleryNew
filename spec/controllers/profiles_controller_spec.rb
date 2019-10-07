@@ -3,20 +3,18 @@ require 'rails_helper'
 RSpec.describe ProfilesController, type: :controller do
   let(:user) { create(:user_bot) }
   let(:profile) { create(:profile, user_id: user.id) }
-  # let(:current_user) { create(:user) }
-  # let(:having_attributes) {  }
-  # let(:valid_session) { {} }
+  let(:valid_session) { {} }
 
-
-  # before do
-  #   I18n.locale = 'en'
-  #   # sign_in current_user
-  #   sign_in current_user
-  #   # @params = {
-  #   #   id: profile.id
-  #   #   # user_id: user.id
-  #   # }
-  # end
+  before do
+    I18n.locale = 'en'
+    user.confirm
+    sign_in user
+    @params = {
+      id: profile.id,
+      location: 'Kiev567',
+      gender: 'f'
+    }
+  end
 
   describe 'routing' do
     it 'routes to #edit' do
@@ -33,24 +31,30 @@ RSpec.describe ProfilesController, type: :controller do
     end
   end
 
+  context 'GET #show' do
+    it 'should success and render to edit page' do
+      get :show, params: { id: profile.id }
+      expect(response).to have_http_status(200)
+      expect(response).to render_template :show
+    end
+  end
+
   # describe 'GET #show' do
-  #   it 'response with 200 ' do
-  #     get :show
-  #     expect(response.response_code).to eq(200)
-  #   end
-  #   it 'renders the index template' do
-  #     get :show
-  #     expect(response).to render_template('profiles/show')
+  #   it 'response success' do
+  #     assert_response :success
   #   end
   # end
 
-  # context 'GET #edit' do
-  #   it "assigns the requested profile as @profile" do
-  #     profile = Profile.create! having_attributes
-  #     get :edit, params: {id: profile.to_param}, session: valid_session
-  #     expect(assigns(:profile)).to eq(profile)
-  #   end
-  # end
+  context 'GET #edit' do
+    it "assigns the requested profile as @profile" do
+      params = {
+          location: 'Kiev567',
+          gender: 'f'
+      }
+      get :edit, params: { id: user.id, profile: params }, session: valid_session
+      expect(assigns(:profile)).to eq(profile)
+    end
+  end
 
   context 'PUT #update' do
     it 'should update profile info' do
@@ -65,10 +69,4 @@ RSpec.describe ProfilesController, type: :controller do
       end
     end
   end
-
-  # context 'POST #create' do
-  #   it 'create a new like' do
-  #     expect { post :create, params: { user_id: user.id, likable_id: image_bot.id, likable_type: 'Image' } }.to change { Like.count }.by(1)
-  #   end
-  # end
 end

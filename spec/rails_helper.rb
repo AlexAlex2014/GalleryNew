@@ -5,6 +5,8 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'shoulda/matchers'
+require 'devise'
 require 'support/factory_bot'
 require 'simplecov'
 SimpleCov.start
@@ -64,6 +66,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.extend ControllerMacros, :type => :controller
+
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include Devise::Test::IntegrationHelpers, type: :feature
   # config.include Devise::Test::ControllerHelpers, type: :helper
@@ -77,3 +81,15 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+# RSpec.describe Sector, type: :model do
+#   context 'validations' do
+#     it { should validate_presence_of(:name) }
+#     it { should allow_nil(:address) }
+#   end
+#
+#   context 'associations' do
+#     it { should belong_to(:industry) }
+#     it { should have_many(:sub_sectors).dependent(:restrict_with_exception) }
+#   end
+# end

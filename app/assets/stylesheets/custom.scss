@@ -817,6 +817,9 @@ header nav ul li select {
   padding: 2px;
   cursor: pointer;
   overflow: visible;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   &:hover {
     color: #8C7227;
     text-decoration: none;

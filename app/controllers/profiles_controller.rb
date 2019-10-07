@@ -15,18 +15,10 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    # byebug
     @user = current_user
     @profile = @user.profile
     @category = Category.new
-    @categories = @user.categories #.paginate(page: params[:page], per_page: 5).order('created_at DESC')
-    # raise ddd
-  end
-
-  def destroy
-    @user = current_user
-    @user.destroy
-    redirect_to persons_profile_path
+    @categories = @user.categories
   end
 
   private

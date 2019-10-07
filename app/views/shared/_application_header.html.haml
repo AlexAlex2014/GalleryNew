@@ -1,12 +1,12 @@
 %header.navbar.navbar-fixed-top.header_top_app
   .container
     .row
-      .col-md-6.col-sm-6.header_app
+      .col-md-8.col-sm-8.header_app
         = link_to "#{t(:home_page)}", root_path, id: "logo", class: "logo"
         %nav
           %ul.nav.navbar-nav
             %li= select(:category, :user_id, @category_options_sort, {prompt: "#{t(:popular_category)}"}, {:class => 'custTag'})
-      .col-md-6.col-sm-6.header_menu_app
+      .col-md-4.col-sm-4.header_menu_app
         %nav
           %ul.header_btn
             %li(class="lang_mnu" )

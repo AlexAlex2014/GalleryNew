@@ -1,19 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe ImagesController, type: :controller do
-  # login_user
   let(:user) { create(:user_bot) }
-  # let(:category) { create(:category, user_id: user.id) }
-  let(:image) { create(:image, user_id: user.id) }
+  let(:category) { create(:category, user_id: user.id) }
+  let(:image) { create(:image, user_id: user.id, category_id: category.id) }
+  let(:valid_session) { {} }
 
   before do
     I18n.locale = 'en'
     user.confirm
     sign_in user
     @params = {
-        # id: profile.id,
-        # location: 'Kiev567',
-        # gender: 'f'
+        id: image.id
     }
   end
 
@@ -43,7 +41,6 @@ RSpec.describe ImagesController, type: :controller do
       expect(post: 'create_my_image').to route_to('images#create_my_image')
     end
 
-
     it 'routes to #index' do
       expect(get: '/categories/1/images').to route_to('images#index', category_id: '1')
     end
@@ -67,21 +64,6 @@ RSpec.describe ImagesController, type: :controller do
     end
   end
 
-  context 'GET #show' do
-    it 'response success' do
-      assert_response :success
-    end
-  end
-
-  # describe "GET #index" do
-  #   it "returns http success" do
-  #     get :index
-  #     # byebug
-  #     expect(response).to have_http_status(:ok)
-  #     # expect(response).to have_http_status(:success)
-  #   end
-  # end
-
   context 'GET #index' do
     it 'should success and render to index page' do
       get :index
@@ -98,42 +80,61 @@ RSpec.describe ImagesController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    it "assigns a new image as @image" do
+      get :new, params: {}, session: valid_session
+      expect(assigns(:image)).to be_a_new(Image)
+    end
+    it 'should success and render to new page' do
+      get :new, params: { id: image.id }
+      expect(response).to have_http_status(200 )
+      expect(response).to render_template :new
+    end
+  end
+
   context 'POST #create' do
     it 'create a new image' do
       params = {
           image: '1.jpg',
-          body: 'cars'
+          body: 'bussiness',
+          category_id: category.id,
+          user_id: user.id
       }
       expect { post(:create, params: { image: params }) }.to change(Image, :count).by(1)
-      # expect(flash[:notice]).to eq 'Product was successfully created.'
     end
   end
 
+  context 'GET #edit' do
+    it 'should success and render to show page' do
+      get :edit, params: { id: image.id }
+      expect(response).to have_http_status(200 )
+      expect(response).to render_template :edit
+    end
+  end
 
+  context 'PUT #update' do
+    it 'should update image info' do
+      params = {
+          body: 'nature'
+      }
+      put :update, params: { id: image.id, image: params }
+      image.reload
+      params.keys.each do |key|
+        expect(image.attributes[key.to_s]).to eq params[key]
+      end
+    end
+    it 'redirects to certain image' do
+      expect(response.status).to eq(200)
+    end
+    it 'updates the image' do
+      image.reload
+      expect(image).to having_attributes(body:'About Image')
+    end
+  end
 
-
-  # context 'GET #edit' do
-  #   it "assigns the requested profile as @profile" do
-  #     params = {
-  #         location: 'Kiev567',
-  #         gender: 'f'
-  #     }
-  #     get :edit, params: { id: user.id, profile: params }, session: valid_session
-  #     expect(assigns(:profile)).to eq(profile)
-  #   end
-  # end
-
-  # context 'PUT #update' do
-  #   it 'should update profile info' do
-  #     params = {
-  #         location: 'Kiev123',
-  #         gender: 'f'
-  #     }
-  #     put :update, params: { id: profile.id, profile: params }
-  #     profile.reload
-  #     params.keys.each do |key|
-  #       expect(profile.attributes[key.to_s]).to eq params[key]
-  #     end
-  #   end
-  # end
+  context 'DELETE #destroy' do
+    it 'should delete image' do
+      expect { delete :destroy, params: @params }.to change(Image, :count).by(-1)
+    end
+  end
 end

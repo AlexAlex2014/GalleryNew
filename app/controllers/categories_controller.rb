@@ -49,8 +49,6 @@ class CategoriesController < ApplicationController
     flash[:success] = "Category deleted"
 
     render json: { success: true }
-    # redirect_to request.referrer
-    # redirect_to categories_path
   end
 
 
@@ -63,9 +61,8 @@ class CategoriesController < ApplicationController
     else
       flash[:error] = "Something went wrong"
     end
-    # render json: { success: true }
-    # render json: { html: render_to_string(partial: '/shared/category_list') }
-    redirect_to request.referrer #:back
+
+    redirect_back(fallback_location: root_path)
   end
 
   private

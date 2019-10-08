@@ -39,12 +39,6 @@ RSpec.describe ProfilesController, type: :controller do
     end
   end
 
-  # describe 'GET #show' do
-  #   it 'response success' do
-  #     assert_response :success
-  #   end
-  # end
-
   context 'GET #edit' do
     it "assigns the requested profile as @profile" do
       params = {
@@ -53,6 +47,11 @@ RSpec.describe ProfilesController, type: :controller do
       }
       get :edit, params: { id: user.id, profile: params }, session: valid_session
       expect(assigns(:profile)).to eq(profile)
+    end
+    it 'should success and render to edit page' do
+      get :edit, params: { id: user.id }
+      expect(response).to have_http_status(200)
+      expect(response).to render_template :edit
     end
   end
 
@@ -67,6 +66,13 @@ RSpec.describe ProfilesController, type: :controller do
       params.keys.each do |key|
         expect(profile.attributes[key.to_s]).to eq params[key]
       end
+    end
+    it 'redirects to certain profile' do
+      expect(response.status).to eq(200)
+    end
+    it 'updates the profile' do
+      profile.reload
+      expect(profile).to having_attributes(location:'Kiev')
     end
   end
 end

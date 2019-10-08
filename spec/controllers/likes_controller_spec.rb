@@ -7,6 +7,7 @@ RSpec.describe LikesController, type: :controller do
 
   before do
     I18n.locale = 'en'
+    user.confirm
     sign_in user
     @params = {
         id: like.id

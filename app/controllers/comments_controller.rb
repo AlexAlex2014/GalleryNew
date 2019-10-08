@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "Something went wrong"
     end
-    redirect_to request.referrer
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy

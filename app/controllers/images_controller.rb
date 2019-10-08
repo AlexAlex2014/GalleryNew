@@ -6,11 +6,11 @@ class ImagesController < ApplicationController
     @images = Image.select("images.*, (COUNT(comments.id)+COUNT(likes.id)) AS i")
                   .left_outer_joins(:comments, :likes).group("images.id")
                   .order("i DESC").page(params[:page])
-    render index_img
+    # render index_img
   end
 
-  def index_img
-  end
+  # def index_img
+  # end
 
   def show
   end
@@ -31,10 +31,9 @@ class ImagesController < ApplicationController
 
   def create_my_image
     @image = Image.new #(image_params)
-    # raise dd
     @image.user_id = current_user.id
     if @image.save
-      redirect_to profile_path(@image.user_id) #images_path
+      redirect_to profile_path(@image.user_id)
     else
       render :new
     end
@@ -55,7 +54,7 @@ class ImagesController < ApplicationController
     @image = Image.friendly.find(params[:id])
     @image.destroy
 
-    redirect_to request.referrer
+    redirect_back(fallback_location: root_path)
   end
 
   private

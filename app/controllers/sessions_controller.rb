@@ -4,14 +4,16 @@ class SessionsController < Devise::SessionsController
 
   def create
     flash.clear
-
     user = User.find_by_email(sign_in_params['email'])
+
     super and return unless user
 
     adjust_failed_attempts user
 
-    super and return if (user.failed_attempts < User.logins_before_captcha)
+    super and return if (user.failed_attempts <= User.logins_before_captcha)
+
     super and return if user.locked_at or verify_recaptcha
+
 
     # Don't increase failed attempts if Recaptcha was not passed
     decrement_failed_attempts(user) if recaptcha_present?(params) and

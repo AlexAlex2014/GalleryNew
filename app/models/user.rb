@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
          :confirmable,
          :registerable,
@@ -17,10 +15,6 @@ class User < ApplicationRecord
   after_create :create_profile
   after_create :send_welcome_email
 
-  # after_create do
-  #   raise "no confirm" if confirmed_at.nil?
-  # end
-
   has_one :profile, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -28,7 +22,6 @@ class User < ApplicationRecord
   has_many :subs, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :actions, dependent: :destroy
-
 
   def full_name
     unless self.first_name == nil

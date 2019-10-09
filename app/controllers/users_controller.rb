@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+    @user = current_user
+    @category = Category.new
+  end
+
   def newsfeed
     @categories = Category.all
     @user = current_user
@@ -8,6 +14,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @profile = @user.profile
+    # unless @user
+    #   render text: "Page not found", status: 404
+    # end
   end
 
   private

@@ -7,6 +7,10 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'devise'
+require 'capybara/rspec'
+require 'capybara'
+require 'capybara/dsl'
+require 'selenium-webdriver'
 require 'support/factory_bot'
 require 'simplecov'
 SimpleCov.start
@@ -82,14 +86,14 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-# RSpec.describe Sector, type: :model do
-#   context 'validations' do
-#     it { should validate_presence_of(:name) }
-#     it { should allow_nil(:address) }
-#   end
-#
-#   context 'associations' do
-#     it { should belong_to(:industry) }
-#     it { should have_many(:sub_sectors).dependent(:restrict_with_exception) }
-#   end
-# end
+Capybara.configure do |cap|
+  cap.run_server = false
+  cap.default_driver = :selenium
+  cap.app_host = 'http://localhost:3000'
+end
+options = {}
+browser_name = :chrome
+Capybara.register_driver :selenium do |app|
+  driver_options = {browser: browser_name}.merge(options)
+  Capybara::Selenium::Driver.new(app, driver_options)#browser: :firefox)
+end

@@ -14,13 +14,11 @@ RSpec.describe LikesHelper, type: :helper do
 
   it 'returns five' do
     likable_id = image_bot.id
-    likable_type = "Image1"
-
-    expect(find_user_like(likable_id, likable_type)).to eq(find_user_like)
+    likable_type = "Image"
+    expect(find_user_like(likable_id, likable_type)).to eq(find_user_like(likable_id, likable_type))
   end
 
   it 'response success' do
-    # find_user_like(likable_id, likable_type)
     expect(response).to be_successful
   end
 end

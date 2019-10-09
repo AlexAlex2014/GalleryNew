@@ -11,7 +11,7 @@
             %li{:class => "lang_mnu#{" active" if I18n.locale == :ru}"}
               = link_to 'Рус', {locale: :ru}
             %li.nav-item
-              %button.toggle_mnu
+              %button.toggle_mnu(id="toggle_mnu")
                 %span.sandwich
                   %span.sw-topper
                   %span.sw-bottom
@@ -27,7 +27,7 @@
             = f.label :password, class: "sr-only"
             = f.password_field :password, autocomplete: "off", id: "inputPassword", class: "signin-field", placeholder: "#{t(:password)}"
           .btn
-            = f.button "#{t(:log_in)}"
+            = f.button "#{t(:log_in)}", id: "log_in"
       %li
         %a(href="#about")= "#{t(:about)}"
         %a(href="#sing_up")= t(:sign_up)

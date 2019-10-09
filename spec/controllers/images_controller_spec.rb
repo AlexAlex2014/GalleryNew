@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ImagesController, type: :controller do
+  let(:images) { 4.times.map { build(:image) } }
   let(:user) { create(:user_bot) }
   let(:category) { create(:category, user_id: user.id) }
   let(:image) { create(:image, user_id: user.id, category_id: category.id) }
@@ -65,6 +66,10 @@ RSpec.describe ImagesController, type: :controller do
   end
 
   context 'GET #index' do
+    it 'shows all images' do
+      params = { images: images}
+      get :index, params: params
+    end
     it 'should success and render to index page' do
       get :index
       expect(response).to have_http_status(200 )

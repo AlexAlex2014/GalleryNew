@@ -82,8 +82,9 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 5.1'
   gem 'capybara', '~> 3.25'
-  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.3'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.1', '>= 4.1.2'
+  gem 'chromedriver-helper'
 end
 
 group :development do

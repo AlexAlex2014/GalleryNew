@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SubsController, type: :controller do
-  let(:user) { create(:user_bot) }
+  let(:user) { create(:user) }
   let(:category) { create(:category) }
   let(:sub) { create(:sub, subable: category) }
 

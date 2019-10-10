@@ -1061,10 +1061,8 @@
         4,
         4,
         2,
-        null,
         2,
         2,
-        null,
         2,
         null,
         1,
@@ -1097,7 +1095,6 @@
       ],
       "/home/developer/Documents/Rails/app_gallery/GalleryNew/app/mailers/user_mailer.rb": [
         1,
-        null,
         1,
         null,
         1,
@@ -1566,6 +1563,6 @@
         null
       ]
     },
-    "timestamp": 1570627752
+    "timestamp": 1570686824
   }
 }

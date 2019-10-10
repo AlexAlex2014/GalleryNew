@@ -16,7 +16,6 @@ class Image < ApplicationRecord
   has_many :likes, as: :likable
   belongs_to :category
 
-
   def send_image_email()
     @image = self
     @category_sub = @image.category

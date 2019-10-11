@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-class RunIt
+class FutureTest
   include Capybara::DSL
   def run_root
     visit '/'
@@ -65,17 +65,17 @@ class RunIt
   end
 end
 
-it = RunIt.new
+# email = 'azuev3199@gmail.com'
+# password = '123456'
+# categor_id = [1, 3, 4, 5, 6]
 
-email = 'azuev3199@gmail.com'
-password = '123456'
-categor_id = [1, 3, 4, 5, 6, 11]
+# it = FutureTest.new
 
-it.run_root
-it.sign_in(email, password)
-it.run_images
-it.run_comments
-it.show_categories(categor_id)
-it.add_category
-it.add_image
-it.user_profile_edit
+# it.run_root
+# it.sign_in(email, password)
+# it.run_images
+# it.run_comments
+# it.show_categories(categor_id)
+# it.add_category
+# it.add_image
+# it.user_profile_edit

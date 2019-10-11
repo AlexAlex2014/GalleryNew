@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
     @category_sort_arr = Category.select("categories.*, (COUNT(images.id)+COUNT(comments.id)+COUNT(likes.id)) AS i")
                       .left_outer_joins(:images, images: [:comments, :likes]).group("categories.id")
                       .order("i DESC").limit(5)
+    # raise ddd
 
     @category_options_sort = @category_sort_arr.map{|u| [ u.title, u.id ] }
   end

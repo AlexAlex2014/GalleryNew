@@ -1,11 +1,16 @@
-ActiveAdmin.register Comment, :as => "UserComment" do
+# frozen_string_literal: true
+
+ActiveAdmin.register Comment, as: 'UserComment' do
   index do
     selectable_column
     id_column
     column :commenter
     column :body
     column :image_id do |comment|
-      link_to image_tag(comment.image.image.small_thumb.url, alt: "qqq", title: "qqqq"), admin_user_comment_path(comment)
+      link_to image_tag(comment.image.image.small_thumb.url,
+                        alt: 'qqq',
+                        title: 'qqqq'),
+              admin_user_comment_path(comment)
     end
     column :created_at
     actions
@@ -13,7 +18,7 @@ ActiveAdmin.register Comment, :as => "UserComment" do
 
   controller do
     def permitted_params
-      params.permit comment: [ :commenter, :body, :image_id ]
+      params.permit comment: %i[commenter body image_id]
     end
   end
 end

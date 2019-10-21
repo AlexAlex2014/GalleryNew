@@ -1,9 +1,14 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Image do
   index do
     selectable_column
     id_column
     column :image do |image|
-      link_to(image_tag(image.image.small_thumb.url, alt: "qqq", title: "qqqq"), admin_image_path(image)) unless image[:image].nil?
+      link_to(image_tag(image.image.small_thumb.url,
+                        alt: 'qqq',
+                        title: 'qqqq'),
+              admin_image_path(image)) unless image[:image].nil?
     end
     column :body
     column :created_at
@@ -15,7 +20,8 @@ ActiveAdmin.register Image do
     f.inputs 'ImageLoaders' do
       input :category
       input :image
-      input :remote_image_url, input_html: {value: "#{params[:remote_image_url]}"} #, :as => :hidden
+      input :remote_image_url,
+            input_html: { value: params[:remote_image_url].to_s }
       input :body
     end
     actions
@@ -23,7 +29,7 @@ ActiveAdmin.register Image do
 
   controller do
     def permitted_params
-      params.permit image: [:id, :image, :body, :category_id, :remote_image_url ]
+      params.permit image: %i[id image body category_id remote_image_url]
     end
   end
 end

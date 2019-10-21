@@ -8,7 +8,9 @@ class Sub < ApplicationRecord
   validates :user_id, uniqueness: {scope: [:subable_id, :subable_type]}
 
   def send_sub_email()
-    sub = self
-    Resque.enqueue(SubEmailJob, sub)
+    unless Rails.env.test?
+      sub = self
+      Resque.enqueue(SubEmailJob, sub)
+    end
   end
 end

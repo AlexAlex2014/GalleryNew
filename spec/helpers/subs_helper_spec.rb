@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe SubsHelper, type: :helper do
@@ -14,9 +16,10 @@ RSpec.describe SubsHelper, type: :helper do
 
   it 'returns five' do
     subable_id = category.id
-    subable_type = "Category"
+    subable_type = 'Category'
 
-    expect(find_user_sub(subable_id, subable_type)).to eq(find_user_sub(subable_id, subable_type))
+    expect(find_user_sub(subable_id, subable_type))
+      .to eq(find_user_sub(subable_id, subable_type))
   end
 
   it 'response success' do

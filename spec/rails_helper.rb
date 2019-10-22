@@ -1,9 +1,10 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
+# frozen_string_literal: true
+
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in prod mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'devise'
@@ -70,7 +71,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.extend ControllerMacros, :type => :controller
+  config.extend ControllerMacros, type: :controller
 
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include Devise::Test::IntegrationHelpers, type: :feature
@@ -94,6 +95,6 @@ end
 options = {}
 browser_name = :chrome
 Capybara.register_driver :selenium do |app|
-  driver_options = {browser: browser_name}.merge(options)
-  Capybara::Selenium::Driver.new(app, driver_options)#browser: :firefox)
+  driver_options = { browser: browser_name }.merge(options)
+  Capybara::Selenium::Driver.new(app, driver_options)
 end

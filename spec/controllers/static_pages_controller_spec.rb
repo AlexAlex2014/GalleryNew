@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe StaticPagesController, type: :controller do
@@ -13,7 +15,7 @@ RSpec.describe StaticPagesController, type: :controller do
     end
   end
 
-  describe "GET #home" do
+  describe 'GET #home' do
     it 'response with 200 ' do
       get :home
       expect(response.response_code).to eq(200)

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class CommentsController
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   after_action :comments, only: [:create]
@@ -12,9 +15,9 @@ class CommentsController < ApplicationController
     @comment = @image.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:success] = "Comment successful"
+      flash[:success] = 'Comment successful'
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = 'Something went wrong'
     end
     redirect_back(fallback_location: root_path)
   end
@@ -27,12 +30,16 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:comment).permit(:commenter, :body)
   end
 
   def comments
-    Action.new(:user_id=>current_user.id, :action=>'comments',
-               :action_path=>request.original_url).save if user_signed_in?
+    return unless user_signed_in?
+
+    Action.new(user_id: current_user.id,
+               action: 'comments',
+               action_path: request.original_url).save
   end
 end

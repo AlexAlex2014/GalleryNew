@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class SubEmailJob
 class SubEmailJob
   @queue = :sub
 

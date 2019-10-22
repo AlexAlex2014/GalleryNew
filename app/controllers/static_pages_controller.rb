@@ -1,19 +1,20 @@
+# frozen_string_literal: true
+
+# class StaticPagesController
 class StaticPagesController < ApplicationController
   skip_before_action :require_login
 
   def home
-    if user_signed_in?
-      redirect_to newsfeed_path
-    end
+    redirect_to newsfeed_path if user_signed_in?
   end
 
   def image_urls
-    @categories = Category.select("categories.*, (COUNT(images.id)+COUNT(comments.id)+COUNT(likes.id)) AS i")
-                      .left_outer_joins(:images, images: [:comments, :likes]).group("categories.id")
-                      .order("i DESC").limit(5)
+    category_sort_arr
     @category_images = {}
-    @categories.each do |category|
-      @category_images[category] = category.images.first if category.images.size > 0
+    @category_sort_arr.each do |category|
+      if category.images.size.positive?
+        @category_images[category] = category.images.first
+      end
     end
     @category_images
   end

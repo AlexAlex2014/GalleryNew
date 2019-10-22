@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe LikesHelper, type: :helper do
@@ -14,8 +16,9 @@ RSpec.describe LikesHelper, type: :helper do
 
   it 'returns five' do
     likable_id = image_bot.id
-    likable_type = "Image"
-    expect(find_user_like(likable_id, likable_type)).to eq(find_user_like(likable_id, likable_type))
+    likable_type = 'Image'
+    expect(find_user_like(likable_id, likable_type))
+      .to eq(find_user_like(likable_id, likable_type))
   end
 
   it 'response success' do

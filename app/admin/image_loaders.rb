@@ -23,20 +23,22 @@ ActiveAdmin.register ImageLoader do
     attributes_table do
       url = params['site_path'].site_path
       base = URI.parse(url.to_s)
-      html = open(url)
+      html = URI.parse(url).open
       doc = Nokogiri::HTML(html)
       doc.xpath('//img').each do |img|
-        unless img['src'] == nil
-          unless img['src'][/((.*\.jpg$)?(.*\.jpeg$)?){1}/] == ""
+        if !img['src'].nil?
+          unless img['src'][/((.*\.jpg$)?(.*\.jpeg$)?){1}/] == ''
             src = img['src']
             @normalized = base.merge(URI.parse(src)).to_s
-            div link_to image_tag(@normalized), new_admin_image_path(:remote_image_url => "#{@normalized}")
+            div link_to image_tag(@normalized),
+                        new_admin_image_path(remote_image_url: @normalized.to_s)
           end
         else
-          unless img['data-src'][/((.*\.jpg$)?(.*\.jpeg$)?){1}/] == ""
+          unless img['data-src'][/((.*\.jpg$)?(.*\.jpeg$)?){1}/] == ''
             src = img['data-src']
             @normalized = base.merge(URI.parse(src)).to_s
-            div link_to image_tag(@normalized), new_admin_image_path(:remote_image_url => "#{@normalized}")
+            div link_to image_tag(@normalized),
+                        new_admin_image_path(remote_image_url: @normalized.to_s)
           end
         end
       end

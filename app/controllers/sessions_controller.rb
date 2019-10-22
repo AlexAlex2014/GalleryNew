@@ -1,33 +1,49 @@
+# frozen_string_literal: true
+
+# class SessionsController
 class SessionsController < Devise::SessionsController
   prepend_after_action :after_login, only: [:create]
   before_action :before_logout, only: [:destroy]
 
   def create
     flash.clear
-    user = User.find_by_email(sign_in_params['email'])
-
-    super and return unless user
-
-    adjust_failed_attempts user
-
-    super and return if (user.failed_attempts <= User.logins_before_captcha)
-
-    super and return if user.locked_at or verify_recaptcha
-
-
-    # Don't increase failed attempts if Recaptcha was not passed
-    decrement_failed_attempts(user) if recaptcha_present?(params) and
-        !verify_recaptcha
-
-    # Recaptcha was wrong
+    failed_attempts
+    super && return if user_failed_attempts?
+    super && return if user_locked_at?
+    decrement_failed_attempts(user).recaptcha_valid?
     self.resource = resource_class.new(sign_in_params)
+    recaptcha_wrong
+  end
+
+  private
+
+  def user
+    User.find_by_email(sign_in_params['email'])
+  end
+
+  def failed_attempts
+    super && return unless user
+    adjust_failed_attempts user
+  end
+
+  def user_failed_attempts?
+    user.failed_attempts <= User.logins_before_captcha
+  end
+
+  def user_locked_at?
+    user.locked_at || verify_recaptcha
+  end
+
+  def recaptcha_valid?
+    recaptcha_present?(params) && !verify_recaptcha
+  end
+
+  def recaptcha_wrong
     sign_out
     flash[:error] = 'Captcha was wrong, please try again.'
     respond_with_navigational(resource) { render :new }
   end
 
-
-  private
   def adjust_failed_attempts(user)
     if user.failed_attempts > user.cached_failed_attempts
       user.update cached_failed_attempts: user.failed_attempts
@@ -56,12 +72,18 @@ class SessionsController < Devise::SessionsController
   end
 
   def after_login
-    Action.new(:user_id=>current_user.id, :action=>'user_sign_in',
-               :action_path=>request.original_url).save if user_signed_in?
+    return unless user_signed_in?
+
+    Action.new(user_id: current_user.id,
+               action: 'user_sign_in',
+               action_path: request.original_url).save
   end
 
   def before_logout
-    Action.new(:user_id=>current_user.id, :action=>'user_sign_out',
-               :action_path=>request.original_url).save if user_signed_in?
+    return unless user_signed_in?
+
+    Action.new(user_id: current_user.id,
+               action: 'user_sign_out',
+               action_path: request.original_url).save
   end
 end

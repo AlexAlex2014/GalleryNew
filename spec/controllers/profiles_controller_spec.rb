@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ProfilesController, type: :controller do
@@ -40,12 +42,13 @@ RSpec.describe ProfilesController, type: :controller do
   end
 
   context 'GET #edit' do
-    it "assigns the requested profile as @profile" do
+    it 'assigns the requested profile as @profile' do
       params = {
-          location: 'Kiev567',
-          gender: 'f'
+        location: 'Kiev567',
+        gender: 'f'
       }
-      get :edit, params: { id: user.id, profile: params }, session: valid_session
+      get :edit, params: { id: user.id, profile: params },
+                 session: valid_session
       expect(assigns(:profile)).to eq(profile)
     end
     it 'should success and render to edit page' do
@@ -72,7 +75,7 @@ RSpec.describe ProfilesController, type: :controller do
     end
     it 'updates the profile' do
       profile.reload
-      expect(profile).to having_attributes(location:'Kiev')
+      expect(profile).to having_attributes(location: 'Kiev')
     end
   end
 end

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class Category
 class Category < ApplicationRecord
   extend FriendlyId
 

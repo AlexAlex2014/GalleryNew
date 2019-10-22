@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe UserMailer, type: :mailer do
   let(:user) { create(:user_bot) }
@@ -16,21 +18,21 @@ RSpec.describe UserMailer, type: :mailer do
     @arr << image.category
   end
 
-  describe "notify" do
-    it "renders the headers" do
-      expect(mail.subject).to eq("Welcome to App gallery")
-      expect(mail.to).to eq(["#{user.email}"])
+  describe 'notify' do
+    it 'renders the headers' do
+      expect(mail.subject).to eq('Welcome to App gallery')
+      expect(mail.to).to eq([user.email.to_s])
       expect(mail.from).to eq([ENV['USERNAME_MAIL']])
     end
 
-    it "renders the headers" do
-      expect(sub_email.subject).to eq("You subscribed to the category")
-      expect(sub_email.to).to eq(["#{user.email}"])
+    it 'renders the headers' do
+      expect(sub_email.subject).to eq('You subscribed to the category')
+      expect(sub_email.to).to eq([user.email.to_s])
       expect(sub_email.from).to eq([ENV['USERNAME_MAIL']])
     end
 
-    it "renders the headers" do
-      expect(image_email.subject).to eq("New image added")
+    it 'renders the headers' do
+      expect(image_email.subject).to eq('New image added')
       expect(image_email.to).to eq([@arr[0]])
       expect(image_email.from).to eq([ENV['USERNAME_MAIL']])
     end

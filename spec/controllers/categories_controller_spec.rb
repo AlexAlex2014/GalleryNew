@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
@@ -11,7 +13,7 @@ RSpec.describe CategoriesController, type: :controller do
     user.confirm
     sign_in user
     @params = {
-        id: category.id
+      id: category.id
     }
   end
 
@@ -39,18 +41,19 @@ RSpec.describe CategoriesController, type: :controller do
     end
 
     it 'routes to #create_my_category' do
-      expect(post: 'create_my_category').to route_to('categories#create_my_category')
+      expect(post: 'create_my_category')
+        .to route_to('categories#create_my_category')
     end
   end
 
   context 'GET #index' do
     it 'shows all categories' do
-      params = { categories: categories}
+      params = { categories: categories }
       get :index, params: params
     end
     it 'should success and render to index page' do
       get :index
-      expect(response).to have_http_status(200 )
+      expect(response).to have_http_status(200)
       expect(response).to render_template :index
     end
   end
@@ -58,19 +61,19 @@ RSpec.describe CategoriesController, type: :controller do
   context 'GET #show' do
     it 'should success and render to show page' do
       get :show, params: @params
-      expect(response).to have_http_status(200 )
+      expect(response).to have_http_status(200)
       expect(response).to render_template :show
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new category as @category" do
+  describe 'GET #new' do
+    it 'assigns a new category as @category' do
       get :new, params: {}, session: valid_session
       expect(assigns(:category)).to be_a_new(Category)
     end
     it 'should success and render to new page' do
       get :new, params: @params
-      expect(response).to have_http_status(200 )
+      expect(response).to have_http_status(200)
       expect(response).to render_template :new
     end
   end
@@ -78,30 +81,32 @@ RSpec.describe CategoriesController, type: :controller do
   context 'POST #create' do
     it 'create a new category' do
       params = {
-          title: 'bussiness'
+        title: 'bussiness'
       }
-      expect { post(:create, params: { category: params }) }.to change(Category, :count).by(1)
+      expect { post(:create, params: { category: params }) }
+        .to change(Category, :count).by(1)
     end
   end
 
   context 'POST #create_my_category' do
     it 'create_my_category a new category' do
       params = {
-          title: 'bussiness'
+        title: 'bussiness'
       }
-      expect { post(:create_my_category, params: { category: params }) }.to change(Category, :count).by(1)
+      expect { post(:create_my_category, params: { category: params }) }
+        .to change(Category, :count).by(1)
     end
   end
 
   context 'GET #edit' do
     it 'should success and render to show page' do
       get :edit, params: @params
-      expect(response).to have_http_status(200 )
+      expect(response).to have_http_status(200)
       expect(response).to render_template :edit
     end
     it 'should success and render to edit page' do
       get :edit, params: @params
-      expect(response).to have_http_status(200 )
+      expect(response).to have_http_status(200)
       expect(response).to render_template :edit
     end
   end
@@ -109,7 +114,7 @@ RSpec.describe CategoriesController, type: :controller do
   context 'PUT #update' do
     it 'should update category info' do
       params = {
-          title: 'bussiness'
+        title: 'bussiness'
       }
       put :update, params: { id: category.id, category: params }
       category.reload
@@ -122,13 +127,14 @@ RSpec.describe CategoriesController, type: :controller do
     end
     it 'updates the category' do
       category.reload
-      expect(category).to having_attributes(title:'cars')
+      expect(category).to having_attributes(title: 'cars')
     end
   end
 
   context 'DELETE #destroy' do
     it 'should delete category' do
-      expect { delete :destroy, params: @params }.to change(Category, :count).by(-1)
+      expect { delete :destroy, params: @params }
+        .to change(Category, :count).by(-1)
     end
   end
 end

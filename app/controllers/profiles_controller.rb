@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class ProfilesController
 class ProfilesController < ApplicationController
   def edit
     @profile = User.find(params[:id]).profile
@@ -6,10 +9,10 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(profile_params)
-      flash[:success] = "Profile updated successfully"
+      flash[:success] = 'Profile updated successfully'
       redirect_to newsfeed_path
     else
-      flash[:error] = "Something happened"
+      flash[:error] = 'Something happened'
       redirect_to edit_profile_path
     end
   end
@@ -24,6 +27,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:location, :gender, :birthday) # , :avatar
+    params.require(:profile).permit(:location, :gender, :birthday)
   end
 end

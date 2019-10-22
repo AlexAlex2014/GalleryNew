@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class User
 class User < ApplicationRecord
   devise :database_authenticatable,
          :confirmable,
@@ -8,7 +11,7 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable,
          :lockable,
-         :omniauth_providers => [:facebook]
+         omniauth_providers: [:facebook]
 
   validates :email, presence: true
 
@@ -24,9 +27,9 @@ class User < ApplicationRecord
   has_many :actions, dependent: :destroy
 
   def full_name
-    unless self.first_name == nil
-      self.first_name + " " + self.last_name
-    end
+    return if self.first_name.nil?
+
+    self.first_name + ' ' + self.last_name
   end
 
   def self.logins_before_captcha
@@ -40,24 +43,19 @@ class User < ApplicationRecord
       user.last_name = auth.info.last_name
       user.uid = auth.uid
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+      user.password = Devise.friendly_token[0, 20]
     end
   end
 
-  def get_newsfeed
-    Category.where("user_id = :user_id", user_id: self.id)
-  end
+  # def get_newsfeed
+  #   Category.where('user_id = :user_id', user_id: self.id)
+  # end
 
   def send_welcome_email
-    unless Rails.env.test?
-      user = self
-      Resque.enqueue(WelcomeEmailJob, user)
-    end
+    return if Rails.env.test?
+
+    user = self
+    Resque.enqueue(WelcomeEmailJob, user)
     # UserMailer.welcome_email(self).deliver
   end
-
-  # def send_welcome_email
-  #   user = self
-  #   Resque.enqueue(WelcomeEmailJob, user)
-  # end
 end

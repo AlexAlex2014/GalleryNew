@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# module StaticPagesHelper
 module StaticPagesHelper
   def resource_name
     :user

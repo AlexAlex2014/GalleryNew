@@ -36,10 +36,12 @@ ActiveAdmin.register_page 'Dashboard' do
     section 'Recent Image' do
       table_for Image.order('created_at desc').limit(10) do
         column :image do |image|
-          link_to(image_tag(image.image.small_thumb.url,
-                            alt: 'qqq',
-                            title: 'qqqq'),
-                  admin_image_path(image)) unless image[:image].nil?
+          unless image[:image].nil?
+            link_to(image_tag(image.image.small_thumb.url,
+                              alt: 'qqq',
+                              title: 'qqqq'),
+                    admin_image_path(image))
+          end
         end
         column :body
         column :category

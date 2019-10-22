@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class ApplicationController
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -9,29 +12,31 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   before_action :drop_down_list, :drop_down_list_sort
 
-  after_action :navigation, only: [:index, :show]
+  after_action :navigation, only: %i[index show]
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :password, :password_confirmation, :current_password])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: %i[first_name
+                                               last_name
+                                               password
+                                               password_confirmation
+                                               current_password])
   end
 
   def drop_down_list
-    @category_options = Category.all.map{|u| [ u.title, u.id ] }.sort{|a, b| a[0] <=> b[0]}
+    @category_options = Category.all.map { |u| [u.title, u.id] }
+                                .sort { |a, b| a[0] <=> b[0] }
   end
 
   def drop_down_list_sort
-    @category_sort_arr = Category.select("categories.*, (COUNT(images.id)+COUNT(comments.id)+COUNT(likes.id)) AS i")
-                      .left_outer_joins(:images, images: [:comments, :likes]).group("categories.id")
-                      .order("i DESC").limit(5)
-    # raise ddd
-
-    @category_options_sort = @category_sort_arr.map{|u| [ u.title, u.id ] }
+    category_sort_arr
+    @category_options_sort = @category_sort_arr.map { |u| [u.title, u.id] }
   end
 
   private
@@ -43,16 +48,28 @@ class ApplicationController < ActionController::Base
     # end
   end
 
+  def category_sort_arr
+    @category_sort_arr = Category.select('categories.*,
+    (COUNT(images.id)+COUNT(comments.id)+COUNT(likes.id)) AS i')
+                                 .left_outer_joins(:images,
+                                                   images: %i[comments likes])
+                                 .group('categories.id')
+                                 .order('i DESC').limit(5)
+  end
+
   def authorize_correct_user
-    unless current_user.id = params[:id]
-      flash[:error] = "You are not authorized to access this page"
-      redirect_to root_path
-    end
+    return if current_user.id == params[:id]
+
+    flash[:error] = 'You are not authorized to access this page'
+    redirect_to root_path
   end
 
   def navigation
-    Action.new(:user_id=>current_user.id, :action=>'navigation',
-               :action_path=>request.original_url).save if user_signed_in?
+    return unless user_signed_in?
+
+    Action.new(user_id: current_user.id,
+               action: 'navigation',
+               action_path: request.original_url).save
   end
 
   def set_locale

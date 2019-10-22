@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
+# class SubsController
 class SubsController < ApplicationController
   def create
-    @sub = Sub.create(user_id: params[:user_id], subable_id: params[:subable_id],
-                        subable_type: params[:subable_type])
+    @sub = Sub.create(user_id: params[:user_id],
+                      subable_id: params[:subable_id],
+                      subable_type: params[:subable_type])
     if @sub.save
     else
-      flash[:warning] = "Something went wrong"
+      flash[:warning] = 'Something went wrong'
     end
     redirect_back(fallback_location: root_path)
   end
@@ -14,7 +18,7 @@ class SubsController < ApplicationController
     @sub.destroy
     if @sub.save
     else
-      flash[:warning] = "Something went wrong"
+      flash[:warning] = 'Something went wrong'
     end
     redirect_back(fallback_location: root_path)
   end

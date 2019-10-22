@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class Comment
 class Comment < ApplicationRecord
   extend FriendlyId
   friendly_id :commenter, use: :slugged

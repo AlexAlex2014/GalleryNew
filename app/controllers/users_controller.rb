@@ -1,5 +1,7 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
+# class UsersController
+class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
@@ -19,13 +21,15 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
-    # unless @user
-    #   render text: "Page not found", status: 404
-    # end
   end
 
   private
+
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at, :confirmation_token, :failed_attempts, :cached_failed_attempts, :unconfirmed_email)
+    params.require(:user).permit(:email, :first_name, :last_name,
+                                 :encrypted_password, :reset_password_token,
+                                 :reset_password_sent_at, :remember_created_at,
+                                 :confirmation_token, :failed_attempts,
+                                 :cached_failed_attempts, :unconfirmed_email)
   end
 end

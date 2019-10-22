@@ -1,4 +1,5 @@
-# frozen_string_literal: true.
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Sub, type: :model do
@@ -8,26 +9,26 @@ RSpec.describe Sub, type: :model do
   end
 
   context 'validation' do
-    it "is valid with valid attributes" do
+    it 'is valid with valid attributes' do
       expect(@sub1).to be_valid
     end
 
-    it "has a unique user_id" do
+    it 'has a unique user_id' do
       sub2 = build(:sub, user_id: 2)
       expect(sub2).not_to be_valid
     end
 
-    it "is not valid without a user_id" do
+    it 'is not valid without a user_id' do
       sub2 = build(:sub, user_id: nil)
       expect(sub2).not_to be_valid
     end
 
-    it "is not valid without a subable_type" do
+    it 'is not valid without a subable_type' do
       sub2 = build(:sub, subable_type: nil)
       expect(sub2).not_to be_valid
     end
 
-    it "is not valid without a subable_id" do
+    it 'is not valid without a subable_id' do
       sub2 = build(:sub, subable_id: nil)
       expect(sub2).not_to be_valid
     end

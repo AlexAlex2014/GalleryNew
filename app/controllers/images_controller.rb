@@ -1,19 +1,18 @@
+# frozen_string_literal: true
+
+# class ImagesController
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_image, only: [:show, :edit, :update]
+  before_action :set_image, only: %i[show edit update]
 
   def index
-    @images = Image.select("images.*, (COUNT(comments.id)+COUNT(likes.id)) AS i")
-                  .left_outer_joins(:comments, :likes).group("images.id")
-                  .order("i DESC").page(params[:page])
-    # render index_img
+    @images = Image.select('images.*,
+    (COUNT(comments.id)+COUNT(likes.id)) AS i')
+                   .left_outer_joins(:comments, :likes).group('images.id')
+                   .order('i DESC').page(params[:page])
   end
 
-  # def index_img
-  # end
-
-  def show
-  end
+  def show; end
 
   def new
     @image = Image.new
@@ -30,7 +29,7 @@ class ImagesController < ApplicationController
   end
 
   def create_my_image
-    @image = Image.new #(image_params)
+    @image = Image.new
     @image.user_id = current_user.id
     if @image.save
       redirect_to profile_path(@image.user_id)
@@ -39,8 +38,7 @@ class ImagesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @image.update_attributes(image_params)
@@ -53,14 +51,14 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.friendly.find(params[:id])
     @image.destroy
-
     redirect_back(fallback_location: root_path)
   end
 
   private
 
   def image_params
-    params.require(:image).permit(:image, :body, :remove_image, :image_cache, :category_id, :remote_image_url)
+    params.require(:image).permit(:image, :body, :remove_image,
+                                  :image_cache, :category_id, :remote_image_url)
   end
 
   def set_image

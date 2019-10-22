@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
@@ -22,18 +24,15 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe "newsfeed action" do
-    it "renders newsfeed template" do
-      get :newsfeed, params: { id: user.id}
-      expect(response).to have_http_status(200 )
+  describe 'newsfeed action' do
+    it 'renders newsfeed template' do
+      get :newsfeed, params: { id: user.id }
+      expect(response).to have_http_status(200)
       expect(response).to render_template :newsfeed
     end
   end
 
   describe 'GET #edit' do
-    # it 'response success' do
-    #   assert_response :success
-    # end
     it 'response success' do
       expect(response).to be_successful
     end

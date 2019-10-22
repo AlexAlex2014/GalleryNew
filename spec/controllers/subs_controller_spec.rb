@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe SubsController, type: :controller do
@@ -9,7 +11,7 @@ RSpec.describe SubsController, type: :controller do
     I18n.locale = 'en'
     sign_in user
     @params = {
-        id: sub.id
+      id: sub.id
     }
   end
 
@@ -24,7 +26,11 @@ RSpec.describe SubsController, type: :controller do
 
   context 'POST #create' do
     it 'create a new sub' do
-      expect { post :create, params: { user_id: user.id, subable_id: category.id, subable_type: 'Category' } }.to change { Sub.count }.by(1)
+      expect {
+        post :create, params: { user_id: user.id,
+                                subable_id: category.id,
+                                subable_type: 'Category' }
+      }.to change { Sub.count }.by(1)
     end
   end
 

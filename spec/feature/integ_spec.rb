@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
+# class FutureTest
 class FutureTest
   include Capybara::DSL
   def run_root
@@ -27,24 +30,24 @@ class FutureTest
   end
 
   def show_categories(id)
-    id.each {|var|
+    id.each { |var|
       visit "/categories/#{var}"
       sleep 2
     }
   end
 
   def add_category
-    visit '/profiles/10'
+    visit '/profiles/15'
     fill_in 'Title category', with: 'Test category'
     fill_in 'Text category', with: 'About the category'
     sleep 2
     click_button 'Category'
-    visit "/categories/25"
+    visit '/categories/5'
     sleep 1
   end
 
   def add_image
-    visit "/categories/25"
+    visit '/categories/5'
     click_link 'Add image'
     select('sport', from: 'image_category_id')
     attach_file('image_image', 'app/assets/images/categories/sport/1.jpg')
@@ -54,7 +57,7 @@ class FutureTest
   end
 
   def user_profile_edit
-    visit '/profiles/10/edit'
+    visit '/profiles/15/edit'
     fill_in 'Location', with: 'Kiev'
     select('Male', from: 'profile_gender')
     select('1997', from: 'profile_birthday_1i')
@@ -68,9 +71,9 @@ end
 # email = 'azuev3199@gmail.com'
 # password = '123456'
 # categor_id = [1, 3, 4, 5, 6]
-
+#
 # it = FutureTest.new
-
+#
 # it.run_root
 # it.sign_in(email, password)
 # it.run_images

@@ -1,4 +1,5 @@
-# frozen_string_literal: true.
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
@@ -8,26 +9,26 @@ RSpec.describe Like, type: :model do
   end
 
   context 'validation' do
-    it "is valid with valid attributes" do
+    it 'is valid with valid attributes' do
       expect(@like1).to be_valid
     end
 
-    it "has a unique user_id" do
+    it 'has a unique user_id' do
       like2 = build(:like, user_id: 2)
       expect(like2).not_to be_valid
     end
 
-    it "is not valid without a user_id" do
+    it 'is not valid without a user_id' do
       like2 = build(:like, user_id: nil)
       expect(like2).not_to be_valid
     end
 
-    it "is not valid without a subable_type" do
+    it 'is not valid without a subable_type' do
       like2 = build(:like, likable_type: nil)
       expect(like2).not_to be_valid
     end
 
-    it "is not valid without a subable_id" do
+    it 'is not valid without a subable_id' do
       like2 = build(:like, likable_id: nil)
       expect(like2).not_to be_valid
     end

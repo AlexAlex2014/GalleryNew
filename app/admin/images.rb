@@ -5,10 +5,12 @@ ActiveAdmin.register Image do
     selectable_column
     id_column
     column :image do |image|
-      link_to(image_tag(image.image.small_thumb.url,
-                        alt: 'qqq',
-                        title: 'qqqq'),
-              admin_image_path(image)) unless image[:image].nil?
+      unless image[:image].nil?
+        link_to(image_tag(image.image.small_thumb.url,
+                          alt: 'qqq',
+                          title: 'qqqq'),
+                admin_image_path(image))
+      end
     end
     column :body
     column :created_at

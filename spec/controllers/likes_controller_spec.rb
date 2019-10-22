@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe LikesController, type: :controller do
@@ -10,7 +12,7 @@ RSpec.describe LikesController, type: :controller do
     user.confirm
     sign_in user
     @params = {
-        id: like.id
+      id: like.id
     }
   end
 
@@ -25,7 +27,11 @@ RSpec.describe LikesController, type: :controller do
 
   context 'POST #create' do
     it 'create a new like' do
-      expect { post :create, params: { user_id: user.id, likable_id: image_bot.id, likable_type: 'Image' } }.to change { Like.count }.by(1)
+      expect {
+        post :create, params: { user_id: user.id,
+                                likable_id: image_bot.id,
+                                likable_type: 'Image' }
+      }.to change { Like.count }.by(1)
     end
   end
 

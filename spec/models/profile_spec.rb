@@ -1,4 +1,5 @@
-# frozen_string_literal: true.
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
@@ -7,26 +8,26 @@ RSpec.describe Profile, type: :model do
   end
 
   context 'validation' do
-    it "is valid with valid attributes" do
+    it 'is valid with valid attributes' do
       expect(@profile1).to be_valid
     end
 
-    it "is not valid without a user_id" do
+    it 'is not valid without a user_id' do
       profile2 = build(:profile, user_id: nil)
       expect(profile2).not_to be_valid
     end
 
-    it "is valid without a location" do
+    it 'is valid without a location' do
       profile2 = build(:profile, location: nil)
       expect(profile2).to be_valid
     end
 
-    it "is valid without a gender" do
+    it 'is valid without a gender' do
       profile2 = build(:profile, gender: nil)
       expect(profile2).to be_valid
     end
 
-    it "is valid without a birthday" do
+    it 'is valid without a birthday' do
       profile2 = build(:profile, birthday: nil)
       expect(profile2).to be_valid
     end

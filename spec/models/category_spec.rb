@@ -10,6 +10,20 @@ RSpec.describe Category, type: :model do
   before(:all) do
     @category1 = create(:category)
   end
+
+  describe 'columns' do
+    %i[
+      id title text created_at updated_at slug user_id
+    ].each do |field|
+      it { is_expected.to have_db_column(field) }
+    end
+    %i[
+      user_id slug
+    ].each do |field|
+      it { is_expected.to have_db_index(field) }
+    end
+  end
+
   context 'validation' do
     it 'is valid with valid attributes' do
       expect(@category1).to be_valid

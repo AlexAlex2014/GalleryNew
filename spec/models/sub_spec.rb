@@ -8,6 +8,19 @@ RSpec.describe Sub, type: :model do
     @sub1 = create(:sub, subable: category)
   end
 
+  describe 'columns' do
+    %i[
+      id created_at updated_at subable_type subable_id user_id
+    ].each do |field|
+      it { is_expected.to have_db_column(field) }
+    end
+    %i[
+      user_id
+    ].each do |field|
+      it { is_expected.to have_db_index(field) }
+    end
+  end
+
   context 'validation' do
     it 'is valid with valid attributes' do
       expect(@sub1).to be_valid

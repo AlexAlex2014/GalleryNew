@@ -10,6 +10,20 @@ RSpec.describe Image, type: :model do
     @image1 = create(:image)
     @image3 = create(:image_bot)
   end
+
+  describe 'columns' do
+    %i[
+      id image body created_at updated_at category_id slug user_id
+    ].each do |field|
+      it { is_expected.to have_db_column(field) }
+    end
+    %i[
+      user_id category_id slug
+    ].each do |field|
+      it { is_expected.to have_db_index(field) }
+    end
+  end
+
   context 'validation' do
     it 'is valid with valid attributes' do
       expect(@image1).to be_valid

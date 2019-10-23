@@ -8,6 +8,19 @@ RSpec.describe Like, type: :model do
     @like1 = create(:like, likable: image)
   end
 
+  describe 'columns' do
+    %i[
+      id created_at updated_at likable_type likable_id user_id
+    ].each do |field|
+      it { is_expected.to have_db_column(field) }
+    end
+    %i[
+      user_id
+    ].each do |field|
+      it { is_expected.to have_db_index(field) }
+    end
+  end
+
   context 'validation' do
     it 'is valid with valid attributes' do
       expect(@like1).to be_valid

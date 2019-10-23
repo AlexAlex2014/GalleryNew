@@ -7,6 +7,20 @@ RSpec.describe Comment, type: :model do
     @comment1 = create(:comment)
     @comment3 = create(:comment_bot)
   end
+
+  describe 'columns' do
+    %i[
+      id commenter body image_id created_at updated_at slug user_id
+    ].each do |field|
+      it { is_expected.to have_db_column(field) }
+    end
+    %i[
+      user_id image_id slug
+    ].each do |field|
+      it { is_expected.to have_db_index(field) }
+    end
+  end
+
   context 'validation' do
     it 'is valid with valid attributes' do
       expect(@comment1).to be_valid

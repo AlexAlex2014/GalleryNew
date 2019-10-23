@@ -7,6 +7,19 @@ RSpec.describe Profile, type: :model do
     @profile1 = create(:profile)
   end
 
+  describe 'columns' do
+    %i[
+      id location gender birthday created_at updated_at user_id
+    ].each do |field|
+      it { is_expected.to have_db_column(field) }
+    end
+    %i[
+      user_id
+    ].each do |field|
+      it { is_expected.to have_db_index(field) }
+    end
+  end
+
   context 'validation' do
     it 'is valid with valid attributes' do
       expect(@profile1).to be_valid

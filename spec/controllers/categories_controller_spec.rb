@@ -8,7 +8,6 @@ RSpec.describe CategoriesController, type: :controller do
   let(:category) { create(:category, user_id: user.id) }
   let(:valid_session) { {} }
 
-
   before do
     I18n.locale = 'en'
     user.confirm

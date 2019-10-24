@@ -10,5 +10,5 @@ class Category < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :subs, as: :subable, dependent: :destroy
 
-  # validates :title, presence: true, length: { minimum: 4 }
+  validates :title, presence: true # , length: { minimum: 4 }
 end

@@ -70,6 +70,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  config.include RedirectBack
+
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
 
@@ -78,6 +80,7 @@ RSpec.configure do |config|
   # config.include Devise::Test::ControllerHelpers, type: :helper
 
   config.include FactoryBot::Syntax::Methods
+
 end
 
 Shoulda::Matchers.configure do |config|

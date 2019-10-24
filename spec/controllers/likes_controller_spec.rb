@@ -33,11 +33,23 @@ RSpec.describe LikesController, type: :controller do
                                 likable_type: 'Image' }
       }.to change { Like.count }.by(1)
     end
+    it "redirects to like's page if validations pass" do
+      from(fallback_location: root_path)
+      post :create, params: { user_id: user.id,
+                              likable_id: image_bot.id,
+                              likable_type: 'Image' }
+      expect(response).to redirect_to(fallback_location: root_path)
+    end
   end
 
   context 'DELETE #destroy' do
     it 'should delete like' do
       expect { delete :destroy, params: @params }.to change(Like, :count).by(-1)
+    end
+    it "redirects to like's page if validations pass" do
+      from(fallback_location: root_path)
+      delete :destroy, params: @params
+      expect(response).to redirect_to(fallback_location: root_path)
     end
   end
 end

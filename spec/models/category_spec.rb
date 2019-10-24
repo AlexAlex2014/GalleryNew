@@ -31,7 +31,7 @@ RSpec.describe Category, type: :model do
 
     it 'is valid without a body' do
       category2 = build(:category, title: nil)
-      expect(category2).to be_valid
+      expect(category2).not_to be_valid
     end
 
     it 'is valid without an user_id' do

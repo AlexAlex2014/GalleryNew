@@ -41,9 +41,13 @@ RSpec.describe Image, type: :model do
   end
 
   describe 'Associations' do
+    context 'have_many' do
+      %i[comments likes].each do |association|
+        it { is_expected.to have_many(association) }
+      end
+    end
+
     it { is_expected.to belong_to(:category) }
-    it { is_expected.to have_many(:comments) }
-    it { is_expected.to have_many(:likes) }
   end
 
   describe 'Add slug to image' do

@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-23T13:46:27+03:00">2019-10-23T13:46:27+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-24T13:42:43+03:00">2019-10-24T13:42:43+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">90.49%</span></span>
+    (<span class="covered_percent"><span class="green">90.55%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.52
+         2.53
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>39</b> files in total.
-    <b>894</b> relevant lines. 
-    <span class="green"><b>809</b> lines covered</span> and
+    <b>899</b> relevant lines. 
+    <span class="green"><b>814</b> lines covered</span> and
     <span class="red"><b>85</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -303,9 +303,9 @@
       <tr>
         <td class="strong"><a href="#ee17febeb390b6cc8fbc04147294bfa083e4b76c" class="src_link" title="spec/models/category_spec.rb">spec/models/category_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>59</td>
-        <td>31</td>
-        <td>31</td>
+        <td>62</td>
+        <td>32</td>
+        <td>32</td>
         <td>0</td>
         <td>1.9</td>
       </tr>
@@ -353,9 +353,9 @@
       <tr>
         <td class="strong"><a href="#13a9bdd5f16d792d1017e25c88ea82dc82b76aad" class="src_link" title="spec/models/image_spec.rb">spec/models/image_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>55</td>
-        <td>29</td>
-        <td>29</td>
+        <td>59</td>
+        <td>30</td>
+        <td>30</td>
         <td>0</td>
         <td>1.8</td>
       </tr>
@@ -363,11 +363,11 @@
       <tr>
         <td class="strong"><a href="#4333a575d15584237c37f39dee1186266f0f4cef" class="src_link" title="spec/models/like_spec.rb">spec/models/like_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>56</td>
-        <td>30</td>
-        <td>30</td>
+        <td>63</td>
+        <td>32</td>
+        <td>32</td>
         <td>0</td>
-        <td>1.5</td>
+        <td>1.6</td>
       </tr>
       
       <tr>
@@ -383,21 +383,21 @@
       <tr>
         <td class="strong"><a href="#c2cbaab9858c64880939451f88554ba06b0734c6" class="src_link" title="spec/models/sub_spec.rb">spec/models/sub_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>56</td>
-        <td>30</td>
-        <td>30</td>
+        <td>63</td>
+        <td>32</td>
+        <td>32</td>
         <td>0</td>
-        <td>1.5</td>
+        <td>1.6</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#49fa802d7565bbab0e849a0ecd8747b494546ce2" class="src_link" title="spec/models/user_spec.rb">spec/models/user_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>97</td>
-        <td>47</td>
-        <td>47</td>
+        <td>101</td>
+        <td>46</td>
+        <td>46</td>
         <td>0</td>
-        <td>2.3</td>
+        <td>2.4</td>
       </tr>
       
       <tr>
@@ -8076,8 +8076,8 @@
     <h3>spec/models/category_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>31</b> relevant lines. 
-      <span class="green"><b>31</b> lines covered</span> and
+      <b>32</b> relevant lines. 
+      <span class="green"><b>32</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -8373,67 +8373,85 @@
           <code class="ruby">  describe &#39;Associations&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="49">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
-          <code class="ruby">    it { is_expected.to have_many(:images) }</code>
+          <code class="ruby">    context &#39;have_many&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="50">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
           
-          <code class="ruby">    it { is_expected.to have_many(:subs) }</code>
+          <code class="ruby">      %i[images subs].each do |association|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="covered" data-hits="4" data-linenumber="51">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">        it { is_expected.to have_many(association) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="53">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &#39;Add slug to category&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="54">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &#39;add category slug == to category.title&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="55">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      slug = @category1.slug_was</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="56">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(slug).to eq(&#39;cars&#39;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;Add slug to category&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;add category slug == to category.title&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      slug = @category1.slug_was</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(slug).to eq(&#39;cars&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby">end</code>
@@ -9053,8 +9071,8 @@
     <h3>spec/models/image_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>29</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
+      <b>30</b> relevant lines. 
+      <span class="green"><b>30</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -9320,73 +9338,97 @@
           <code class="ruby">  describe &#39;Associations&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="44">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
           
-          <code class="ruby">    it { is_expected.to belong_to(:category) }</code>
+          <code class="ruby">    context &#39;have_many&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="45">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
           
-          <code class="ruby">    it { is_expected.to have_many(:comments) }</code>
+          <code class="ruby">      %i[comments likes].each do |association|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="46">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="46">
+          <span class="hits">4</span>
           
-          <code class="ruby">    it { is_expected.to have_many(:likes) }</code>
+          <code class="ruby">        it { is_expected.to have_many(association) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="49">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &#39;Add slug to image&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="50">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &#39;add image_slug == to image.body&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      slug = @image3.slug_was</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="52">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(slug).to eq(&#39;cars&#39;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="50">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { is_expected.to belong_to(:category) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;Add slug to image&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;add image_slug == to image.body&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      slug = @image3.slug_was</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(slug).to eq(&#39;cars&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">end</code>
@@ -9402,8 +9444,8 @@
     <h3>spec/models/like_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>30</b> relevant lines. 
-      <span class="green"><b>30</b> lines covered</span> and
+      <b>32</b> relevant lines. 
+      <span class="green"><b>32</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -9711,37 +9753,79 @@
           <code class="ruby">  describe &#39;Associations&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="51">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
           
-          <code class="ruby">    it { is_expected.to have_db_column(:likable_id).of_type(:integer) }</code>
+          <code class="ruby">    context &#39;belong_to&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="52">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
           
-          <code class="ruby">    it { is_expected.to have_db_column(:likable_type).of_type(:string) }</code>
+          <code class="ruby">      %i[user likable].each do |association|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="53">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="53">
+          <span class="hits">4</span>
           
-          <code class="ruby">    it { is_expected.to belong_to(:likable) }</code>
+          <code class="ruby">        it { is_expected.to belong_to(association) }</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="54">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="54">
           
-          <code class="ruby">    it { is_expected.to belong_to(:user) }</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    context &#39;have_db_column&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      %i[likable_id likable_type].each do |association|</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="59">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        it { is_expected.to have_db_column(association) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby">end</code>
@@ -10088,8 +10172,8 @@
     <h3>spec/models/sub_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>30</b> relevant lines. 
-      <span class="green"><b>30</b> lines covered</span> and
+      <b>32</b> relevant lines. 
+      <span class="green"><b>32</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -10397,37 +10481,79 @@
           <code class="ruby">  describe &#39;Associations&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="51">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
           
-          <code class="ruby">    it { is_expected.to have_db_column(:subable_id).of_type(:integer) }</code>
+          <code class="ruby">    context &#39;belong_to&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="52">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
           
-          <code class="ruby">    it { is_expected.to have_db_column(:subable_type).of_type(:string) }</code>
+          <code class="ruby">      %i[user subable].each do |association|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="53">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="53">
+          <span class="hits">4</span>
           
-          <code class="ruby">    it { is_expected.to belong_to(:subable) }</code>
+          <code class="ruby">        it { is_expected.to belong_to(association) }</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="54">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="54">
           
-          <code class="ruby">    it { is_expected.to belong_to(:user) }</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    context &#39;have_db_column&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      %i[subable_id subable_type].each do |association|</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="59">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        it { is_expected.to have_db_column(association) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby">end</code>
@@ -10443,8 +10569,8 @@
     <h3>spec/models/user_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>47</b> relevant lines. 
-      <span class="green"><b>47</b> lines covered</span> and
+      <b>46</b> relevant lines. 
+      <span class="green"><b>46</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -10830,100 +10956,100 @@
           <code class="ruby">  describe &#39;Associations&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="64">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    it { is_expected.to have_one(:profile) }</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="65">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    it { is_expected.to have_many(:categories) }</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="66">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    it { is_expected.to have_many(:comments) }</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="67">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    it { is_expected.to have_many(:likes) }</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="68">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    it { is_expected.to have_many(:subs) }</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="69">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    it { is_expected.to have_many(:images) }</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="70">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    it { is_expected.to have_many(:actions) }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="72">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="73">
+        <li class="covered" data-hits="1" data-linenumber="64">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &#39;#full_name&#39; do</code>
+          <code class="ruby">    context &#39;have_many&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="74">
+        <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;has a full_name&#39; do</code>
+          <code class="ruby">      %i[categories comments likes subs images actions].each do |association|</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="75">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="12" data-linenumber="66">
+          <span class="hits">12</span>
           
-          <code class="ruby">      expect(@user1.full_name).to eq &#39;Tyson&#39; + &#39; &#39; + &#39;Mike&#39;</code>
+          <code class="ruby">        it { is_expected.to have_many(association) }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="covered" data-hits="1" data-linenumber="70">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    context &#39;have_one&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="71">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      %i[profile].each do |association|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="72">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        it { is_expected.to have_one(association) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="77">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;#full_name&#39; do</code>
+        </li>
+      
         <li class="covered" data-hits="1" data-linenumber="78">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;is valid without first_name&#39; do</code>
+          <code class="ruby">    it &#39;has a full_name&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="79">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(build(:user, email: &#39;bob4@gmail.com&#39;, first_name: nil)).to be_valid</code>
+          <code class="ruby">      expect(@user1.full_name).to eq &#39;Tyson&#39; + &#39; &#39; + &#39;Mike&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="80">
@@ -10941,13 +11067,13 @@
         <li class="covered" data-hits="1" data-linenumber="82">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;is valid without last_name&#39; do</code>
+          <code class="ruby">    it &#39;is valid without first_name&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(build(:user, email: &#39;bob5@gmail.com&#39;, last_name: nil)).to be_valid</code>
+          <code class="ruby">      expect(build(:user, email: &#39;bob4@gmail.com&#39;, first_name: nil)).to be_valid</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
@@ -10965,70 +11091,94 @@
         <li class="covered" data-hits="1" data-linenumber="86">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;is valid without first_name &amp; last_name&#39; do</code>
+          <code class="ruby">    it &#39;is valid without last_name&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="87">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(build(:user, email: &#39;bob6@gmail.com&#39;,</code>
+          <code class="ruby">      expect(build(:user, email: &#39;bob5@gmail.com&#39;, last_name: nil)).to be_valid</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="88">
           
           
-          <code class="ruby">                          first_name: nil, last_name: nil)).to be_valid</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="89">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="91">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="92">
+        <li class="covered" data-hits="1" data-linenumber="90">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &#39;.logins_before_captcha&#39; do</code>
+          <code class="ruby">    it &#39;is valid without first_name &amp; last_name&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="93">
+        <li class="covered" data-hits="1" data-linenumber="91">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;has a logins_before_captcha&#39; do</code>
+          <code class="ruby">      expect(build(:user, email: &#39;bob6@gmail.com&#39;,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="94">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="92">
           
-          <code class="ruby">      expect(User.logins_before_captcha).to eq 2</code>
+          
+          <code class="ruby">                          first_name: nil, last_name: nil)).to be_valid</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="95">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="96">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;.logins_before_captcha&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="97">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;has a logins_before_captcha&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="98">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(User.logins_before_captcha).to eq 2</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="99">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="96">
+        <li class="never" data-hits="" data-linenumber="100">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="never" data-hits="" data-linenumber="101">
           
           
           <code class="ruby">end</code>

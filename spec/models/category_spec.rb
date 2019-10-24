@@ -46,8 +46,11 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_many(:images) }
-    it { is_expected.to have_many(:subs) }
+    context 'have_many' do
+      %i[images subs].each do |association|
+        it { is_expected.to have_many(association) }
+      end
+    end
   end
 
   describe 'Add slug to category' do

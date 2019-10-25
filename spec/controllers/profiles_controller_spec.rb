@@ -61,8 +61,8 @@ RSpec.describe ProfilesController, type: :controller do
   context 'PUT #update' do
     it "redirects to profile's page if validations pass" do
       params = {
-          location: 'Kiev123',
-          gender: 'f'
+        location: 'Kiev123',
+        gender: 'f'
       }
       put :update, params: { id: profile.id, profile: params }
       expect(response).to redirect_to(newsfeed_path)

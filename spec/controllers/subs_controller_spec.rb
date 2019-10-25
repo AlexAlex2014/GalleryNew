@@ -45,7 +45,7 @@ RSpec.describe SubsController, type: :controller do
     it 'should delete sub' do
       expect { delete :destroy, params: @params }.to change(Sub, :count).by(-1)
     end
-    it "redirects to like's page if validations pass" do
+    it 'redirects after destroy' do
       from(fallback_location: root_path)
       delete :destroy, params: @params
       expect(response).to redirect_to(fallback_location: root_path)

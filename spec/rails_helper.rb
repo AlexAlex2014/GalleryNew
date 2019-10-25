@@ -80,7 +80,6 @@ RSpec.configure do |config|
   # config.include Devise::Test::ControllerHelpers, type: :helper
 
   config.include FactoryBot::Syntax::Methods
-
 end
 
 Shoulda::Matchers.configure do |config|

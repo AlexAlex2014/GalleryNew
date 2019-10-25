@@ -9,7 +9,7 @@ class Image < ApplicationRecord
   friendly_id :body, use: :slugged
   mount_uploader :image, ImageUploader
 
-  validates :image, file_size: { less_than: 50.megabytes }
+  validates :image, presence: true, file_size: { less_than: 50.megabytes }
 
   has_many :comments, dependent: :destroy
   has_many :likes, as: :likable

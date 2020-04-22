@@ -48,9 +48,16 @@ RSpec.describe Sub, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_db_column(:subable_id).of_type(:integer) }
-    it { is_expected.to have_db_column(:subable_type).of_type(:string) }
-    it { is_expected.to belong_to(:subable) }
-    it { is_expected.to belong_to(:user) }
+    context 'belong_to' do
+      %i[user subable].each do |association|
+        it { is_expected.to belong_to(association) }
+      end
+    end
+
+    context 'have_db_column' do
+      %i[subable_id subable_type].each do |association|
+        it { is_expected.to have_db_column(association) }
+      end
+    end
   end
 end

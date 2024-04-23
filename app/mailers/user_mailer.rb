@@ -2,7 +2,7 @@
 
 # class UserMailer
 class UserMailer < ApplicationMailer
-  default from: ENV.fetch('USERNAME_MAIL')
+  default from: Rails.application.credentials.username_mail
 
   def welcome_email(user)
     @user = user

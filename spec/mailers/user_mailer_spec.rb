@@ -22,19 +22,19 @@ RSpec.describe UserMailer, type: :mailer do
     it 'renders the headers' do
       expect(mail.subject).to eq('Welcome to App gallery')
       expect(mail.to).to eq([user.email.to_s])
-      expect(mail.from).to eq([ENV['USERNAME_MAIL']])
+      expect(mail.from).to eq([Rails.application.credentials.username_mail])
     end
 
     it 'renders the headers' do
       expect(sub_email.subject).to eq('You subscribed to the category')
       expect(sub_email.to).to eq([user.email.to_s])
-      expect(sub_email.from).to eq([ENV['USERNAME_MAIL']])
+      expect(sub_email.from).to eq([Rails.application.credentials.username_mail])
     end
 
     it 'renders the headers' do
       expect(image_email.subject).to eq('New image added')
       expect(image_email.to).to eq([@arr[0]])
-      expect(image_email.from).to eq([ENV['USERNAME_MAIL']])
+      expect(image_email.from).to eq([Rails.application.credentials.username_mail])
     end
   end
 end

@@ -299,6 +299,6 @@ Devise.setup do |config|
 
   #Add your ID and secret here
   #ID first, secret second
-  config.omniauth :facebook, ENV.fetch("facebook_app_id"), ENV.fetch("facebook_app_secret"), callback_url: 'https://gentle-ridge-18466.herokuapp.com/users/auth/facebook/callback' #callback_url: 'http://localhost:3000/users/auth/facebook/callback'
+  config.omniauth :facebook, Rails.application.credentials.facebook_app_id, Rails.application.credentials.facebook_app_secret, callback_url: 'https://gentle-ridge-18466.herokuapp.com/users/auth/facebook/callback' #callback_url: 'http://localhost:3000/users/auth/facebook/callback'
 
 end

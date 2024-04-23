@@ -8,6 +8,7 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  config.force_ssl = false
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -37,8 +38,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp # :sendmail
   config.action_mailer.smtp_settings = {
-      user_name:    ENV['USERNAME_MAIL'],
-      password:     ENV['PASSWORD_MAIL'],
+      user_name:    Rails.application.credentials.username_mail,
+      password:     Rails.application.credentials.password_mail,
       domain:         'localhost:3000',
       address:       'smtp.gmail.com',
       port:          '587',
@@ -71,4 +72,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # config.hosts << /[a-z0-9-.]+\.ngrok\.io/
+  config.hosts << "gallery.loc"
 end

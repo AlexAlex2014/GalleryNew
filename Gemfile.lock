@@ -121,6 +121,7 @@ GEM
       image_processing (~> 1.1)
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
+    childprocess (5.0.0)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
@@ -241,12 +242,17 @@ GEM
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
     language_server-protocol (3.17.0.3)
+    launchy (3.0.0)
+      addressable (~> 2.8)
+      childprocess (~> 5.0)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (4.0.0)
       actionpack (>= 4)
       less (~> 2.6.0)
       sprockets (>= 2)
+    letter_opener (1.10.0)
+      launchy (>= 2.2, < 4)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -266,6 +272,7 @@ GEM
     mime-types-data (3.2024.0305)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.6)
     minitest (5.22.3)
     mono_logger (1.1.2)
     msgpack (1.7.2)
@@ -291,17 +298,8 @@ GEM
       net-protocol
     net-ssh (7.2.3)
     nio4r (2.7.1)
-    nokogiri (1.16.4-aarch64-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.4-arm-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.4-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.4-x86-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.4-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.4-x86_64-linux)
+    nokogiri (1.16.4)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -573,6 +571,7 @@ DEPENDENCIES
   i18n
   jbuilder
   kaminari
+  letter_opener
   listen
   mini_magick
   nokogiri

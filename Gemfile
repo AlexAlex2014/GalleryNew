@@ -71,6 +71,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rubocop'
   gem 'rubocop-rspec'
+  gem "letter_opener", group: :development
   gem 'simplecov', require: false, group: :test
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

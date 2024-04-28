@@ -94,7 +94,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'capistrano'
-  # gem 'capistrano3-puma'
+  gem 'capistrano3-puma'
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rails'

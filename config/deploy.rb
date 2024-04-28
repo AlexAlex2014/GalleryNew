@@ -32,7 +32,7 @@ set :puma_workers,    0
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :branch, 'master'
-set :rvm_ruby_version, '2.5.5'
+set :rvm_ruby_version, '3.0.0'
 
 set :passenger_restart_with_touch, true
 

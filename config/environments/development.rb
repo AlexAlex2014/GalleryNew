@@ -35,18 +35,24 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+
+
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp # :sendmail
-  config.action_mailer.smtp_settings = {
-      user_name:    Rails.application.credentials.username_mail,
-      password:     Rails.application.credentials.password_mail,
-      domain:         'localhost:3000',
-      address:       'smtp.gmail.com',
-      port:          '587',
-      authentication: :plain,
-      enable_starttls_auto: true
-  }
-  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+
+  # config.action_mailer.delivery_method = :smtp # :sendmail
+  # config.action_mailer.smtp_settings = {
+  #     user_name:    Rails.application.credentials.username_mail,
+  #     password:     Rails.application.credentials.password_mail,
+  #     domain:         'localhost:3000',
+  #     address:       'smtp.gmail.com',
+  #     port:          '587',
+  #     authentication: :plain,
+  #     enable_starttls_auto: true
+  # }
+  # config.action_mailer.default :charset => "utf-8"
 
 
   # Print deprecation notices to the Rails logger.

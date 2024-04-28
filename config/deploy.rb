@@ -1,9 +1,12 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.18.1"
+server '146.120.162.145', port: 8888, roles: [:web, :app, :db], primary: true
 
-set :application, "gallerynew"
+set :application, "GalleryNew"
 set :repo_url, "git@github.com:AlexAlex2014/GalleryNew.git"
-
+set :user,            'alex'
+set :puma_threads,    [4, 16]
+set :puma_workers,    0
 
 
 # Default branch is :master
@@ -28,7 +31,7 @@ set :repo_url, "git@github.com:AlexAlex2014/GalleryNew.git"
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
-set :branch, 'develop'
+set :branch, 'master'
 set :rvm_ruby_version, '2.5.5'
 
 set :passenger_restart_with_touch, true

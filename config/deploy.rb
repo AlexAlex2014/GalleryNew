@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-# lock "~> 3.11.1"
+lock "~> 3.18.1"
 server '146.120.162.145', port: 8888, roles: [:web, :app, :db], primary: true
 
 set :application, "GalleryNew"

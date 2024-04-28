@@ -1,6 +1,6 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.18.1"
-server '146.120.162.145', port: 8888, roles: [:web, :app, :db], primary: true
+server '146.120.162.145', port: 22, roles: [:web, :app, :db], primary: true
 
 set :application, "GalleryNew"
 set :repo_url, "git@github.com:AlexAlex2014/GalleryNew.git"

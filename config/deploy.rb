@@ -50,6 +50,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+Rake::Task["deploy:assets:backup_manifest"].clear_actions
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'

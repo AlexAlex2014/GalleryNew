@@ -76,6 +76,16 @@ namespace :deploy do
     end
   end
 
+  # namespace :check do
+  #   before :linked_files, :set_master_key do
+  #     on roles(:app), in: :sequence, wait: 10 do
+  #       unless test("[ -f #{shared_path}/config/master.key ]")
+  #         upload! 'config/master.key', "#{shared_path}/config/master.key"
+  #       end
+  #     end
+  #   end
+  # end
+
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -96,8 +106,6 @@ namespace :deploy do
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
-
-
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

@@ -13,8 +13,28 @@ port        ENV.fetch("PORT") { 8888 }
 
 # Specifies the `environment` that Puma will run in.
 #
-# environment ENV.fetch("RAILS_ENV") { "development" }
-environment ENV.fetch("RAILS_ENV") { "production" }
+rails_env = ENV['RAILS_ENV'] || "production"
+environment rails_env
+
+app_dir = File.expand_path("../..", __FILE__)
+#shared_dir = "#{app_dir}/shared"
+shared_dir = "/home/alex/apps/GalleryNew/current/tmp" # Use your projects path
+
+# Specifies the `pidfile` that Puma will use.
+#pidfile ENV.fetch("PIDFILE") { "pids/server.pid" }
+
+pidfile "#{shared_dir}/pids/puma.pid"
+state_path "#{shared_dir}/pids/puma.state"
+activate_control_app
+
+# Set up socket location
+bind "unix://#{shared_dir}/sockets/GalleryNew-puma.sock"
+
+on_worker_boot do
+  require "active_record"
+  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+  ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
+end
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together

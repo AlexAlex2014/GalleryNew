@@ -89,8 +89,9 @@ namespace :deploy do
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
-      before 'deploy:restart', 'puma:start'
-      invoke 'deploy'
+      # before 'deploy:restart', 'puma:start'
+      # invoke 'deploy'
+      invoke!("puma:start")
     end
   end
 

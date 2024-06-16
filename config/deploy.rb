@@ -19,6 +19,7 @@ set :passenger_restart_with_touch, true
 
 # Default deploy_to directory is /var/www/my_app_name
 
+set :puma_systemctl_user, :system
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
@@ -47,66 +48,66 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
-
+set :linked_files, %w[ config/database.yml ]
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-Rake::Task["deploy:assets:backup_manifest"].clear_actions
+# Rake::Task["deploy:assets:backup_manifest"].clear_actions
 
-namespace :puma do
-  desc 'Create Directories for Puma Pids and Socket'
-  task :make_dirs do
-    on roles(:app) do
-      execute "mkdir #{shared_path}/tmp/sockets -p"
-      execute "mkdir #{shared_path}/tmp/pids -p"
-    end
-  end
+# namespace :puma do
+#   desc 'Create Directories for Puma Pids and Socket'
+#   task :make_dirs do
+#     on roles(:app) do
+#       execute "mkdir #{shared_path}/tmp/sockets -p"
+#       execute "mkdir #{shared_path}/tmp/pids -p"
+#     end
+#   end
+#
+#   before :start, :make_dirs
+# end
 
-  before :start, :make_dirs
-end
-
-namespace :deploy do
-  desc "Make sure local git is in sync with remote."
-  task :check_revision do
-    on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "WARNING: HEAD is not the same as origin/master"
-        puts "Run `git push` to sync changes."
-        exit
-      end
-    end
-  end
-
-  # namespace :check do
-  #   before :linked_files, :set_master_key do
-  #     on roles(:app), in: :sequence, wait: 10 do
-  #       unless test("[ -f #{shared_path}/config/master.key ]")
-  #         upload! 'config/master.key', "#{shared_path}/config/master.key"
-  #       end
-  #     end
-  #   end
-  # end
-
-  desc 'Initial Deploy'
-  task :initial do
-    on roles(:app) do
-      # before 'deploy:restart', 'puma:start'
-
-      invoke 'deploy'
-    end
-  end
-
-  # desc 'Restart application'
-  # task :restart do
-  #   on roles(:app), in: :sequence, wait: 5 do
-  #     invoke!("puma:restart")
-  #   end
-  # end
-
-  before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  after  :finishing,    :restart
-end
+# namespace :deploy do
+#   desc "Make sure local git is in sync with remote."
+#   task :check_revision do
+#     on roles(:app) do
+#       unless `git rev-parse HEAD` == `git rev-parse origin/master`
+#         puts "WARNING: HEAD is not the same as origin/master"
+#         puts "Run `git push` to sync changes."
+#         exit
+#       end
+#     end
+#   end
+#
+#   # namespace :check do
+#   #   before :linked_files, :set_master_key do
+#   #     on roles(:app), in: :sequence, wait: 10 do
+#   #       unless test("[ -f #{shared_path}/config/master.key ]")
+#   #         upload! 'config/master.key', "#{shared_path}/config/master.key"
+#   #       end
+#   #     end
+#   #   end
+#   # end
+#
+#   desc 'Initial Deploy'
+#   task :initial do
+#     on roles(:app) do
+#       # before 'deploy:restart', 'puma:start'
+#
+#       invoke 'deploy'
+#     end
+#   end
+#
+#   # desc 'Restart application'
+#   # task :restart do
+#   #   on roles(:app), in: :sequence, wait: 5 do
+#   #     invoke!("puma:restart")
+#   #   end
+#   # end
+#
+#   before :starting,     :check_revision
+#   after  :finishing,    :compile_assets
+#   after  :finishing,    :cleanup
+#   after  :finishing,    :restart
+# end
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

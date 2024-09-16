@@ -28,16 +28,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  def create_my_image
-    @image = Image.new
-    @image.user_id = current_user.id
-    if @image.save
-      redirect_to profile_path(@image.user_id)
-    else
-      render :new
-    end
-  end
-
   def edit; end
 
   def update

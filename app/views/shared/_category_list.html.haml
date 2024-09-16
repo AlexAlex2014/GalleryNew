@@ -12,7 +12,7 @@
             = time_ago_in_words(category.created_at)
             = t(:ago)
           %td
-            = link_to "#{t(:add_image)}", create_my_image_path
+            = link_to "#{t(:add_image)}", new_image_path
           %td
             - if current_user == category.user
               %p.delete-link "#{t(:destroy_category)}"

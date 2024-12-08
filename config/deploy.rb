@@ -1,14 +1,15 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.18.1"
+lock "~> 3.19.1"
 # server '146.120.162.145', port: 22, roles: [:web, :app, :db], primary: true
 
-set :rvm_ruby_version, '3.0.0'
+set :rvm_ruby_version, '3.3.0'
 
 set :application, "GalleryNew"
 set :repo_url, "git@github.com:AlexAlex2014/GalleryNew.git"
 set :user,            'alex'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
+set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 
 
 set :branch, 'master'
@@ -26,12 +27,18 @@ set :stage,           :production
 set :deploy_via,      :remote_cache
 # set :deploy_to,     "/var/www/gallery_new"
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
+set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
 # set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
-# set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
-# set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
-# set :puma_access_log, "#{release_path}/log/puma.error.log"
-# set :puma_error_log,  "#{release_path}/log/puma.access.log"
+set :puma_bind,       "unix://#{shared_path}/tmp/sockets/pumactl.sock"
+set :puma_default_control_app, "unix://#{shared_path}/tmp/sockets/pumactl.sock"
+set :puma_access_log, "#{shared_path}/log/puma_access.log"
+set :puma_error_log,  "#{shared_path}/log/puma_error.log"
+set :puma_conf, "#{shared_path}/puma.rb"
 set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_ed25519.pub) }
+set :puma_control_app, false
+set :puma_service_unit_type, 'simple' # or notify
+set :puma_enable_socket_service, true # mendatory in our case
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
@@ -59,6 +66,10 @@ set :rails_env, 'production'
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 # Rake::Task["deploy:assets:backup_manifest"].clear_actions
+
+set :nginx_config_name, 'GalleryNew'
+set :nginx_server_name, 'GalleryNew'
+set :nginx_use_ssl, false # will be handled by certbot
 
 # namespace :puma do
 #   desc 'Create Directories for Puma Pids and Socket'
@@ -97,18 +108,18 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 #   desc 'Initial Deploy'
 #   task :initial do
 #     on roles(:app) do
-#       # before 'deploy:restart', 'puma:start'
+#       before 'deploy:restart', 'puma:start'
 #
 #       invoke 'deploy'
 #     end
 #   end
 #
-#   # desc 'Restart application'
-#   # task :restart do
-#   #   on roles(:app), in: :sequence, wait: 5 do
-#   #     invoke!("puma:restart")
-#   #   end
-#   # end
+#   desc 'Restart application'
+#   task :restart do
+#     on roles(:app), in: :sequence, wait: 5 do
+#       invoke!("puma:restart")
+#     end
+#   end
 #
 #   before :starting,     :check_revision
 #   after  :finishing,    :compile_assets

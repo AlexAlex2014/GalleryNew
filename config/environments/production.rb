@@ -106,4 +106,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  server 'GalleryNew', user: 'alex', roles: %w[app db web], ssh_options: { forward_agent: true }
 end

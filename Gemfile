@@ -99,11 +99,11 @@ group :development do
   gem 'capistrano'
   # gem 'capistrano3-puma', github: "seuros/capistrano-puma"
   gem 'capistrano3-puma', '6.0.0.beta.1'
-  gem 'capistrano-bundler'
-  gem 'capistrano-passenger'
+  # gem 'capistrano-bundler'
+  # gem 'capistrano-passenger'
   gem 'capistrano-rails'
   gem "capistrano-rvm"
-  gem 'capistrano-figaro-yml'
+  # gem 'capistrano-figaro-yml'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

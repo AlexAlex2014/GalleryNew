@@ -33,8 +33,8 @@ require "capistrano/bundler"
 require "capistrano/rails"
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
-require "capistrano/passenger"
-require 'capistrano/figaro_yml'
+# require "capistrano/passenger"
+# require 'capistrano/figaro_yml'
 require 'capistrano/puma'
 require 'capistrano/puma/nginx'
 install_plugin Capistrano::Puma

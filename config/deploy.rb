@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.19.1"
+lock "~> 3.19.2"
 # server '146.120.162.145', port: 22, roles: [:web, :app, :db], primary: true
 
 set :rvm_ruby_version, '3.3.0'
@@ -61,6 +61,9 @@ set :rails_env, 'production'
 # set :pty, true
 
 # Default value for :linked_files is []
+append :linked_files, 'config/master.key', '.env', 'config/database.yaml'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor', 'storage'
+
 # append :linked_files, "config/database.yml"
 # set :linked_files, %w[ config/database.yml ]
 # Default value for linked_dirs is []
@@ -134,7 +137,7 @@ set :nginx_use_ssl, false # will be handled by certbot
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 2
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure

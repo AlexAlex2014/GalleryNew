@@ -9,6 +9,8 @@ gem 'rails', '~> 6.0.0'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma'
+gem 'dotenv-rails' # to handle .env files
+gem 'sd_notify', '~> 0.1.0' # hotfix not actually used
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -95,7 +97,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'capistrano'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  # gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano3-puma', '6.0.0.beta.1'
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rails'

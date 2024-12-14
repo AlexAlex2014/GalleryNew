@@ -32,11 +32,23 @@ RSpec.describe SubsController, type: :controller do
                                 subable_type: 'Category' }
       }.to change { Sub.count }.by(1)
     end
+    it "redirects to sub's page if validations pass" do
+      from(fallback_location: root_path)
+      post :create, params: { user_id: user.id,
+                              subable_id: category.id,
+                              subable_type: 'Category' }
+      expect(response).to redirect_to(fallback_location: root_path)
+    end
   end
 
   context 'DELETE #destroy' do
     it 'should delete sub' do
       expect { delete :destroy, params: @params }.to change(Sub, :count).by(-1)
+    end
+    it 'redirects after destroy' do
+      from(fallback_location: root_path)
+      delete :destroy, params: @params
+      expect(response).to redirect_to(fallback_location: root_path)
     end
   end
 end

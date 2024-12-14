@@ -30,10 +30,10 @@ class FutureTest
   end
 
   def show_categories(id)
-    id.each { |var|
+    id.each do |var|
       visit "/categories/#{var}"
       sleep 2
-    }
+    end
   end
 
   def add_category

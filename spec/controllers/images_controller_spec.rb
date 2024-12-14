@@ -113,9 +113,31 @@ RSpec.describe ImagesController, type: :controller do
   end
 
   context 'POST #create' do
+    it "redirects to the image's page after the image is created" do
+      params = {
+        image: Rack::Test::UploadedFile.new(Rails.root
+          .join('spec/support/5.jpg'), 'image/jpeg'),
+        body: 'bussiness',
+        category_id: category.id,
+        user_id: user.id
+      }
+      post :create, params: { image: params }
+      expect(response).to redirect_to(images_path)
+    end
+    it "renders 'new' template if valiadtions fail after trying to create a image" do
+      params = {
+        image: nil,
+        body: 'bussiness',
+        category_id: category.id,
+        user_id: user.id
+      }
+      post :create, params: { image: params }
+      expect(response).to render_template('new')
+    end
     it 'create a new image' do
       params = {
-        image: '1.jpg',
+        image: Rack::Test::UploadedFile.new(Rails.root
+          .join('spec/support/5.jpg'), 'image/jpeg'),
         body: 'bussiness',
         category_id: category.id,
         user_id: user.id

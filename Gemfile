@@ -4,11 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
-gem 'puma'
+gem 'puma', '~> 5.6.9'
 gem 'dotenv-rails' # to handle .env files
 gem 'sd_notify', '~> 0.1.0' # hotfix not actually used
 # Use SCSS for stylesheets
@@ -97,9 +97,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'capistrano'
-  # gem 'capistrano3-puma', github: "seuros/capistrano-puma"
-  gem 'capistrano3-puma', '6.0.0.beta.1'
-  # gem 'capistrano-bundler'
+  gem 'capistrano3-puma', '~> 5.2'
+  # gem 'capistrano3-puma', '6.0.0.beta.1'
+  gem 'capistrano-bundler'
   # gem 'capistrano-passenger'
   gem 'capistrano-rails'
   gem "capistrano-rvm"

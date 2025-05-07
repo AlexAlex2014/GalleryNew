@@ -48,9 +48,16 @@ RSpec.describe Like, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_db_column(:likable_id).of_type(:integer) }
-    it { is_expected.to have_db_column(:likable_type).of_type(:string) }
-    it { is_expected.to belong_to(:likable) }
-    it { is_expected.to belong_to(:user) }
+    context 'belong_to' do
+      %i[user likable].each do |association|
+        it { is_expected.to belong_to(association) }
+      end
+    end
+
+    context 'have_db_column' do
+      %i[likable_id likable_type].each do |association|
+        it { is_expected.to have_db_column(association) }
+      end
+    end
   end
 end

@@ -61,13 +61,17 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_one(:profile) }
-    it { is_expected.to have_many(:categories) }
-    it { is_expected.to have_many(:comments) }
-    it { is_expected.to have_many(:likes) }
-    it { is_expected.to have_many(:subs) }
-    it { is_expected.to have_many(:images) }
-    it { is_expected.to have_many(:actions) }
+    context 'have_many' do
+      %i[categories comments likes subs images actions].each do |association|
+        it { is_expected.to have_many(association) }
+      end
+    end
+
+    context 'have_one' do
+      %i[profile].each do |association|
+        it { is_expected.to have_one(association) }
+      end
+    end
   end
 
   describe '#full_name' do

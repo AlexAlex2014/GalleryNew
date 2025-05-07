@@ -79,6 +79,15 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   context 'POST #create' do
+    it "redirects to the category's page after the category is created" do
+      post :create, params: { category: { title: 'Car' } }
+      @category = assigns(:category)
+      expect(response).to redirect_to(@category)
+    end
+    it "renders 'new' template if valiadtions fail" do
+      post :create, params: { category: { title: nil } }
+      expect(response).to render_template('new')
+    end
     it 'create a new category' do
       params = {
         title: 'bussiness'
@@ -112,6 +121,14 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   context 'PUT #update' do
+    it "redirects to category's page if validations pass" do
+      put :update, params: { id: category.id, category: { title: 'GreateCar' } }
+      expect(response).to redirect_to(category)
+    end
+    it 'renders #edit form if validations fail' do
+      put :update, params: { id: category.id, category: { title: '' } }
+      expect(response).to render_template('edit')
+    end
     it 'should update category info' do
       params = {
         title: 'bussiness'

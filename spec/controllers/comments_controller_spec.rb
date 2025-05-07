@@ -46,6 +46,17 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   context 'POST #create' do
+    it 'redirects to comment page if validations pass' do
+      from(fallback_location: root_path)
+      params = {
+        commenter: 'commenter_2',
+        body: 'bussiness'
+      }
+      post(:create, params: { user_id: user.id,
+                              image_id: image.id,
+                              comment: params })
+      expect(response).to redirect_to(fallback_location: root_path)
+    end
     it 'create a new comment' do
       params = {
         commenter: 'commenter_2',
@@ -63,6 +74,10 @@ RSpec.describe CommentsController, type: :controller do
     it 'should delete comment' do
       expect { delete :destroy, params: @params }
         .to change(Comment, :count).by(-1)
+    end
+    it 'redirects after destroy' do
+      delete :destroy, params: @params
+      expect(response).to redirect_to(image_path(image))
     end
   end
 end
